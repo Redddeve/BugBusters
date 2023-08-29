@@ -20,18 +20,88 @@
         From classic sips to exotic mixes, we're your key to becoming a cocktail
         wizard!
       </p>
-      <img src="#" alt="daw" class="not-found-hero-img" />
+      <div class="img-container">
+        <div class="img-bg-rect"></div>
+        <picture>
+          <source
+            media="(min-width: 1280px)"
+            srcset="
+              ./img/hero/girl-desk-webp@1x.webp 1x,
+              ./img/hero/girl-desk-webp@2x.webp 2x
+            "
+            type="image/webp"
+          />
+          <source
+            media="(min-width: 1280px)"
+            srcset="
+              ./img/hero/girl-desk@1x.png 1x,
+              ./img/hero/girl-desk@2x.png 2x
+            "
+            type="image/png"
+          />
+          <source
+            media="(min-width: 768px)"
+            srcset="
+              ./img/hero/girl-tab-webp@1x.webp 1x,
+              ./img/hero/girl-tab-webp@2x.webp 2x
+            "
+            type="image/webp"
+          />
+          <source
+            media="(min-width: 768px)"
+            srcset="
+              ./img/hero/girl-tab@1x.png 1x,
+              ./img/hero/girl-tab@2x.png 2x
+            "
+            type="image/png"
+          />
+          <source
+            media="(max-width: 767px)"
+            srcset="
+              ./img/hero/girl-mob-webp@1x.webp 1x,
+              ./img/hero/girl-mob-webp@2x.webp 2x
+            "
+            type="image/png"
+          />
+          <source
+            media="(max-width: 767px)"
+            srcset="
+              ./img/hero/girl-mob@1x.png 1x,
+              ./img/hero/girl-mob@2x.png 2x
+            "
+            type="image/png"
+          />
+          <img
+            class="not-found-cocktail-girl"
+            src="./img/hero/girl-mob@1x.png"
+            alt="cocktail-girl"
+            width="354"
+            height="387"
+            loading="lazy"
+          />
+        </picture>
+      </div>
+      <button class="not-found-view-cocktail-btn" type="button">
+        View cocktails
+      </button>
     </section>
     <section class="not-found-search">
       <h2 class="not-found-search-header">
         Search your favorite cocktail by ABC
       </h2>
-      <form id="searchForm">
+      <form id="not-found-searchForm">
         <select>
           <option selected></option>
           <option value="1">1</option>
         </select>
       </form>
+
+      <svg class="icon icon-not-found" width="142" height="122">
+        <use href="./img/svg/not-found.svg"></use>
+      </svg>
+      <p class="not-found-search-txt">
+        Sorry, we didn’t find any cocktail for you
+      </p>
     </section>
 
     <footer></footer>

@@ -1,0 +1,66 @@
+.not-found-hero-sec {
+}
+
+.not-found-hero-header {
+  color: var(--black, #242424);
+  /* font-family: Poppins; */
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.19;
+}
+.not-found-hero-cocktail {
+  color: var(--violet, #7e8fdd);
+  /* font-family: Poppins; */
+  font-size: 32px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.19;
+}
+.not-found-hero-txt {
+  color: #242424;
+  /* font-family: Poppins; */
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.43;
+}
+.not-found-hero-img {
+}
+.not-found-search {
+}
+.not-found-search-header {
+  color: #242424;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: 0.018em;
+  text-transform: uppercase;
+}
+.not-found-search-img {
+}
+.not-found-search-txt {
+  color: #242424;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.33;
+}
+
+.not-found-view-cocktail-btn {
+}
+
+.img-container {
+}
+.img-bg-rect {
+  border-radius: 80px 0px;
+  background: #7e8fdd;
+  box-shadow: 0px 28px 75px 0px rgba(88, 109, 204, 0.5);
+  width: 258px;
+  height: 337px;
+  flex-shrink: 0;
+}
