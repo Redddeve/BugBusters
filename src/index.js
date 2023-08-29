@@ -1,1 +1,3 @@
-import './js/example.js';
+import './js/home.js';
+import './js/home.js';
+import './js/home.js';
