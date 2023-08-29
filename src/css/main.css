@@ -1,5 +1,7 @@
 /** ========================= Base ========================= */
 
+@import url('./base/fonts.css');
+@import url('./utils/variables.css');
 @import url('./base/container.css');
 @import url('./base/common.css');
 
@@ -8,4 +10,7 @@
 @import url('./layout/header.css');
 @import url('./layout/hero.css');
 @import url('./layout/search.css');
+@import url('./layout/cocktail-modal.css');
+@import url('./layout/ingredient-modal.css');
+@import url('./layout/not-found.css');
 @import url('./layout/footer.css');
