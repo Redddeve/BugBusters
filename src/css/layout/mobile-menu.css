@@ -1,0 +1,30 @@
+/** ========================= Mobile Menu ========================= */
+.menu-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--color-violet);
+  z-index: 999;
+
+  transform: translateX(100%);
+  transition: transform var(--anim-fast);
+
+  overflow: hidden;
+}
+
+.menu-container.is-open {
+  transform: translateX(0);
+}
+.mobile-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* .mobile-input {
+}
+
+.menu-button {
+} */
