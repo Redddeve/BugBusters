@@ -25,8 +25,6 @@
   font-weight: 400;
   line-height: 1.43;
 }
-.not-found-hero-img {
-}
 .not-found-search {
 }
 .not-found-search-header {
@@ -41,26 +39,47 @@
 }
 .not-found-search-img {
 }
-.not-found-search-txt {
-  color: #242424;
-  text-align: center;
-  font-family: Poppins;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.33;
-}
 
 .not-found-view-cocktail-btn {
 }
 
 .img-container {
 }
+
 .img-bg-rect {
   border-radius: 80px 0px;
-  background: #7e8fdd;
+  background: var(--color-violet, #7e8fdd);
   box-shadow: 0px 28px 75px 0px rgba(88, 109, 204, 0.5);
   width: 258px;
   height: 337px;
   flex-shrink: 0;
+}
+
+.not-found-info-container {
+  margin: 0 auto;
+  width: 244px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+}
+
+.not-found-search-txt-span {
+  color: var(--color-turquoise, #9cdfdf);
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.not-found-search-txt {
+  color: var(--color-text-black, #242424);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.33;
 }
