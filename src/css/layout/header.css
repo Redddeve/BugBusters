@@ -1,0 +1,96 @@
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 32px;
+  margin-top: 24px;
+}
+@media only screen and (min-width: 768px) {
+  #header {
+    height: 40px;
+  }
+}
+/** ========================= Nav ========================= */
+.page-nav {
+  display: none;
+}
+@media only screen and (min-width: 1280px) {
+  .page-nav {
+    display: block;
+  }
+}
+.nav-list {
+  display: flex;
+}
+.header-fav-toggle {
+  display: flex;
+}
+/** ========================= Logo ========================= */
+.header-logo {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.13; /* 18px */
+  letter-spacing: -0.01em;
+  width: 100px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-transform: uppercase;
+}
+@media only screen and (min-width: 768px) {
+  .header-logo {
+    font-size: 22px;
+    line-height: 1.09;
+    width: 140px;
+    height: 30px;
+    gap: 8px;
+  }
+}
+/** ========================= Buttons div ========================= */
+.search-and-btns {
+  position: relative;
+  display: flex;
+  gap: 24px;
+}
+.search-input {
+  width: 220px;
+  height: 40px;
+  padding-left: 40px;
+  border-radius: 80.179px;
+  border: 2px solid var(--color-violet);
+  outline: transparent;
+}
+@media only screen and (max-width: 767px) {
+  .search-input,
+  .search-icon {
+    display: none;
+  }
+}
+.search-input::placeholder {
+  color: var(--color-text-black-02);
+}
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  pointer-events: none;
+}
+.change-theme {
+  display: none;
+}
+@media only screen and (min-width: 1280px) {
+  .change-theme {
+    display: inline-block;
+  }
+}
+.menu-toggle {
+  display: inline-block;
+  width: 40px;
+  height: inherit;
+}
+@media only screen and (min-width: 1280px) {
+  .menu-toggle {
+    display: none;
+  }
+}

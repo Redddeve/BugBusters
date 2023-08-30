@@ -60,7 +60,9 @@ html {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-family);
+  font-size: 14px;
+  line-height: 1.29;
   color: var(--color-text-black);
   background-color: var(--color-background-white);
 }
