@@ -40,7 +40,7 @@
 </symbol>
 
   <symbol id="chevron-down-icon" fill="none" viewBox="0 0 14 8" >
-    <path d="M1 1L7 7L13 1" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M1 1L7 7L13 1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
   </symbol>
   <symbol id="chevron-up-icon" fill="none" viewBox="0 0 14 8" >
     <path d="M1 7L7 1L13 7" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>

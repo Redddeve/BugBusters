@@ -56,3 +56,15 @@ body {
   color: var(--color-text-black);
   background-color: var(--color-background-white);
 }
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
