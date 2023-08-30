@@ -1,30 +1,327 @@
-/** ========================= Mobile Menu ========================= */
 .menu-container {
   width: 100%;
-  height: 100%;
-  position: fixed;
+  height: 812px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  background-color: var(--color-violet);
+
+  /* position: fixed; */
   top: 0;
   left: 0;
-  background-color: var(--color-violet);
   z-index: 999;
-
-  transform: translateX(100%);
+  /* transform: translateX(100%); */
   transition: transform var(--anim-fast);
 
   overflow: hidden;
 }
 
+@media only screen and (min-width: 768px) {
+  .menu-container {
+    padding-left: 32px;
+    padding-right: 32px;
+    height: 1024px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .menu-container {
+    display: none;
+  }
+}
+
 .menu-container.is-open {
   transform: translateX(0);
 }
+
 .mobile-header {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
 
-/* .mobile-input {
+/** ========================= Logo ========================= */
+
+.logo {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+}
+
+@media only screen and (min-width: 768px) {
+  .logo {
+    gap: 8x;
+  }
+}
+
+.logo-text {
+  color: var(--color-background-white);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.125;
+  letter-spacing: -0.16px;
+  text-transform: uppercase;
+}
+
+.cocktail-logo-mobile {
+  width: 24px;
+  height: 20px;
+}
+
+/** ========================= Buttons and Input ========================= */
+
+.button-and-toggle {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+@media only screen and (min-width: 768px) {
+  .button-and-toggle {
+    gap: 24x;
+  }
+}
+
+.button-and-icon {
+  position: relative;
 }
 
 .menu-button {
-} */
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.menu-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  stroke: var(--color-background-white);
+  width: 32px;
+  height: 32px;
+}
+
+.mobile-input {
+  display: flex;
+  margin-top: 40px;
+  padding-left: 42px;
+  width: 100%;
+  height: 40px;
+
+  border-radius: 80px;
+  border: 2px solid var(--color-background-white);
+  background-color: transparent;
+}
+
+@media only screen and (min-width: 768px) {
+  .mobile-input {
+    display: none;
+  }
+}
+
+::placeholder {
+  padding-right: auto;
+
+  color: rgba(253, 253, 255, 0.2);
+
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.input-with-icon {
+  position: relative;
+  width: auto;
+  height: auto;
+  background-color: transparent;
+}
+
+.search-button-mobile-burger {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  top: 12;
+  left: 14;
+
+  fill: var(--color-background-white);
+  background-color: transparent;
+  pointer-events: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .search-button-mobile-burger {
+    display: none;
+  }
+}
+
+/** ========================= Nav-links ========================= */
+.container-for-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 100px;
+}
+
+@media only screen and (min-width: 768px) {
+  .container-for-links {
+    margin-top: 251px;
+  }
+}
+
+.list-of-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-link {
+  margin-bottom: 14px;
+}
+
+.favorite-link {
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-for-favorite-up,
+.button-for-favorite-down {
+  display: flex;
+  align-items: center;
+  margin-left: 4px;
+  width: 24px;
+  height: 24px;
+
+  background-color: transparent;
+  border: transparent;
+  stroke: var(--color-background-white);
+}
+
+.arrow-down {
+  padding: 0;
+  stroke-width: 2px;
+  stroke: #fdfdff;
+}
+
+.fav-cock {
+  margin-bottom: 8px;
+}
+
+/** ========================= Teкст ========================= */
+
+.text-nav-main {
+  color: var(--color-background-white);
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: 0.023em;
+}
+
+@media only screen and (min-width: 768px) {
+  .text-nav-main {
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: 0.03em;
+  }
+}
+
+.text-nav-fav {
+  color: rgba(253, 253, 255, 0.5);
+  font-size: 14px;
+  line-height: 1.285;
+  letter-spacing: 0.018em;
+}
+
+/** ========================= Toggle ========================= */
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 23px;
+  /* чуть уже чем на макете */
+  width: 22px;
+  left: 1px;
+  bottom: 1px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--color-turquoise);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/** ========================= Доп классы ========================= */
+
+.is-hidden-fav {
+  display: none;
+}
+
+/** ========================= Toggle for FavList ========================= */
+
+.test {
+  overflow: hidden;
+  transition: var(--anim-fast);
+}
+
+.fav-open-list {
+  transition: var(--anim-fast);
+}
+.closed-fav-list {
+  transform: translateY(-150%);
+}
+
+.open-fav-list {
+  transform: translateY(0);
+}
