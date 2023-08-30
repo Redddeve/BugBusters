@@ -37,8 +37,6 @@
   /* transition: opacity var(--anim-fast), visibility var(--anim-fast); */
 }
 .ingred-header {
-  color: var(--color-text-black);
-  font-family: var(--font-family);
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -49,7 +47,6 @@
 .ingred-type {
   position: relative;
   color: var(--color-text-black-05);
-  font-family: var(--font-family);
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -70,7 +67,6 @@
 
 .ingred-desc {
   color: var(--color-text-black-05);
-  font-family: var(--font-family);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -78,8 +74,6 @@
   margin-bottom: 40px;
 }
 .desc-inner-title {
-  color: var(--color-text-black);
-  font-family: var(--font-family);
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -101,7 +95,6 @@
 
 .item-text {
   color: var(--color-text-black-08);
-  font-family: var(--font-family);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -113,7 +106,6 @@
   top: 14px;
   right: 14px;
   cursor: pointer;
-  color: var(--color-text-black);
   width: 22px;
   height: 22px;
 }
@@ -126,7 +118,6 @@
   padding: 14px 28px;
   border-radius: 12px;
   background-color: var(--color-violet);
-  font-family: var(--font-family);
   color: var(--color-background-white);
   font-size: 14px;
   font-style: normal;
