@@ -1,13 +1,13 @@
-<header id="header">
+<header id="header" class="container">
   <nav class="page-nav">
     <ul class="nav-list">
-      <li>Home</li>
-      <li>
-        Favorite
-        <!-- <svg class="" width="24" height="24">
-          <use href=""></use>
-        </svg> -->
-        <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li class="header-fav-toggle">
+        <p>Favorite</p>
+        <svg class="fav-down" width="24" height="24">
+          <use href="./img/svg/icons.svg#chevron-down-icon"></use>
+        </svg>
+        <ul class="fav-block is-hidden">
           <li>
             <a href="./favorite-cocktails.html">Favorite cocktails</a>
           </li>
@@ -20,22 +20,42 @@
   </nav>
   <a href="./index.html" class="header-logo"
     >Drinkify
-    <!-- <svg class="" width="35" height="30">
-      <use href=""></use>
-    </svg> -->
+    <picture>
+      <source
+        srcset="
+          ./img/cocktail/cocktail-blue@1x.png 1x,
+          ./img/cocktail/cocktail-blue@2x.png 2x
+        "
+      />
+      <img
+        class="logo-image"
+        src="./img/cocktail/cocktail-blue@1x.png"
+        alt="Logo"
+        width="35"
+        height="30"
+        loading="lazy"
+      />
+    </picture>
   </a>
 
-  <input
-    type="text"
-    value="searchQuery"
-    autocomplete="off"
-    placeholder="Search"
-  />
-  <button type="button" class="change-theme"></button>
+  <div class="search-and-btns">
+    <input
+      type="text"
+      name="searchQuery"
+      class="search-input"
+      autocomplete="off"
+      placeholder="Search"
+    />
+    <svg class="search-icon" width="16" height="16">
+      <use href="./img/svg/icons.svg#search-icon"></use>
+    </svg>
 
-  <button class="menu-toggle">
-    <!-- <svg class="" width="" height="">
-      <use href=""></use>
-    </svg> -->
-  </button>
+    <button type="button" class="change-theme"></button>
+
+    <button class="menu-toggle">
+      <svg class="burger-btn" width="32" height="32">
+        <use href="./img/svg/icons.svg#burger-icon"></use>
+      </svg>
+    </button>
+  </div>
 </header>

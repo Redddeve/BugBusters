@@ -33,10 +33,10 @@
 <path d="M5.5 5.5L16.5 16.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </symbol>
 <symbol id="burger-icon" viewBox="0 0 32 32">
-    <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 13.333h-24"></path>
-    <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 8h-24"></path>
-    <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 18.667h-24"></path>
-    <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 24h-24"></path>
+    <path stroke-linejoin="round" stroke="#242424" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 13.333h-24"></path>
+    <path stroke-linejoin="round" stroke="#242424" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 8h-24"></path>
+    <path stroke-linejoin="round" stroke="#242424" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 18.667h-24"></path>
+    <path stroke-linejoin="round" stroke="#242424" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 24h-24"></path>
 </symbol>
 
   <symbol id="chevron-down-icon" fill="none" viewBox="0 0 14 8" >
