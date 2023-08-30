@@ -660,16 +660,21 @@ function cocktailMainCardRender(cocktailArr) {
     .map(el => {
       return cocktailMainCardTemplate(el.drinkThumb, el.drink, el.desc);
     })
-    .join();
+    .join('');
   refs.cardContainer.insertAdjacentHTML('beforeend', allCardsMarkup);
 }
 
 function cocktailMainCardTemplate(cocktailImg, cocktailName, cocktailDesc) {
   const markup = `<div class="cocktail-card-main" id="cocktail-card-item">
-        <img src="${cocktailImg}" alt="${cocktailName}" width="" height="" />
+        <img class="cocktail-card-img" src="${cocktailImg}" alt="${cocktailName}" width="" height="" />
         <h3 class="card-cocktail-name">${cocktailName}</h3>
         <p class="card-cocktail-desc">${cocktailDesc}</p>
+        <div class="buttons-container">
         <button type="button" class="learn-more-btn">learn more</button>
+        <button type="button" class="delete-btn">
+        
+        </button>
+        </div>
       </div>`;
   console.log(markup);
   return markup;
