@@ -191,7 +191,8 @@
   justify-content: center;
 }
 
-.button-for-favorite {
+.button-for-favorite-up,
+.button-for-favorite-down {
   display: flex;
   align-items: center;
   margin-left: 4px;
@@ -215,14 +216,22 @@
 
 /** ========================= Teкст ========================= */
 
-.text-nav-1 {
+.text-nav-main {
   color: var(--color-background-white);
   font-size: 18px;
   line-height: 1.33;
   letter-spacing: 0.023em;
 }
 
-.text-nav-2 {
+@media only screen and (min-width: 768px) {
+  .text-nav-main {
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: 0.03em;
+  }
+}
+
+.text-nav-fav {
   color: rgba(253, 253, 255, 0.5);
   font-size: 14px;
   line-height: 1.285;
@@ -292,4 +301,27 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+/** ========================= Доп классы ========================= */
+
+.is-hidden-fav {
+  display: none;
+}
+
+/** ========================= Toggle for FavList ========================= */
+
+.test {
+  overflow: hidden;
+  transition: var(--anim-fast);
+}
+
+.fav-open-list {
+  transition: var(--anim-fast);
+}
+.closed-fav-list {
+  transform: translateY(-150%);
+}
+
+.open-fav-list {
+  transform: translateY(0);
 }
