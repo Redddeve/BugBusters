@@ -1,53 +1,57 @@
 <section class="section hero-section">
   <div class="container hero-container">
-    <div>
-      <h1 class="main-title">
-        A party without <span class="text-violet">cocktails</span><br />
-        is not like a party
-      </h1>
-      <p class="main-text">
-        From classic sips to exotic mixes, we're your key to becoming a cocktail
-        wizard!
-      </p>
-      <a href="#search" class="search-button">View cocktails</a>
-    </div>
-    <div class="hero-image-box">
-      <div class="hero-back-img"></div>
-      <picture>
-        <source
-          media="(max-width: 767px)"
-          srcset="
-            ../src/img/hero/girl-mob-webp@1x.webp 1x,
-            ../src/img/hero/girl-mob-webp@2x.webp 2x
-          "
-        />
-        <source
-          media="(min-width: 768px) and (max-width: 1279px)"
-          srcset="
-            ../src/img/hero/girl-tab-webp@1x.webp 1x,
-            ../src/img/hero/girl-tab@-webp2x.webp 2x
-          "
-        />
+    <div class="hero-wrapper">
+      <div class="hero-info-box">
+        <h1 class="main-title">
+          A party without <span class="text-violet">cocktails</span><br />
+          is not like a party
+        </h1>
+        <p class="main-text">
+          From classic sips to exotic mixes, we're your key to becoming a
+          cocktail wizard!
+        </p>
+        <a href="#search" class="search-button">View cocktails</a>
+      </div>
+      <div class="hero-image-box">
+        <div class="hero-back-img"></div>
+        <picture>
+          <source
+            media="(max-width: 767px)"
+            srcset="
+              ../src/img/hero/girl-mob-webp@1x.webp 1x,
+              ../src/img/hero/girl-mob-webp@2x.webp 2x
+            "
+          />
+          <source
+            media="(min-width: 768px) and (max-width: 1279px)"
+            srcset="
+              ../src/img/hero/girl-tab-webp@1x.webp 1x,
+              ../src/img/hero/girl-tab@-webp2x.webp 2x
+            "
+          />
 
-        <source
-          media="(min-width: 1280px)"
-          srcset="
-            ../src/img/hero/girl-desk-webp@1x.webp 1x,
-            ../src/img/hero/girl-desk-webp@2x.webp 2x
-          "
-        />
+          <source
+            media="(min-width: 1280px)"
+            srcset="
+              ../src/img/hero/girl-desk-webp@1x.webp 1x,
+              ../src/img/hero/girl-desk-webp@2x.webp 2x
+            "
+          />
 
-        <img
-          src="../src/img/hero/girl-mob-webp@1x.webp"
-          alt="hero-img"
-          width="354"
-          height="387"
-          class="hero-img"
-          loading="lazy"
-        />
-      </picture>
+          <!-- <img
+            src="../src/img/hero/girl-mob-webp@1x.webp"
+            alt="hero-img"
+            width="354"
+            height="387"
+            class="hero-img"
+            loading="lazy"
+          /> -->
+        </picture>
+
+        <p class="hero-search-text">Search your favorite cocktail by ABC</p>
+      </div>
     </div>
-    <p class="hero-search-text">Search your favorite cocktail by ABC</p>
+
     <select class="hero-select" name="#" id="#">
       <option value="#">A</option>
       <option value="#">B</option>
