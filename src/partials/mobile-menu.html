@@ -1,16 +1,22 @@
 <!-- Mobile menu -->
-<div class="container menu-container" id="mobile-menu">
+<div class="menu-container" id="mobile-menu">
   <div class="mobile-header">
     <!-- первая часть хэдэра -->
     <div class="logo">
-      <a href="#" class="logo-text">Drinkify</a>
-      <a href="#">
-        <img
-          src="./img/cocktail/cocktail-lightblue@1x.png"
-          alt="cocktail-logo"
-          class="cocktail-logo-mobile"
+      <a href="./index.html" class="logo-text">Drinkify</a>
+      <picture>
+        <source
+          media="(max-width: 1023px)"
+          srcset="
+            ../src/img/cocktail/cocktail-lightblue@1x.png 1x,
+            ../src/img/cocktail/cocktail-lightblue@2x.png 2x
+          "
         />
-      </a>
+        <a href="./index.html">
+          <img src= ../src/img/cocktail/cocktail-lightblue@1x.png
+          alt="cocktail-logo" class="cocktail-logo-mobile" loading="lazy" />
+        </a>
+      </picture>
     </div>
     <!-- вторая часть -->
     <div class="button-and-toggle">
@@ -38,28 +44,28 @@
   <div class="container-for-links">
     <nav>
       <ul class="list-of-links">
-        <li class="home-link text-nav-main"><a href="#">Home</a></li>
+        <li class="home-link text-nav-main"><a href="./index.html">Home</a></li>
         <li class="favorite-link text-nav-main">
-          <a href="#"> Favorite </a>
-          <button class="button-for-favorite-up is-hidden-fav">
-            <svg class="arrow-down" width="12" height="6">
+          <p class="fav-link-button">Favorite</p>
+          <button class="button-for-favorite-up">
+            <svg class="arrow-down" width="14" height="8">
               <use href="./img/svg/icons.svg#chevron-down-icon"></use>
             </svg>
           </button>
-          <button class="button-for-favorite-down">
-            <svg class="arrow-down" width="12" height="6">
+          <button class="button-for-favorite-down is-hidden-fav">
+            <svg class="arrow-down" width="14" height="8">
               <use href="./img/svg/icons.svg#chevron-up-icon"></use>
             </svg>
           </button>
         </li>
         <li class="test">
-          <div class="fav-open-list open-fav-list">
+          <div class="fav-open-list closed-fav-list">
             <ul class="list-of-links">
               <li class="fav-cock text-nav-fav">
-                <a href="#">Favorite cocktails</a>
+                <a href="./favorite-cocktails.html">Favorite cocktails</a>
               </li>
               <li class="fav-ing text-nav-fav">
-                <a href="#">Favorite ingredients</a>
+                <a href="./favorite-ingredients.html">Favorite ingredients</a>
               </li>
             </ul>
           </div>
