@@ -1,0 +1,125 @@
+/* FOOTER */
+/* FOOTER LOGO */
+
+@media screen and (min-width: 768px) {
+  .footer {
+    padding-bottom: 16px;
+  }
+}
+
+.footer-container {
+  padding-top: 41px;
+  padding-bottom: 14px;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--color-violet);
+}
+
+@media screen and (min-width: 768px) {
+  .footer-container {
+    padding-top: 64px;
+    padding-bottom: 16px;
+  }
+}
+
+.footer-wrapper {
+  display: flex;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 20px;
+  color: var(--color-background-white);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.16px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-logo {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.09;
+    letter-spacing: -0.22px;
+  }
+}
+
+/* FOOTER SOCIAL LINKS */
+
+.footer-social-links {
+  margin-left: auto;
+}
+
+.footer-subtitle {
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.28;
+  color: var(--color-background-white);
+}
+
+@media screen and (min-width: 768px) {
+  .footer-subtitle {
+    line-height: 1.1;
+  }
+}
+
+.footer-social-list {
+  display: flex;
+  justify-content: left;
+  gap: 14px;
+  margin-bottom: 80px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-social-list {
+    gap: 16px;
+    margin-bottom: 0;
+  }
+}
+
+.footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(246, 245, 239, 0.5);
+  border-radius: 6px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-social-link {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.footer-social-icon {
+  fill: var(--color-white, #f6f5ef);
+  display: inline-block;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-social-icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* HOVER, FOCUS */
+
+/* 
+.footer-social-link:hover,
+.footer-social-link:focus {
+  border-color: var(--color-light-green);
+}
+
+.footer-social-link:hover .footer-social-icon,
+.footer-social-link:focus .footer-social-icon {
+  fill: url(#gradient);
+} */
