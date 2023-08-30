@@ -84,6 +84,9 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
+.search-button:hover {
+  background-color: var(--color-button-hover);
+}
 @media screen and (min-width: 768px) {
   .search-button {
     width: 245px;
@@ -200,6 +203,10 @@
   color: var(--color-background-white);
   border: none;
 }
+.hero-select:hover,
+.hero-select:focus {
+  background-color: var(--color-turquoise);
+}
 @media screen and (min-width: 768px) {
   .hero-select {
     position: absolute;
@@ -257,4 +264,9 @@
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
+}
+
+.hero-select-btn:hover,
+.hero-select-btn:focus {
+  background-color: var(--color-turquoise);
 }
