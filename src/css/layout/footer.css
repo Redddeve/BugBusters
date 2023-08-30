@@ -10,8 +10,7 @@
 .footer-container {
   padding-top: 41px;
   padding-bottom: 14px;
-  overflow: hidden;
-  position: relative;
+  width: 100%;
   background-color: var(--color-violet);
 }
 
@@ -113,13 +112,12 @@
 
 /* HOVER, FOCUS */
 
-/* 
 .footer-social-link:hover,
 .footer-social-link:focus {
-  border-color: var(--color-light-green);
+  border-color: var(--color-turquoise);
 }
 
 .footer-social-link:hover .footer-social-icon,
 .footer-social-link:focus .footer-social-icon {
-  fill: url(#gradient);
-} */
+  fill: var(--color-turquoise);
+}
