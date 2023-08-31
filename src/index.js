@@ -1,5 +1,2 @@
-import './js/home.js';
-import './js/burger-button.js';
-import './js/toggle-mobile.js';
-
+import './js/header.js';
 import './js/hero.js';

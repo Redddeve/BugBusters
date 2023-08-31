@@ -1,2 +1,1 @@
-import './burger-button.js';
-import './toggle-mobile.js';
+import './header.js';
