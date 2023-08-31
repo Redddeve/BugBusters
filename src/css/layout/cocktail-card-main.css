@@ -43,7 +43,8 @@
   height: 54px;
   flex-shrink: 0;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: clip ellipsis;
+  text-align: left;
   font-size: 14px;
   line-height: 1.28; /* 128.571% */
   margin-bottom: 20px;
@@ -92,5 +93,10 @@
 }
 
 .card-cocktail-delete-icon {
-  /* fill: var(--color-background-white); */
+}
+
+.card-cocktail-delete-icon {
+  stroke: white;
+  height: 18px;
+  width: 18px;
 }
