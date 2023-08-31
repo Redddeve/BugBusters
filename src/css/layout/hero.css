@@ -209,16 +209,7 @@
 }
 @media screen and (min-width: 768px) {
   .hero-select {
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    margin: -1px;
+    display: none;
   }
 }
 
@@ -234,16 +225,7 @@
 
 @media screen and (max-width: 767px) {
   .hero-select-items {
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    margin: -1px;
+    display: none;
   }
 }
 
