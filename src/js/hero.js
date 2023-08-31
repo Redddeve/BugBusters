@@ -1,60 +1,68 @@
-const select = document.getElementById('heroSelect');
-const container = document.querySelector('.hero-select-items');
+import { refs } from './refs.js';
 
-renderSelectHero();
-renderButtonsHero();
+if (window.innerWidth >= 768) {
+  setTimeout(renderButtonsHero, 0);
+} else {
+  setTimeout(renderSelectHero, 0);
+}
 
 // ====================== MOBILE ========================
 
-function renderSelectHero() {
+async function renderSelectHero() {
   // цикл для додавання у select букв A - Z по Unicode
   for (let i = 65; i <= 90; i++) {
-    templateSelectHero(i);
+    await templateSelectHero(i);
   }
 
   // цикл для додавання у select цифр 1 - 9 по Unicode
   for (let i = 49; i <= 57; i++) {
-    templateSelectHero(i);
+    await templateSelectHero(i);
   }
 
   // додавання у select цифри 0 по Unicode
-  templateSelectHero(48);
+  await templateSelectHero(48);
 }
 
 function templateSelectHero(i) {
-  const letter = String.fromCharCode(i);
-  const option = document.createElement('option');
-  option.text = letter;
-  option.value = letter;
-  select.appendChild(option);
+  return new Promise(resolve => {
+    const letter = String.fromCharCode(i);
+    const option = document.createElement('option');
+    option.text = letter;
+    option.value = letter;
+    refs.select.appendChild(option);
+    resolve();
+  });
 }
 
 // ================== TABLET & DESKTOP ====================
 
-function renderButtonsHero() {
+async function renderButtonsHero() {
   // цикл для додавання у select букв букв A - Z по Unicode
   for (let i = 65; i <= 90; i++) {
-    templateButtonsHero(i);
+    await templateButtonsHero(i);
   }
 
   // цикл для додавання у container цифр 1 - 9 по Unicode
   for (let i = 49; i <= 57; i++) {
-    templateButtonsHero(i);
+    await templateButtonsHero(i);
   }
 
   // додавання у container цифри 0 по Unicode
-  templateButtonsHero(48);
+  await templateButtonsHero(48);
 }
 
 function templateButtonsHero(i) {
-  // створюємо кнопку
-  const button = document.createElement('button');
-  // задаємо текст для кнопки - букву алфавіту/цифру
-  button.textContent = String.fromCharCode(i);
-  // додаємо кнопку до контейнера
-  container.appendChild(button);
-  button.classList.add('hero-select-btn');
-  button.setAttribute('type', 'button');
+  return new Promise(resolve => {
+    // створюємо кнопку
+    const button = document.createElement('button');
+    // задаємо текст для кнопки - букву алфавіту/цифру
+    button.textContent = String.fromCharCode(i);
+    // додаємо кнопку до контейнера
+    refs.container.appendChild(button);
+    button.classList.add('hero-select-btn');
+    button.setAttribute('type', 'button');
+    resolve();
+  });
 }
 
 //==========================================================

@@ -7,4 +7,6 @@ export const refs = {
   favArrowD: document.querySelector('.fav-arrow__down'),
   favArrowU: document.querySelector('.fav-arrow__up'),
   favBlock: document.querySelector('.fav-block'),
+  select: document.getElementById('heroSelect'),
+  container: document.querySelector('.hero-select-items'),
 };
