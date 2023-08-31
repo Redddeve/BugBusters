@@ -16,3 +16,5 @@
 @import url('./layout/ingredient-modal.css');
 @import url('./layout/not-found.css');
 @import url('./layout/footer.css');
+@import url(./layout/not-found.css);
+@import url('./layout/cocktail-main-card-render.css');
