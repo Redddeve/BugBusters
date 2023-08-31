@@ -10,4 +10,6 @@ export const refs = {
   closeButton: document.querySelector('.menu-button'),
   mobileMenu: document.querySelector('#mobile-menu'),
   openBurgerButton: document.querySelector('.menu-toggle'),
+  select: document.getElementById('heroSelect'),
+  container: document.querySelector('.hero-select-items'),
 };
