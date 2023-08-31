@@ -60,7 +60,6 @@ addFavButton.addEventListener('click', async () => {
     await pushDataToLocalStorage();
 });
 
-addFavButton.addEventListener('click', displayCocktails)
 
 /** ========================= Добавить в хранилище и забрать из ========================= */
 
@@ -109,6 +108,7 @@ function markup({ glass, category, ingredients }) {
 
 }
 
+addFavButton.addEventListener('click', displayCocktails)
 
 
 // // /** ========================= Удалить ========================= */
