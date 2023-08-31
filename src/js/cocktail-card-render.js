@@ -656,7 +656,7 @@ const cocktailGetArr = [
   },
 ];
 
-export function cocktailMainCardRender(cocktailArr) {
+function cocktailMainCardRender(cocktailArr) {
   const allCardsMarkup = cocktailArr
     .map(el => {
       return cocktailMainCardTemplate(el.drinkThumb, el.drink, el.desc);
@@ -682,7 +682,19 @@ function cocktailMainCardTemplate(cocktailImg, cocktailName, cocktailDesc) {
   return markup;
 }
 
-function cocktailModalCardRender() {}
+function cocktailModalCardRender(cocktailArr) {
+  const allCardsMarkup = cocktailArr
+    .map(el => {
+      return cocktailModalCardTemplate(
+        el.drinkThumb,
+        el.drink,
+        el.instructions,
+        el.ingredients
+      );
+    })
+    .join('');
+  refs.cardContainer.insertAdjacentHTML('beforeend', allCardsMarkup);
+}
 
 function cocktailModalCardTemplate(
   cocktailImg,
@@ -729,7 +741,9 @@ function cocktailModalCardTemplate(
     <button type="button" class="modal-to-favorite-btn">add to favorite</button>
   </div>
 </div>`;
+  console.log();
   return markup;
 }
 
-// cocktailMainCardRender(cocktailGetArr);
+cocktailMainCardRender(cocktailGetArr);
+// cocktailModalCardRender(cocktailGetArr);
