@@ -656,7 +656,7 @@ const cocktailGetArr = [
   },
 ];
 
-function cocktailMainCardRender(cocktailArr) {
+export function cocktailMainCardRender(cocktailArr) {
   const allCardsMarkup = cocktailArr
     .map(el => {
       return cocktailMainCardTemplate(el.drinkThumb, el.drink, el.desc);
@@ -679,7 +679,6 @@ function cocktailMainCardTemplate(cocktailImg, cocktailName, cocktailDesc) {
         </button>
         </div>
       </div>`;
-  console.log(markup);
   return markup;
 }
 
@@ -694,5 +693,4 @@ function cocktailPopUpnCardTemplate(
   return markup;
 }
 
-console.log(1);
-cocktailMainCardRender(cocktailGetArr);
+// cocktailMainCardRender(cocktailGetArr);
