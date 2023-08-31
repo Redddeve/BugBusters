@@ -4,15 +4,22 @@
       <li><a href="./index.html">Home</a></li>
       <li class="header-fav-toggle">
         <p>Favorite</p>
-        <svg class="fav-down" width="24" height="24">
+        <svg class="fav-arrow__down" width="14" height="8">
           <use href="./img/svg/icons.svg#chevron-down-icon"></use>
         </svg>
-        <ul class="fav-block is-hidden">
-          <li>
-            <a href="./favorite-cocktails.html">Favorite cocktails</a>
+        <svg class="fav-arrow__up is-hidden-fav" width="14" height="8">
+          <use href="./img/svg/icons.svg#chevron-up-icon"></use>
+        </svg>
+        <ul class="fav-block close-fav-block">
+          <li class="fav-item">
+            <a href="./favorite-cocktails.html" class="fav-link"
+              >Favorite cocktails</a
+            >
           </li>
-          <li>
-            <a href="./favorite-ingredients.html">Favorite ingredients</a>
+          <li class="fav-item">
+            <a href="./favorite-ingredients.html" class="fav-link"
+              >Favorite ingredients</a
+            >
           </li>
         </ul>
       </li>
@@ -50,7 +57,10 @@
       <use href="./img/svg/icons.svg#search-icon"></use>
     </svg>
 
-    <button type="button" class="change-theme"></button>
+    <label class="switch-desc">
+      <input type="checkbox" class="is-hidden" />
+      <span class="slider-desc round"></span>
+    </label>
 
     <button class="menu-toggle">
       <svg class="burger-btn" width="32" height="32">

@@ -1,37 +1,19 @@
-const toggleListButtonUp = document.querySelector('.button-for-favorite-up')
-const toggleListButtonDown = document.querySelector('.button-for-favorite-down')
-const favList = document.querySelector('.fav-open-list')
-const favLink = document.querySelector('.fav-link-button')
+import { refs } from './refs.js';
 
-// import {refs} from "./refs.js";
+refs.toggleListButtonUp.addEventListener('click', favToggleMenu);
 
-toggleListButtonUp.addEventListener('click', () => {
-    toggleListButtonUp.classList.toggle('is-hidden-fav');
-    toggleListButtonDown.classList.toggle('is-hidden-fav');  
-   
-    showTheFavList()
-});
+refs.toggleListButtonDown.addEventListener('click', favToggleMenu);
 
-toggleListButtonDown.addEventListener('click', () => {
-    toggleListButtonDown.classList.toggle('is-hidden-fav');
-    toggleListButtonUp.classList.toggle('is-hidden-fav');
+refs.favLink.addEventListener('click', favToggleMenu);
 
-    showTheFavList()
-    
-});
+function showTheFavList() {
+  refs.favList.classList.toggle('open-fav-list');
+  refs.favList.classList.toggle('closed-fav-list');
+}
 
-favLink.addEventListener('click', () => {
-    toggleListButtonDown.classList.toggle('is-hidden-fav');
-    toggleListButtonUp.classList.toggle('is-hidden-fav');
+function favToggleMenu() {
+  refs.toggleListButtonDown.classList.toggle('is-hidden-fav');
+  refs.toggleListButtonUp.classList.toggle('is-hidden-fav');
 
-    showTheFavList()
-    
-})
-
-
-
-const showTheFavList = () => {
-    favList.classList.toggle('open-fav-list');
-    favList.classList.toggle('closed-fav-list');
-    
+  showTheFavList();
 }
