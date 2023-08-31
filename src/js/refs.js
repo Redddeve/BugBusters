@@ -1,4 +1,5 @@
 export const refs = {
+  headerForm: document.querySelector('.search-form'),
   toggleListButtonUp: document.querySelector('.button-for-favorite-up'),
   toggleListButtonDown: document.querySelector('.button-for-favorite-down'),
   favList: document.querySelector('.fav-open-list'),
@@ -12,4 +13,5 @@ export const refs = {
   openBurgerButton: document.querySelector('.menu-toggle'),
   select: document.getElementById('heroSelect'),
   container: document.querySelector('.hero-select-items'),
+  mainCocktailsGallery: document.querySelector('.search-section .gallery'),
 };

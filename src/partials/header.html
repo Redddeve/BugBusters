@@ -46,13 +46,18 @@
   </a>
 
   <div class="search-and-btns">
-    <input
-      type="text"
-      name="searchQuery"
-      class="search-input"
-      autocomplete="off"
-      placeholder="Search"
-    />
+    <form class="search-form">
+      <input
+        type="text"
+        name="searchQuery"
+        class="search-input"
+        autocomplete="off"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <input type="submit" hidden />
+    </form>
+
     <svg class="search-icon" width="16" height="16">
       <use href="./img/svg/icons.svg#search-icon"></use>
     </svg>
