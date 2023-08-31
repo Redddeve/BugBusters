@@ -136,7 +136,7 @@
 .input-with-icon {
   position: relative;
   width: auto;
-  max-width: 320px;
+  max-width: 375px;
   height: auto;
   margin-left: auto;
   margin-right: auto;
@@ -314,8 +314,11 @@ input:checked + .slider:before {
 
 /** ========================= Toggle for FavList ========================= */
 
-.test {
+.fav-list-oveflow {
   overflow: hidden;
+}
+
+.fav-open-list {
   transition: var(--anim-fast);
 }
 
