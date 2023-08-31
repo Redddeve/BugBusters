@@ -7,4 +7,7 @@ export const refs = {
   favArrowD: document.querySelector('.fav-arrow__down'),
   favArrowU: document.querySelector('.fav-arrow__up'),
   favBlock: document.querySelector('.fav-block'),
+  closeButton: document.querySelector('.menu-button'),
+  mobileMenu: document.querySelector('#mobile-menu'),
+  openBurgerButton: document.querySelector('.menu-toggle'),
 };

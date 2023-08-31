@@ -1,10 +1,9 @@
-const favBtn = document.querySelector('.header-fav-toggle p');
-// const favArrow = document.querySelector('.fav-arrow');
 import { refs } from './refs.js';
+import throttle from 'lodash.throttle';
 
-refs.favBtn.addEventListener('click', favToggle);
-refs.favArrowD.addEventListener('click', favToggle);
-refs.favArrowU.addEventListener('click', favToggle);
+refs.favBtn.addEventListener('click', throttle(favToggle, 500));
+refs.favArrowD.addEventListener('click', throttle(favToggle, 500));
+refs.favArrowU.addEventListener('click', throttle(favToggle, 500));
 function favToggle() {
   refs.favArrowD.classList.toggle('is-hidden-fav');
   refs.favArrowU.classList.toggle('is-hidden-fav');

@@ -1,10 +1,12 @@
 import { refs } from './refs.js';
+import throttle from 'lodash.throttle';
 
-refs.toggleListButtonUp.addEventListener('click', favToggleMenu);
-
-refs.toggleListButtonDown.addEventListener('click', favToggleMenu);
-
-refs.favLink.addEventListener('click', favToggleMenu);
+refs.toggleListButtonUp.addEventListener('click', throttle(favToggleMenu, 500));
+refs.toggleListButtonDown.addEventListener(
+  'click',
+  throttle(favToggleMenu, 500)
+);
+refs.favLink.addEventListener('click', throttle(favToggleMenu, 500));
 
 function showTheFavList() {
   refs.favList.classList.toggle('open-fav-list');
