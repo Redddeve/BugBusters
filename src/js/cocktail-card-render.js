@@ -2,6 +2,7 @@ const refs = {
   cardContainer: document.querySelector('.cocktail-cards-container'),
   cardItem: document.querySelector('#cocktail-card-item'),
 };
+
 const cocktailGetArr = [
   {
     _id: '639b6de9ff77d221f190c51e',
@@ -672,7 +673,9 @@ function cocktailMainCardTemplate(cocktailImg, cocktailName, cocktailDesc) {
         <div class="buttons-container">
         <button type="button" class="learn-more-btn">learn more</button>
         <button type="button" class="delete-btn">
-        
+        <svg class="card-cocktail-delete-icon" width="24" height="24" stroke='red'>
+        <use href="./img/svg/icons.svg#trash-icon"></use>
+        </svg>
         </button>
         </div>
       </div>`;

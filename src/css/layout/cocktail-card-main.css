@@ -71,6 +71,7 @@ button:focus {
   font-weight: 400;
   line-height: 1.28; /* 128.571% */
   margin-bottom: 20px;
+  overflow: hidden;
 }
 
 .buttons-container {
@@ -117,4 +118,8 @@ button:focus {
   background: var(--color-violet);
   outline: none;
   border: 1px solid transparent;
+}
+
+.card-cocktail-delete-icon {
+  /* fill: var(--color-background-white); */
 }
