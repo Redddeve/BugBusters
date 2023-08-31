@@ -14,4 +14,6 @@ export const refs = {
   select: document.getElementById('heroSelect'),
   container: document.querySelector('.hero-select-items'),
   mainCocktailsGallery: document.querySelector('.search-section .gallery'),
+  cardContainer: document.querySelector('.cocktail-cards-container'),
+  cardItem: document.querySelector('#cocktail-card-item'),
 };
