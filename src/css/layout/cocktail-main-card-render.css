@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+}
+
+.cocktail-cards-container {
+  margin: 0 auto;
+  display: flex;
+  row-gap: 20px;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+
+.cocktail-card-main {
+  width: 335px;
+  height: 471px;
+  padding-top: 14px;
+  padding-bottom: 20px;
+  padding-left: 14px;
+  padding-right: 14px;
+  border-radius: 20px;
+  background: var(--color-background-white, #fdfdff);
+  box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
+}
+
+.cocktail-card-img {
+  display: block;
+  width: 307px;
+  height: 257px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.card-cocktail-name {
+  color: var(--color-text-black, #242424);
+  font-size: 18px;
+  line-height: 1.33; /* 133.333% */
+  margin-bottom: 14px;
+}
+
+.card-cocktail-desc {
+  width: 295px;
+  height: 54px;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: clip ellipsis;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.28; /* 128.571% */
+  margin-bottom: 20px;
+  white-space: nowrap;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 15px;
+}
+
+.learn-more-btn {
+  padding: 14px 71px 14px 71px;
+  background: transparent;
+  border: 1px solid var(--color-violet, #7e8fdd);
+  border-radius: 12px;
+  color: var(--color-text-black);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.42px; /* 142.857% */
+  letter-spacing: 0.28px;
+  text-transform: uppercase;
+}
+
+.learn-more-btn:hover,
+.learn-more-btn:focus,
+.learn-more-btn:active {
+  background: var(--color-violet, #7e8fdd);
+  color: var(--color-background-white, #fdfdff);
+}
+
+.delete-btn {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--color-violet);
+  outline: none;
+  border: 1px solid transparent;
+}
+
+.card-cocktail-delete-icon {
+}
+
+.card-cocktail-delete-icon {
+  stroke: white;
+  height: 18px;
+  width: 18px;
+}
