@@ -25,24 +25,25 @@ async function onSearchSubmit(e) {
     return;
   }
   try {
-    const responseArr = await fetchCocktailByName(query);
-    // const { description, drink, drinkThumb, _id } = responseArr[0];
-    // console.log(_id);
-    // console.log(drink);
-    // console.log(drinkThumb);
+    const responseArr = await fetchCocktailByName(query); //* Массив обьектов, в темплейте делаем деструктуризацию
+    const { description, drink, drinkThumb, _id } = responseArr[0];
+    console.log(_id);
+    console.log(drink);
+    console.log(drinkThumb);
     refs.mainCocktailsGallery.innerHTML = '';
-    renderCocktailCards(responseArr);
+    // renderCocktailCards(responseArr);
   } catch (err) {
     Notify.failure('Oops, something went wrong!', {
       clickToClose: true,
     });
-    console.log(err);
+    console.error(err);
   } finally {
     e.target.reset();
   }
 }
 
 function renderCocktailCards(arr) {
+  //* Как примерно должен выглядеть рендер
   const markup = arr.map(hit => templateCocktailCards(hit)).join('');
   refs.mainCocktailsGallery.insertAdjacentHTML('beforeend', markup);
 }

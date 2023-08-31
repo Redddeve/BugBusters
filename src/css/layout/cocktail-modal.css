@@ -1,5 +1,5 @@
-.backdrop {
-  /* position: fixed; */
+.backdrop-cocktail {
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
@@ -21,10 +21,11 @@
   position: relative;
   max-width: 335px;
   /* min-height: 100%; */
-  margin: 0 auto;
+  /* margin: 0 auto; */
   z-index: 100;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   padding-top: 40px;
   padding-bottom: 40px;
   padding-left: 20px;
@@ -36,7 +37,7 @@
   /* pointer-events: none; */
   /* transition: opacity var(--anim-fast), visibility var(--anim-fast); */
 }
-.cocktail-header {
+.cocktail-modal-header {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
@@ -161,7 +162,8 @@ button {
   line-height: 20px; /* 142.857% */
 }
 
-.modal-to-favorite-btn {
+.modal-to-favorite-btn,
+.modal-to-favorite-btn-remove {
   padding: 14px 28px;
   border-radius: 12px;
   background-color: var(--color-violet);

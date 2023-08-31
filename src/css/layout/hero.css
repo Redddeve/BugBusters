@@ -158,6 +158,140 @@
     left: 770px;
   }
 }
+.hero-big-star {
+  width: 96px;
+  height: 96px;
+  /* transform: rotate(-28deg); */
+  position: absolute;
+  z-index: -1;
+  top: 292px;
+  left: 249px;
+}
+@media only screen and (max-width: 374px) {
+  .hero-big-star {
+    left: 222px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .hero-big-star {
+    width: 114px;
+    height: 114px;
+    top: 92px;
+    left: 665px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .hero-big-star {
+    width: 142px;
+    height: 142px;
+    top: 57px;
+    left: 1100px;
+  }
+}
+.hero-small-star {
+  width: 25px;
+  height: 25px;
+  /* transform: rotate(-28deg); */
+  position: absolute;
+  z-index: -1;
+  top: 603px;
+  left: 30px;
+}
+@media only screen and (max-width: 374px) {
+  .hero-small-star {
+    left: 10px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .hero-small-star {
+    width: 32px;
+    height: 32px;
+    top: 459px;
+    left: 373px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .hero-small-star {
+    width: 53px;
+    height: 53px;
+    top: 415px;
+    left: 722px;
+  }
+}
+.hero-ellipse-turquoise {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 740px;
+  left: 311px;
+}
+@media only screen and (max-width: 374px) {
+  .hero-ellipse-turquoise {
+    left: 281px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .hero-ellipse-turquoise {
+    top: 647px;
+    left: 719px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .hero-ellipse-turquoise {
+    top: 685px;
+    left: 1121px;
+  }
+}
+.hero-ellipse-violet-big {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 714px;
+  left: 34px;
+}
+@media only screen and (max-width: 374px) {
+  .hero-ellipse-violet-big {
+    left: 18px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .hero-ellipse-violet-big {
+    top: 615px;
+    left: 444px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .hero-ellipse-violet-big {
+    top: 657px;
+    left: 835px;
+  }
+}
+.hero-ellipse-violet-small {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 295px;
+  left: 232px;
+}
+@media only screen and (max-width: 374px) {
+  .hero-ellipse-violet-small {
+    left: 218px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .hero-ellipse-violet-small {
+    width: 18px;
+    height: 18px;
+    top: 112px;
+    left: 626px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .hero-ellipse-violet-small {
+    top: 83px;
+    left: 1069px;
+  }
+}
 .hero-container .hero-search-text {
   width: 173px;
   margin-left: 61px;
