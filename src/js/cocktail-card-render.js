@@ -686,6 +686,7 @@ function cocktailModalCardRender() {}
 
 function cocktailModalCardTemplate(
   cocktailImg,
+  cocktailName,
   cocktailIngredients,
   cocktailInstructions
 ) {
@@ -697,9 +698,9 @@ function cocktailModalCardTemplate(
       </svg>
     </button>
     <div class="wrapper1">
-      <img class="cocktail-modal-img" src="#" alt="#cocktail-name" />
+      <img class="cocktail-modal-img" src="${cocktailImg}" alt="#cocktail-name" />
       <div class="wrapper2">
-        <h3 class="cocktail-header">Acid</h3>
+        <h3 class="cocktail-header">${cocktailName}</h3>
         <h3 class="modal-header modal-header-ingredients">Ingredients:</h3>
         <p class="modal-header-ingredients-subtitle">Per cocktail</p>
         <ul class="modal-ingredients-list">
@@ -723,9 +724,7 @@ function cocktailModalCardTemplate(
     </div>
     <h3 class="modal-header modal-header-instractions">Instractions:</h3>
     <p class="modal-instractions">
-      Add the gin, Campari and sweet vermouth to a mixing glass filled with ice,
-      and stir until well-chilled. Strain into a rocks glass filled with large
-      ice cubes. Garnish with an orange peel.
+      ${cocktailInstructions}
     </p>
     <button type="button" class="modal-to-favorite-btn">add to favorite</button>
   </div>
