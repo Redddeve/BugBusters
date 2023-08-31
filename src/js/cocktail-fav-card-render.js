@@ -2,16 +2,16 @@
 
 import { refs } from './refs';
 
-export function cocktailMainCardRender(cocktailArr) {
+export function cocktailFavCardRender(cocktailArr) {
   const allCardsMarkup = cocktailArr
     .map(el => {
-      return cocktailMainCardTemplate(el.drinkThumb, el.drink, el.desc, el._id);
+      return cocktailFavCardTemplate(el.drinkThumb, el.drink, el.desc, el._id);
     })
     .join('');
   refs.cardContainer.insertAdjacentHTML('beforeend', allCardsMarkup);
 }
 
-function cocktailMainCardTemplate(
+function cocktailFavCardTemplate(
   cocktailImg,
   cocktailName,
   cocktailDesc,
