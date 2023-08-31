@@ -1,0 +1,76 @@
+<header id="header" class="container">
+  <nav class="page-nav">
+    <ul class="nav-list">
+      <li><a href="./index.html">Home</a></li>
+      <li class="header-fav-toggle">
+        <p>Favorite</p>
+        <svg class="fav-arrow__down" width="14" height="8">
+          <use href="./img/svg/icons.svg#chevron-down-icon"></use>
+        </svg>
+        <svg class="fav-arrow__up is-hidden-fav" width="14" height="8">
+          <use href="./img/svg/icons.svg#chevron-up-icon"></use>
+        </svg>
+        <ul class="fav-block close-fav-block">
+          <li class="fav-item">
+            <a href="./favorite-cocktails.html" class="fav-link"
+              >Favorite cocktails</a
+            >
+          </li>
+          <li class="fav-item">
+            <a href="./favorite-ingredients.html" class="fav-link"
+              >Favorite ingredients</a
+            >
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <a href="./index.html" class="header-logo"
+    >Drinkify
+    <picture>
+      <source
+        srcset="
+          ./img/cocktail/cocktail-blue@1x.png 1x,
+          ./img/cocktail/cocktail-blue@2x.png 2x
+        "
+      />
+      <img
+        class="logo-image"
+        src="./img/cocktail/cocktail-blue@1x.png"
+        alt="Logo"
+        width="35"
+        height="30"
+        loading="lazy"
+      />
+    </picture>
+  </a>
+
+  <div class="search-and-btns">
+    <form class="search-form">
+      <input
+        type="text"
+        name="searchQuery"
+        class="search-input"
+        autocomplete="off"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <input type="submit" hidden />
+    </form>
+
+    <svg class="search-icon" width="16" height="16">
+      <use href="./img/svg/icons.svg#search-icon"></use>
+    </svg>
+
+    <label class="switch-desc">
+      <input type="checkbox" class="is-hidden" />
+      <span class="slider-desc round"></span>
+    </label>
+
+    <button class="menu-toggle">
+      <svg class="burger-btn" width="32" height="32">
+        <use href="./img/svg/icons.svg#burger-icon"></use>
+      </svg>
+    </button>
+  </div>
+</header>

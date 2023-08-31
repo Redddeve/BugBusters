@@ -1,0 +1,75 @@
+<section class="section hero-section">
+  <div class="container hero-container">
+    <div class="hero-wrapper">
+      <div class="hero-info-box">
+        <h1 class="main-title">
+          A party without <span class="text-violet">cocktails</span><br />
+          is not like a party
+        </h1>
+        <p class="main-text">
+          From classic sips to exotic mixes, we're your key to becoming a
+          cocktail wizard!
+        </p>
+        <a href="#search" class="search-button">View cocktails</a>
+      </div>
+      <div class="hero-image-box">
+        <div class="hero-back-img"></div>
+        <picture>
+          <source
+            media="(max-width: 767px)"
+            srcset="
+              ../src/img/hero/girl-mob-webp@1x.webp 1x,
+              ../src/img/hero/girl-mob-webp@2x.webp 2x
+            "
+          />
+          <source
+            media="(min-width: 768px) and (max-width: 1279px)"
+            srcset="
+              ../src/img/hero/girl-tab-webp@1x.webp 1x,
+              ../src/img/hero/girl-tab@-webp2x.webp 2x
+            "
+          />
+
+          <source
+            media="(min-width: 1280px)"
+            srcset="
+              ../src/img/hero/girl-desk-webp@1x.webp 1x,
+              ../src/img/hero/girl-desk-webp@2x.webp 2x
+            "
+          />
+
+          <img
+            src="../src/img/hero/girl-mob-webp@1x.webp"
+            alt="hero-img"
+            class="hero-img"
+            loading="lazy"
+          />
+        </picture>
+        <svg class="hero-big-star">
+          <use href="./img/svg/icons.svg#star"></use>
+        </svg>
+
+        <svg class="hero-small-star">
+          <use href="./img/svg/icons.svg#star"></use>
+        </svg>
+
+        <svg class="hero-ellipse-turquoise">
+          <use href="./img/svg/icons.svg#ellipse-turquoise"></use>
+        </svg>
+
+        <svg class="hero-ellipse-violet-big">
+          <use href="./img/svg/icons.svg#ellipse-violet"></use>
+        </svg>
+
+        <svg class="hero-ellipse-violet-small">
+          <use href="./img/svg/icons.svg#ellipse-violet"></use>
+        </svg>
+
+        <p class="hero-search-text">Search your favorite cocktail by ABC</p>
+      </div>
+    </div>
+
+    <select class="hero-select" id="heroSelect"></select>
+    <div class="hero-select-items"></div>
+  </div>
+</section>

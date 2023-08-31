@@ -20,10 +20,61 @@
   }
 }
 .nav-list {
+  height: 24px;
   display: flex;
+  align-items: center;
+  gap: 28px;
+  font-size: 16px;
+  line-height: 1.13; /* 18px*/
+  letter-spacing: 0.02em;
 }
 .header-fav-toggle {
   display: flex;
+  gap: 10px;
+  align-items: center;
+  position: relative;
+}
+.header-fav-toggle p,
+.header-fav-toggle svg {
+  cursor: pointer;
+}
+.fav-arrow__up,
+.fav-arrow__down {
+  stroke: var(--color-violet);
+}
+.fav-block {
+  color: var(--color-background-white);
+  background: var(--color-violet);
+
+  min-width: 192px;
+  padding: 18px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: absolute;
+  top: 31px;
+  left: -45px;
+  z-index: 2;
+  border-radius: 16px;
+  transition: var(--anim-fast);
+}
+.fav-block .fav-link {
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: 0.02em;
+}
+.fav-block .fav-link:focus,
+.fav-block .fav-link:hover {
+  color: var(--color-white-transparent);
+}
+.close-fav-block {
+  opacity: 0;
+  transform: translateY(-200%);
+}
+
+.open-fav-block {
+  opacity: 1;
+  transform: translateY(0);
 }
 /** ========================= Logo ========================= */
 .header-logo {
@@ -51,6 +102,7 @@
 .search-and-btns {
   position: relative;
   display: flex;
+  align-items: center;
   gap: 24px;
 }
 .search-input {
@@ -76,14 +128,51 @@
   top: 12px;
   pointer-events: none;
 }
-.change-theme {
-  display: none;
+/** ========================= Toggles ========================= */
+.switch-desc {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 32px;
 }
-@media only screen and (min-width: 1280px) {
-  .change-theme {
-    display: inline-block;
+@media only screen and (max-width: 1279px) {
+  .switch-desc {
+    display: none;
   }
 }
+.slider-desc {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: transparent;
+  border: 2px solid var(--color-text-black);
+  border-radius: 34px;
+  -webkit-transition: var(--anim-mid);
+  transition: var(--anim-mid);
+}
+input:checked + .slider-desc {
+  background-color: var(--color-turquoise);
+  border: 2px solid var(--color-violet);
+}
+input:checked + .slider-desc:before {
+  -webkit-transform: translateX(32px);
+  -ms-transform: translateX(32px);
+  transform: translateX(32px);
+  background-color: var(--color-background-white);
+}
+.slider-desc:before {
+  position: absolute;
+  content: '';
+  height: 24px;
+  width: 24px;
+  left: 2px;
+  bottom: 2px;
+  border-radius: 50%;
+  background-color: var(--color-turquoise);
+  -webkit-transition: var(--anim-mid);
+  transition: var(--anim-mid);
+}
+/** ====== Burger toggle ====== */
 .menu-toggle {
   display: inline-block;
   width: 40px;

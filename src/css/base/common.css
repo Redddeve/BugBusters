@@ -25,7 +25,15 @@ a {
 }
 
 button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
   cursor: pointer;
+  border: none;
+  outline: none;
 }
 
 img {
@@ -52,7 +60,15 @@ html {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-family);
+  font-size: 14px;
+  line-height: 1.29;
   color: var(--color-text-black);
   background-color: var(--color-background-white);
+}
+
+.is-hidden {
+  visibility: hidden;
+  pointer-events: none;
+  position: absolute;
 }

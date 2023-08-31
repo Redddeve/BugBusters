@@ -1,3 +1,4 @@
-import './js/home.js';
-import './js/home.js';
-import './js/home.js';
+import './js/header.js';
+import './js/hero.js';
+import './js/onLoad.js';
+import './js/modal-cocktails.js';

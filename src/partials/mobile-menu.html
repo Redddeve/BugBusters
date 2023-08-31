@@ -1,36 +1,76 @@
 <!-- Mobile menu -->
-<div class="container menu-container" id="mobile-menu">
+<div class="menu-container" id="mobile-menu">
   <div class="mobile-header">
     <!-- первая часть хэдэра -->
-    <div class="#">
-      <a href="#"><p>Drinkify</p></a>
-      <svg class="cocteile-icon" width="24" height="24"><use></use></svg>
+    <div class="logo">
+      <a href="./index.html" class="logo-text">Drinkify</a>
+      <picture>
+        <source
+          media="(max-width: 1023px)"
+          srcset="
+            ../src/img/cocktail/cocktail-lightblue@1x.png 1x,
+            ../src/img/cocktail/cocktail-lightblue@2x.png 2x
+          "
+        />
+        <a href="./index.html">
+          <img src= ../src/img/cocktail/cocktail-lightblue@1x.png
+          alt="cocktail-logo" class="cocktail-logo-mobile" loading="lazy" />
+        </a>
+      </picture>
     </div>
     <!-- вторая часть -->
-    <div class="#">
+    <div class="button-and-toggle">
       <label class="switch">
         <input type="checkbox" />
         <span class="slider round"></span>
       </label>
-      <button class="menu-button">
-        <svg class="menu-icon" width="24" height="24">
-          <use href="#"></use>
-        </svg>
-      </button>
+      <div class="button-and-icon">
+        <button class="menu-button">
+          <svg class="menu-icon" width="32" height="32">
+            <use href="./img/svg/icons.svg#x-icon"></use>
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
   <!-- инпут -->
-  <input type="text" placeholder="Search" class="mobile-input" />
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li>
-        <a href="#">
-          Favorite<svg><use></use></svg>
-        </a>
-      </li>
-      <li><a href="#">Favorite cocktails</a></li>
-      <li><a href="#">Favorite ingredients</a></li>
-    </ul>
-  </nav>
+
+  <div class="input-with-icon">
+    <input type="text" placeholder="Search" class="mobile-input" />
+    <svg width="16" height="16" class="search-button-mobile-burger">
+      <use href="./img/svg/icons.svg#search-icon"></use>
+    </svg>
+  </div>
+  <div class="container-for-links">
+    <nav>
+      <ul class="list-of-links">
+        <li class="home-link text-nav-main"><a href="./index.html">Home</a></li>
+        <li class="favorite-link text-nav-main">
+          <p class="fav-link-button">Favorite</p>
+          <button class="button-for-favorite-up">
+            <svg class="arrow-down" width="14" height="8">
+              <use href="./img/svg/icons.svg#chevron-down-icon"></use>
+            </svg>
+          </button>
+          <button class="button-for-favorite-down is-hidden-fav">
+            <svg class="arrow-down" width="14" height="8">
+              <use href="./img/svg/icons.svg#chevron-up-icon"></use>
+            </svg>
+          </button>
+        </li>
+        <li class="fav-list-oveflow">
+          <div class="fav-open-list closed-fav-list">
+            <ul class="list-of-links">
+              <li class="fav-cock text-nav-fav">
+                <a href="./favorite-cocktails.html">Favorite cocktails</a>
+              </li>
+              <li class="fav-ing text-nav-fav">
+                <a href="./favorite-ingredients.html">Favorite ingredients</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </div>

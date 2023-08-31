@@ -1,0 +1,223 @@
+.backdrop-cocktail {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(21, 21, 21, 0.6);
+  backdrop-filter: blur(2px);
+  opacity: 1;
+  transition: opacity var(--anim-fast), visibility var(--anim-fast);
+}
+
+/* .is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  } */
+
+.cocktail-modal {
+  /* position: absolute; */
+  position: relative;
+  max-width: 335px;
+  /* min-height: 100%; */
+  /* margin: 0 auto; */
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 20px;
+  background-color: var(--color-modal-background);
+  /* opacity: 0; */
+  /* visibility: hidden; */
+  /* pointer-events: none; */
+  /* transition: opacity var(--anim-fast), visibility var(--anim-fast); */
+}
+.cocktail-modal-header {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  font-size: 0px;
+}
+
+.cocktail-modal-img {
+  width: 295px;
+  height: 277px;
+  border-radius: 16px;
+  background-color: burlywood;
+  margin-bottom: 40px;
+}
+
+/* .wrapper2 {
+    
+} */
+
+/* .cocktail-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+} */
+/* .mobile-modal-container{
+	position: relative;
+	padding-top: 27px;
+	padding-bottom: 24px;
+	height: 100%;
+} */
+
+.cocktail-modal-x-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+  /* padding: 0;
+	line-height: 0; */
+}
+
+/* .cocktail-modal-x-btn:hover,
+    .cocktail-modal-x-btn:focus {
+    } */
+
+.cocktail-modal-btn-icon {
+  stroke: var(--color-text-black);
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.modal-header {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px; /* 112.5% */
+  text-transform: uppercase;
+}
+
+.modal-header-ingredients {
+  margin-bottom: 8px;
+}
+.modal-header-ingredients-subtitle {
+  margin-bottom: 20px;
+  color: var(--color-text-black-05);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 128.571% */
+}
+
+.ingredients-list-item {
+  margin-bottom: 8px;
+  transition: color var(--anim-fast);
+  margin-left: 10px;
+  padding-left: 15px;
+}
+
+.ingredients-link {
+  color: var(--color-text-black-08);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 128.571% */
+  transition: color var(--anim-fast);
+  list-style-type: disc;
+}
+
+.ingredients-list-item:hover,
+.ingredients-list-item:focus,
+.ingredients-link:hover,
+.ingredients-link:focus {
+  color: var(--color-violet);
+}
+
+.modal-ingredients-list {
+  margin-bottom: 40px;
+  /* list-style-type: disc; */
+  list-style-position: outside;
+  list-style-type: '•';
+}
+
+.modal-header-instractions {
+  margin-bottom: 14px;
+}
+
+.modal-instractions {
+  margin-bottom: 40px;
+  color: var(--color-text-black-05);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+}
+
+.modal-to-favorite-btn,
+.modal-to-favorite-btn-remove {
+  padding: 14px 28px;
+  border-radius: 12px;
+  background-color: var(--color-violet);
+  color: var(--color-background-white);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.28px;
+  text-transform: uppercase;
+  transition: background-color var(--anim-fast);
+}
+
+.modal-to-favorite-btn:hover,
+.modal-to-favorite-btn:focus {
+  background-color: var(--color-button-hover);
+}
+
+@media screen and (min-width: 768px) {
+  .cocktail-modal-x-btn {
+    top: 18px;
+    right: 18px;
+  }
+
+  .cocktail-modal {
+    max-width: 600px;
+    padding: 40px;
+  }
+  .wrapper1 {
+    display: flex;
+    gap: 20px;
+  }
+
+  .cocktail-modal-img {
+    margin-bottom: 20px;
+  }
+
+  /* 
+  .wrapper2 {
+    margin-bottom: 40px;
+  } */
+
+  .cocktail-header {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 120% */
+    opacity: 1;
+    pointer-events: none;
+    visibility: visible;
+  }
+
+  .modal-header-instractions {
+    margin-bottom: 18px;
+  }
+}
