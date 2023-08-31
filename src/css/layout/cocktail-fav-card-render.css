@@ -1,0 +1,231 @@
+* {
+  box-sizing: border-box;
+}
+/* =================== MOB ========== */
+@media screen and (max-width: 767px) {
+  .cocktail-cards-container {
+    margin: 0 auto;
+    display: flex;
+    row-gap: 20px;
+    flex-shrink: 0;
+    flex-direction: column;
+  }
+
+  .cocktail-card-main {
+    width: 335px;
+    height: 471px;
+    padding-top: 14px;
+    padding-bottom: 20px;
+    padding-left: 14px;
+    padding-right: 14px;
+    border-radius: 20px;
+    background: var(--color-background-white, #fdfdff);
+    box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
+  }
+
+  .cocktail-card-img {
+    display: block;
+    width: 307px;
+    height: 257px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    margin-bottom: 20px;
+  }
+
+  .card-cocktail-name {
+    color: var(--color-text-black, #242424);
+    font-size: 18px;
+    line-height: 1.33; /* 133.333% */
+    margin-bottom: 14px;
+  }
+
+  .card-cocktail-desc {
+    display: -webkit-box;
+    width: 295px;
+    height: 54px;
+    flex-shrink: 0;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.28; /* 128.571% */
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  .buttons-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 15px;
+  }
+
+  .learn-more-btn {
+    padding: 14px 71px 14px 71px;
+    background: transparent;
+    border: 1px solid var(--color-violet, #7e8fdd);
+    border-radius: 12px;
+    color: var(--color-text-black);
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.42; /* 142.857% */
+    letter-spacing: 0.018em;
+    text-transform: uppercase;
+  }
+
+  .learn-more-btn:hover,
+  .learn-more-btn:focus,
+  .learn-more-btn:active {
+    background: var(--color-violet, #7e8fdd);
+    color: var(--color-background-white, #fdfdff);
+  }
+
+  .delete-btn {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: var(--color-violet);
+    outline: none;
+    border: 1px solid transparent;
+  }
+
+  .delete-btn:hover,
+  .delete-btn:focus,
+  .delete-btn:active {
+    background: var(--color-turquoise, #9cdfdf);
+    color: var(--color-background-white, #fdfdff);
+  }
+
+  .card-cocktail-delete-icon-use {
+    padding-left: 2px;
+  }
+
+  .card-cocktail-delete-icon {
+    stroke: white;
+    height: 18px;
+    width: 18px;
+  }
+}
+
+/* ====================  TAB + DESK  =========================== */
+@media screen and (min-width: 768px) {
+  .cocktail-cards-container {
+    margin: 0 auto;
+    display: flex;
+    row-gap: 20px;
+    flex-shrink: 0;
+    flex-direction: column;
+  }
+
+  .cocktail-card-main {
+    width: 344px;
+    height: 523px;
+    padding-top: 14px;
+    padding-bottom: 24px;
+    padding-left: 14px;
+    padding-right: 14px;
+    border-radius: 20px;
+    background: var(--color-background-white, #fdfdff);
+    box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
+  }
+
+  .cocktail-card-img {
+    display: block;
+    width: 316px;
+    height: 289px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    margin-bottom: 20px;
+  }
+
+  .card-cocktail-name {
+    color: var(--color-text-black, #242424);
+    margin-bottom: 14px;
+    /* font-family: Poppins; */
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.2; /* 120% */
+  }
+
+  .card-cocktail-desc {
+    display: -webkit-box;
+    width: 296px;
+    height: 54px;
+    flex-shrink: 0;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.28; /* 128.571% */
+    margin-bottom: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  .buttons-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 15px;
+  }
+
+  .learn-more-btn {
+    padding: 16px 55px 15px 55px;
+    background: transparent;
+    border: 1px solid var(--color-violet, #7e8fdd);
+    border-radius: 12px;
+    color: var(--color-text-black);
+    font-family: Poppins;
+
+    letter-spacing: 0.022em;
+    text-transform: uppercase;
+
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.33; /* 133.333% */
+    letter-spacing: 0.36px;
+  }
+
+  .learn-more-btn:hover,
+  .learn-more-btn:focus,
+  .learn-more-btn:active {
+    background: var(--color-violet, #7e8fdd);
+    color: var(--color-background-white, #fdfdff);
+  }
+
+  .delete-btn {
+    display: flex;
+    width: 56px;
+    height: 56px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: var(--color-violet);
+    outline: none;
+    border: 1px solid transparent;
+  }
+
+  .delete-btn:hover,
+  .delete-btn:focus,
+  .delete-btn:active {
+    background: var(--color-turquoise, #9cdfdf);
+    color: var(--color-background-white, #fdfdff);
+  }
+
+  .card-cocktail-delete-icon-use {
+    padding-left: 3px;
+  }
+
+  .card-cocktail-delete-icon {
+    height: 24px;
+    width: 24px;
+  }
+}
