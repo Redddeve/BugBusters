@@ -1,5 +1,3 @@
-//       <div class="cocktail-cards-container"></div>
-
 import { refs } from './refs';
 
 
@@ -23,7 +21,7 @@ function cocktailFavCardTemplate(
   cocktailDesc,
   cocktailID
 ) {
-  const markup = `<div class="cocktail-card-main" id="cocktail-card-item">
+  const markup = `<li class="cocktail-card-main" id="cocktail-card-item">
         <img class="cocktail-card-img" src="${cocktailImg}" alt="${cocktailName}" width="" height="" />
         <h3 class="card-cocktail-name">${cocktailName}</h3>
         <p class="card-cocktail-desc">${cocktailDesc}</p>
@@ -35,7 +33,7 @@ function cocktailFavCardTemplate(
 </svg>
       </button>
         </div>
-      </div>`;
+      </li>`;
   return markup;
 }
 
@@ -61,8 +59,7 @@ function cocktailMainCardTemplate(
   cocktailID
 ) {
   const markup = `<li class="cocktail-card-main" id="cocktail-card-item">
-        <div class="cocktail-card-main" id="cocktail-card-item">
-          <img
+                  <img
             class="cocktail-card-img"
             src="${cocktailImg}"
             alt="${cocktailName}"
@@ -96,7 +93,8 @@ function cocktailMainCardTemplate(
   />
 </svg>
             </button>
-            <button type="button"
+            <button 
+              type="button"
               class="delete-btn card-cocktail-delete-icon-use deleteButtonn"
               data-id="${cocktailID}"
             >
