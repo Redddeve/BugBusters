@@ -26,8 +26,16 @@ refs.container.addEventListener('click', onHeroBtnSearchClick);
 
 function onHeroBtnSearchClick(event) {
   event.preventDefault();
+
+  if (
+    event.target.nodeName !== 'BUTTON' &&
+    event.target.nodeName !== 'OPTION'
+  ) {
+    return;
+  }
   page = 1;
-  const query = event.target.innerText;
+  const query = e.target.innerText;
+  console.log(query);
 
   refs.mainCocktailsGallery.innerHTML = '';
 
