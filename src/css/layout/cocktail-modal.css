@@ -17,9 +17,12 @@
   } */
 
 .cocktail-modal {
+  /* box-shadow: inset 0px 0px 20px rgba(255,255,255,0.1); */
   /* position: absolute; */
   position: relative;
   max-width: 335px;
+  max-height: 100vh;
+  overflow-y: auto;
   /* min-height: 100%; */
   /* margin: 0 auto; */
   z-index: 100;
@@ -37,6 +40,11 @@
   /* pointer-events: none; */
   /* transition: opacity var(--anim-fast), visibility var(--anim-fast); */
 }
+
+::-webkit-scrollbar {
+  width: 0px; 
+}
+
 .cocktail-modal-header {
   opacity: 0;
   pointer-events: none;
@@ -52,22 +60,6 @@
   margin-bottom: 40px;
 }
 
-/* .wrapper2 {
-    
-} */
-
-/* .cocktail-modal.is-open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-} */
-/* .mobile-modal-container{
-	position: relative;
-	padding-top: 27px;
-	padding-bottom: 24px;
-	height: 100%;
-} */
-
 .cocktail-modal-x-btn {
   position: absolute;
   top: 14px;
@@ -75,13 +67,7 @@
   cursor: pointer;
   width: 22px;
   height: 22px;
-  /* padding: 0;
-	line-height: 0; */
 }
-
-/* .cocktail-modal-x-btn:hover,
-    .cocktail-modal-x-btn:focus {
-    } */
 
 .cocktail-modal-btn-icon {
   stroke: var(--color-text-black);
@@ -119,7 +105,7 @@ button {
 }
 
 .ingredients-list-item {
-  margin-bottom: 8px;
+  margin-bottom: 0px;
   transition: color var(--anim-fast);
   margin-left: 10px;
   padding-left: 15px;
@@ -130,7 +116,7 @@ button {
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 18px; /* 128.571% */
+  line-height: 24px; /* 128.571% */
   transition: color var(--anim-fast);
   list-style-type: disc;
 }
