@@ -1,6 +1,9 @@
 import axios from 'axios';
 import { refs } from './refs.js';
-import { cocktailMainCardRender } from './cocktail-fav-card-render.js';
+import {
+  cocktailMainCardRender,
+  cocktailMainCardNotFoundTemplate,
+} from './cocktail-fav-card-render.js';
 
 const BASE_URL = 'https://drinkify-backend.p.goit.global/api/v1';
 const END_POINT = '/cocktails/search/?f=';
@@ -9,16 +12,32 @@ let page = 1;
 
 async function fetchCocktailByFirstLetter(query) {
   const url = `${BASE_URL}${END_POINT}${query}`;
-  return await axios
-    .get(url)
-    .then(response => {
-      //   console.log(response.data);
-      return response.data;
-    })
-    .catch(error => {
-      throw new Error('Error', error.message);
-    });
+  try {
+    const response = await axios.get(url);
+    // console.log(response.data);
+    return response.data;
+  } catch (error) {
+    const errorMarkup = cocktailMainCardNotFoundTemplate();
+    console.log(errorMarkup);
+    refs.mainCocktailsGallery.insertAdjacentHTML('beforeend', errorMarkup);
+    // throw new Error('Error', error.message);
+  }
 }
+
+// async function fetchCocktailByFirstLetter(query) {
+//     const url = `${BASE_URL}${END_POINT}${query}`;
+//     try { }
+//     const response = await axios.get(url);
+//     const data = await response.data;
+
+//     .then(response => {
+//       //   console.log(response.data);
+//       return response.data;
+//     })
+//     .catch(error => {
+//       throw new Error('Error', error.message);
+//     });
+// }
 
 //===================== TABLET & DESKTOP ===========================
 

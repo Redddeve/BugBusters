@@ -51,7 +51,9 @@ export function cocktailMainCardRender(cocktailArr) {
       })
       .join('');
   } else {
+    console.log(1);
     allCardsMarkup = cocktailMainCardNotFoundTemplate();
+    console.log(allCardsMarkup);
   }
 
   refs.mainCocktailsGallery.insertAdjacentHTML('beforeend', allCardsMarkup);
@@ -127,7 +129,7 @@ function cocktailMainCardTemplate(
   return markup;
 }
 
-function cocktailMainCardNotFoundTemplate() {
+export function cocktailMainCardNotFoundTemplate() {
   const markup = `<section class="not-found-search">
         <div class="not-found-info-container container">
           <picture>
