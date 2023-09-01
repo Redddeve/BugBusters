@@ -6,3 +6,4 @@ import './js/onLoad.js';
 import './js/modal-cocktails.js';
 import './js/modal-ingredients.js';
 import './js/storage.js';
+import './js/pagination.js';
