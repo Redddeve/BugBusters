@@ -24,7 +24,7 @@ async function fetchCocktailByFirstLetter(query) {
 
 refs.container.addEventListener('click', onHeroBtnSearchClick);
 
-function onHeroBtnSearchClick(event) {
+function onHeroBtnSearchClick(e) {
   event.preventDefault();
 
   if (
@@ -35,7 +35,7 @@ function onHeroBtnSearchClick(event) {
   }
   page = 1;
   const query = e.target.innerText;
-  console.log(query);
+  //   console.log(query);
 
   refs.mainCocktailsGallery.innerHTML = '';
 
