@@ -24,18 +24,14 @@ async function fetchCocktailByFirstLetter(query) {
 
 refs.container.addEventListener('click', onHeroBtnSearchClick);
 
-function onHeroBtnSearchClick(event) {
-  event.preventDefault();
+function onHeroBtnSearchClick(e) {
+  e.preventDefault();
 
-  if (
-    event.target.nodeName !== 'BUTTON' &&
-    event.target.nodeName !== 'OPTION'
-  ) {
+  if (e.target.nodeName !== 'BUTTON' && e.target.nodeName !== 'OPTION') {
     return;
   }
   page = 1;
   const query = e.target.innerText;
-  console.log(query);
 
   refs.mainCocktailsGallery.innerHTML = '';
 
