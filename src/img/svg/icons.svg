@@ -53,5 +53,19 @@
       <path fill="#7e8fdd" d="M32 16c0 8.837-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0s16 7.163 16 16z" style="fill:var(--color2, #7e8fdd)"/>
     </symbol>
 
+    <svg id="page-left" viewBox="0 0 24 24">
+    <g clip-path="url(#clip0_12857_1332)">
+    <path d="M10.9087 12.5L16 17.5558L14.5456 19L8 12.5L14.5456 6L16 7.44422L10.9087 12.5Z" />
+    </g>
+    </svg>
+
+    <svg id="page-right" viewBox="0 0 28 28">
+    <g clip-path="url(#clip0_12857_1351)">
+    <path d="M15.2735 14.5833L9.33366 20.4817L11.0304 22.1667L18.667 14.5833L11.0304 7L9.33366 8.68492L15.2735 14.5833Z" />
+    </g>
+    </svg>
+
+
+
 </defs>
 </svg>

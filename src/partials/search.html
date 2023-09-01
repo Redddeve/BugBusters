@@ -6,13 +6,13 @@
 
   <div class="pagination-buttons-container container">
     <button
-      class="left-scroll pagination-button-item"
+      class="left-pag-btn pagination-button-item"
       type="button"
-      width="32px"
-      height="32px"
       value="left"
     >
-      left
+      <svg>
+        <use class="page-left-icon" href="./img/svg/icons.svg#page-left"></use>
+      </svg>
     </button>
     <button class="page-num-1 pagination-button-item" type="button" value="1">
       1
@@ -24,7 +24,7 @@
       3
     </button>
     <button class="page-num-4 pagination-button-item" type="button" value="4">
-      4
+      ...
     </button>
     <button class="page-num-5 pagination-button-item" type="button" value="5">
       5
@@ -36,11 +36,16 @@
       7
     </button>
     <button
-      class="right-scroll pagination-button-item"
+      class="right-pag-btn pagination-button-item"
       type="button"
       value="right"
     >
-      right
+      <svg class="page-right-icon-container">
+        <use
+          class="page-right-icon"
+          href="./img/svg/icons.svg#page-right"
+        ></use>
+      </svg>
     </button>
   </div>
 </section>
