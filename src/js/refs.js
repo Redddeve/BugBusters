@@ -23,17 +23,17 @@ export const refs = {
   cardItem: document.querySelector('#cocktail-card-item'),
 
   // =============modals==============
-  cocktailMarkup: document.querySelector(".cocktail-markup"),
+  cocktailMarkup: document.querySelector('.cocktail-markup'),
   closeCocktailModalBtn: document.querySelector('.cocktail-modal-x-btn'),
   backdropCocktailEl: document.querySelector('.backdrop-cocktail'),
   gallery: document.querySelector('.gallery'),
-  cocktailsModal:document.querySelector('.cocktail-modal'),
+  cocktailsModal: document.querySelector('.cocktail-modal'),
   image: document.querySelector('.cocktail-modal-img'),
   header: document.querySelector('.cocktail-modal-header'),
   ingredList: document.querySelector('.modal-ingredients-list'),
   instr: document.querySelector('.modal-instractions'),
   toFavoriteBtn: document.querySelector('.add-to-fav-btn'),
-  removeFavoriteBtn: document.querySel,
+  removeFavoriteBtn: document.querySelector('.remove-from-fav-btn'),
 
   ingredList: document.querySelector('.modal-ingredients-list'),
   ingreModalInner: document.querySelector('.ingred-modal-inner'),

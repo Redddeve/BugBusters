@@ -6,15 +6,16 @@ import { throttle } from 'lodash';
 
 let id;
 refs.gallery.addEventListener('click', onShowModal);
+refs.closeCocktailModalBtn.addEventListener('click', closeCocktailModal);
 
 function onShowModal(e) {
   console.log(e.target);
   id = e.target.dataset.id;
   if (e.target.dataset.id) {
-    e.target.addEventListener('click', showCocktailModal());
+    showCocktailModal();
   }
 }
-refs.closeCocktailModalBtn.addEventListener('click', closeCocktailModal);
+
 
 function showCocktailModal(event) {
   // console.log(id);
@@ -26,6 +27,12 @@ function showCocktailModal(event) {
 
 function closeCocktailModal() {
   refs.backdropCocktailEl.classList.add('is-hidden');
+  refs.image.src = "#";
+  refs.header.textContent = "#";
+  refs.ingredList.innerHTML = "";
+  refs.instr.textContent = "";
+  refs.toFavoriteBtn.dataset.id = "";
+  refs.removeFavoriteBtn.dataset.id = "";
 }
 
 function markupCocktail({ drink, drinkThumb, instructions, ingredients, _id }) {

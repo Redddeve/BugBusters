@@ -24,10 +24,14 @@ async function fetchCocktailByFirstLetter(query) {
 
 refs.container.addEventListener('click', onHeroBtnSearchClick);
 
-function onHeroBtnSearchClick(event) {
-  event.preventDefault();
+function onHeroBtnSearchClick(e) {
+  e.preventDefault();
+
+  if (e.target.nodeName !== 'BUTTON' && e.target.nodeName !== 'OPTION') {
+    return;
+  }
   page = 1;
-  const query = event.target.innerText;
+  const query = e.target.innerText;
 
   refs.mainCocktailsGallery.innerHTML = '';
 
