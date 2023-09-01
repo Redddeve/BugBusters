@@ -9,18 +9,22 @@
   opacity: 1;
   transition: opacity var(--anim-fast), visibility var(--anim-fast);
 }
-
-/* .is-hidden {
+::-webkit-scrollbar {
+  width: 0px; 
+}
+.is-hidden {
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
-  } */
+  }
 
 .ingred-modal {
   position: fixed;
+  /* overflow:auto; */
     position: relative;
   max-width: 335px;
-  /* min-height: 100%; */
+  max-height: 600px;
+  overflow-y: auto;
   margin: 0 auto;
   z-index: 100;
   top: 10%;
@@ -86,7 +90,7 @@
 }
 
 .desc-item {
-  margin-bottom: 8px;
+  margin-bottom: 0px;
   transition: color var(--anim-fast);
   margin-left: 10px;
   padding-left: 15px;
@@ -97,7 +101,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 18px;
+  line-height: 24px;
 }
 
 .ingred-modal-x-btn {
@@ -145,4 +149,10 @@
   .ingred-header {
     margin-bottom: 12px;
   }
+  .ingred-type::after {
+
+    width: 520px;
+    
+  }
+  
 }
