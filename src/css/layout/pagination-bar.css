@@ -1,0 +1,33 @@
+.pagination-buttons-container {
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 8px;
+  margin-bottom: 80px;
+}
+
+.pagination-button-item {
+  -webkit-appearance: button;
+  display: flex;
+  width: 32px;
+  height: 32px;
+  padding: 8px 0px 7px 0px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  border: 2px solid var(--color-violet, #7e8fdd);
+
+  color: var(--color-violet, #7e8fdd);
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.left-scroll {
+  margin-right: ;
+}
