@@ -40,3 +40,38 @@ async function lookupMultipleCocktails(arr) {
   const cockts = await Promise.all(getByID);
   return cockts.map(data => data[0]);
 }
+
+// ===================modals===============
+export async function getCocktail(id) {
+  try {
+    const response = await fetch(
+      `https://drinkify-backend.p.goit.global/api/v1/cocktails/lookup/?id=${id}`
+    );
+    const responseJson = await response.json();
+    return responseJson[0];
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getIngredient(ingredName) {
+  try {
+    const response = await fetch(
+      `https://drinkify-backend.p.goit.global/api/v1/ingredients/search/?s=${ingredName}`
+    );
+    const responseJson = await response.json();
+    const result = responseJson.find(ing => ing.title === ingredName);
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const fetchIngredient = async id => {
+  const response = await fetch(`${BASE_URL}ingredients/${id}`);
+  const responseJson = await response.json();
+  return responseJson;
+};
+
+// ===================modals===============

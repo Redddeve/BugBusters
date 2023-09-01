@@ -17,7 +17,28 @@ export const refs = {
   container: document.querySelector('.hero-select-items'),
   // ========================= Search =========================
   mainCocktailsText: document.querySelector('.search-section .change'),
+  heroBtnSearch: document.querySelector('.hero-select-button'),
   mainCocktailsGallery: document.querySelector('.search-section .gallery'),
   cardContainer: document.querySelector('.cocktail-cards-container'),
   cardItem: document.querySelector('#cocktail-card-item'),
+
+  // =============modals==============
+  cocktailMarkup: document.querySelector('.cocktail-markup'),
+  closeCocktailModalBtn: document.querySelector('.cocktail-modal-x-btn'),
+  backdropCocktailEl: document.querySelector('.backdrop-cocktail'),
+  gallery: document.querySelector('.gallery'),
+  cocktailsModal: document.querySelector('.cocktail-modal'),
+  image: document.querySelector('.cocktail-modal-img'),
+  header: document.querySelector('.cocktail-modal-header'),
+  ingredList: document.querySelector('.modal-ingredients-list'),
+  instr: document.querySelector('.modal-instractions'),
+  toFavoriteBtn: document.querySelector('.add-to-fav-btn'),
+  removeFavoriteBtn: document.querySelector('.remove-from-fav-btn'),
+
+  ingredList: document.querySelector('.modal-ingredients-list'),
+  ingreModalInner: document.querySelector('.ingred-modal-inner'),
+  closeModalBtn: document.querySelector('.ingred-modal-x-btn'),
+  backdropIngred: document.querySelector('.backdrop-ingred'),
+  // =============modals==============
+  ingredientsGallery: document.querySelector('.ingredients-gallery'),
 };
