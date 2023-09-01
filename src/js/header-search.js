@@ -26,10 +26,10 @@ async function onSearchSubmit(e) {
   }
   try {
     const responseArr = await fetchCocktailByName(query); //* Массив обьектов, в темплейте делаем деструктуризацию
-    const { description, drink, drinkThumb, _id } = responseArr[0];
-    console.log(_id);
-    console.log(drink);
-    console.log(drinkThumb);
+    // const { description, drink, drinkThumb, _id } = responseArr[0];
+    // console.log(_id);
+    // console.log(drink);
+    // console.log(drinkThumb);
     refs.mainCocktailsGallery.innerHTML = '';
     // renderCocktailCards(responseArr);
   } catch (err) {
