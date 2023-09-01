@@ -11,7 +11,7 @@ refs.closeCocktailModalBtn.addEventListener('click', closeCocktailModal);
 function onShowModal(e) {
   console.log(e.target);
   id = e.target.dataset.id;
-  if (e.target.dataset.id) {
+  if (e.target.dataset.id && e.target.classList.contains("learn-more-btn")) {
     showCocktailModal();
   }
 }
