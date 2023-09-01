@@ -5,19 +5,21 @@ import { getCocktail } from './fetch-data';
 import { throttle } from 'lodash';
 
 let id;
-refs.gallery.addEventListener('click', event => {
-  id = event.target.dataset.id;
-  if (event.target.dataset.id) {
-    event.target.addEventListener('click', showCocktailModal());
-  }
-});
+refs.gallery.addEventListener('click', onShowModal);
 
+function onShowModal(e) {
+  console.log(e.target);
+  id = e.target.dataset.id;
+  if (e.target.dataset.id) {
+    e.target.addEventListener('click', showCocktailModal());
+  }
+}
 refs.closeCocktailModalBtn.addEventListener('click', closeCocktailModal);
 
 function showCocktailModal(event) {
   // console.log(id);
   getCocktail(id).then(data => {
- markupCocktail(data)
+    markupCocktail(data);
   });
   refs.backdropCocktailEl.classList.remove('is-hidden');
 }
