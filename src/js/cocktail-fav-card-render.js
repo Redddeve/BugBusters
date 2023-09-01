@@ -1,6 +1,5 @@
 import { refs } from './refs';
 
-
 export function cocktailFavCardRender(cocktailArr) {
   const allCardsMarkup = cocktailArr
     .map(el => {
@@ -69,7 +68,7 @@ function cocktailMainCardTemplate(
           <h3 class="card-cocktail-name">${cocktailName}</h3>
           <p class="card-cocktail-desc">${cocktailDesc}</p>
           <div class="buttons-container">
-            <button type="button" class="learn-more-btn" >
+            <button type="button" class="learn-more-btn" data-id=${cocktailID}>
               learn more
             </button>
             <button
