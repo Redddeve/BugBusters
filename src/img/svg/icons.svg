@@ -46,5 +46,12 @@
     <path d="M1 7L7 1L13 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
   </symbol>
 
+  <symbol id="ellipse-turquoise" viewBox="0 0 32 32">
+      <path fill="#9cdfdf" d="M32 16c0 8.837-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0s16 7.163 16 16z" style="fill:var(--color1, #9cdfdf)"/>
+    </symbol>
+    <symbol id="ellipse-violet" viewBox="0 0 32 32">
+      <path fill="#7e8fdd" d="M32 16c0 8.837-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0s16 7.163 16 16z" style="fill:var(--color2, #7e8fdd)"/>
+    </symbol>
+
 </defs>
 </svg>

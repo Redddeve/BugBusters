@@ -1,62 +1,68 @@
+import { refs } from './refs.js';
+
+if (window.innerWidth >= 768) {
+  setTimeout(renderButtonsHero, 0);
+} else {
+  setTimeout(renderSelectHero, 0);
+}
+
 // ====================== MOBILE ========================
 
-const select = document.getElementById('heroSelect');
+async function renderSelectHero() {
+  // цикл для додавання у select букв A - Z по Unicode
+  for (let i = 65; i <= 90; i++) {
+    await templateSelectHero(i);
+  }
 
-// цикл для додавання у select букв англ. алф. від A до Z по Unicode
-for (let i = 65; i <= 90; i++) {
-  const letter = String.fromCharCode(i);
-  const option = document.createElement('option');
-  option.text = letter;
-  option.value = letter;
-  select.appendChild(option);
+  // цикл для додавання у select цифр 1 - 9 по Unicode
+  for (let i = 49; i <= 57; i++) {
+    await templateSelectHero(i);
+  }
+
+  // додавання у select цифри 0 по Unicode
+  await templateSelectHero(48);
 }
 
-// цикл для додавання у select цифр від 1 до 9 по Unicode
-for (let i = 49; i <= 57; i++) {
-  const letter = String.fromCharCode(i);
-  const option = document.createElement('option');
-  option.text = letter;
-  option.value = letter;
-  select.appendChild(option);
+function templateSelectHero(i) {
+  return new Promise(resolve => {
+    const letter = String.fromCharCode(i);
+    const option = document.createElement('option');
+    option.text = letter;
+    option.value = letter;
+    refs.select.appendChild(option);
+    resolve();
+  });
 }
-
-// додавання у select цифри 0 по Unicode
-const letter = String.fromCharCode(48);
-const option = document.createElement('option');
-option.text = letter;
-option.value = letter;
-select.appendChild(option);
 
 // ================== TABLET & DESKTOP ====================
 
-const container = document.querySelector('.hero-select-items');
+async function renderButtonsHero() {
+  // цикл для додавання у select букв букв A - Z по Unicode
+  for (let i = 65; i <= 90; i++) {
+    await templateButtonsHero(i);
+  }
 
-// цикл для додавання у select букв англ. алф. від A до Z по Unicode
-for (let i = 65; i <= 90; i++) {
-  // створюємо кнопку
-  const button = document.createElement('button');
+  // цикл для додавання у container цифр 1 - 9 по Unicode
+  for (let i = 49; i <= 57; i++) {
+    await templateButtonsHero(i);
+  }
 
-  // задаємо текст для кнопки - букву алфавіту
-  button.textContent = String.fromCharCode(i);
-
-  // додаємо кнопку до контейнера
-  container.appendChild(button);
-
-  button.classList.add('hero-select-btn');
+  // додавання у container цифри 0 по Unicode
+  await templateButtonsHero(48);
 }
 
-// цикл для додавання у container цифр від 1 до 9 по Unicode
-for (let i = 49; i <= 57; i++) {
-  const button = document.createElement('button');
-  button.textContent = String.fromCharCode(i);
-  container.appendChild(button);
-  button.classList.add('hero-select-btn');
+function templateButtonsHero(i) {
+  return new Promise(resolve => {
+    // створюємо кнопку
+    const button = document.createElement('button');
+    // задаємо текст для кнопки - букву алфавіту/цифру
+    button.textContent = String.fromCharCode(i);
+    // додаємо кнопку до контейнера
+    refs.container.appendChild(button);
+    button.classList.add('hero-select-btn');
+    button.setAttribute('type', 'button');
+    resolve();
+  });
 }
-
-// додавання у select цифри 0 по Unicode
-const button = document.createElement('button');
-button.textContent = String.fromCharCode(48);
-container.appendChild(button);
-button.classList.add('hero-select-btn');
 
 //==========================================================

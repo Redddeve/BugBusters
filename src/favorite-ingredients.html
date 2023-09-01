@@ -12,60 +12,59 @@
     <include src="./partials/header.html"></include>
     <main>
       <include src="./partials/search.html"></include>
-      <include src="./partials/cocktail-modal.html"></include>
+      <section class="fav-ingredients section">
+        <h1 class="fav-ingredients-title">Favorite ingredients</h1>
+        <!-- <div class="fav-ingredients-default">
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="
+                ../src/img/notfound/notfound-webp@1x.webp,
+                ../src/img/notfound/notfound-webp@2x.webp
+              "
+            />
+            <source
+              media="(min-width: 768px) and (max-width: 1279px)"
+              srcset="
+                ../src/img/notfound/notfound-webp@1x.webp,
+                ../src/img/notfound/notfound-webp@2x.webp
+              "
+            />
+  
+            <source
+              media="(min-width: 1280px)"
+              srcset="
+                ../src/img/notfound/notfound-webp@1x.webp,
+                ../src/img/notfound/notfound-webp@2x.webp
+              "
+            />
+  
+            <img
+              src="../src/img/notfound/notfound-webp@1x.webp"
+              alt="not-found"
+              width="359"
+              height="297"
+              class="not-found-ingr-img"
+              loading="lazy"
+            />
+          </picture>
+          <p class="fav-ingredients-default-text">
+            You haven't added any favorite ingredients yet
+          </p>
+        </div>
+        <div class="wrapper" id="rnd-ing">
+          <ul class="fav-ingredients-list"></ul>
+        </div>
+        <div class="fav-ingredients-wrapper"></div> -->
+      </section>
+      <!-- <include src="./partials/cocktail-modal.html"></include> -->
       <include src="./partials/ingredient-modal.html"></include>
       <!-- <include src="./partials/not-found.html"></include> -->
     </main>
     <include src="./partials/footer.html"></include>
     <include src="./partials/mobile-menu.html"></include>
 
-    <section class="fav-ingredients section">
-      <h1 class="fav-ingredients-title">Favorite ingredients</h1>
-      <div class="fav-ingredients-default">
-        <picture>
-          <source
-            media="(max-width: 767px)"
-            srcset="
-              ../src/img/notfound/notfound-webp@1x.webp,
-              ../src/img/notfound/notfound-webp@2x.webp
-            "
-          />
-          <source
-            media="(min-width: 768px) and (max-width: 1279px)"
-            srcset="
-              ../src/img/notfound/notfound-webp@1x.webp,
-              ../src/img/notfound/notfound-webp@2x.webp
-            "
-          />
-
-          <source
-            media="(min-width: 1280px)"
-            srcset="
-              ../src/img/notfound/notfound-webp@1x.webp,
-              ../src/img/notfound/notfound-webp@2x.webp
-            "
-          />
-
-          <img
-            src="../src/img/notfound/notfound-webp@1x.webp"
-            alt="not-found"
-            width="359"
-            height="297"
-            class="not-found-ingr-img"
-            loading="lazy"
-          />
-        </picture>
-        <p class="fav-ingredients-default-text">
-          You haven't added any favorite ingredients yet
-        </p>
-      </div>
-      <div class="wrapper" id="rnd-ing">
-        <ul class="fav-ingredients-list"></ul>
-      </div>
-      <div class="fav-ingredients-wrapper"></div>
-    </section>
-
-    <div class="backdrop is-hidden">
+    <!-- <div class="backdrop is-hidden">
       <div class="modal-ingredients">
         <div class="modal-ingredients" id="modal-ingredients">
           <button class="modal-ingredients-close" aria-label="to close menu">
@@ -91,7 +90,7 @@
           Remove from favorite
         </button>
       </div>
-    </div>
+    </div> -->
 
     <script type="module" src="./js/fav-ingredients.js"></script>
   </body>

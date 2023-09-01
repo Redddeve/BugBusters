@@ -162,7 +162,8 @@ button {
   line-height: 20px; /* 142.857% */
 }
 
-.modal-to-favorite-btn {
+.modal-to-favorite-btn,
+.modal-to-favorite-btn-remove {
   padding: 14px 28px;
   border-radius: 12px;
   background-color: var(--color-violet);
