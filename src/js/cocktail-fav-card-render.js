@@ -169,8 +169,6 @@ export function cocktailMainCardNotFoundTemplate() {
               class="not-found-cocktail-girl"
               src="./img/notfound/notfound-mob@1x.png"
               alt="cocktail-img"
-              width="#"
-              height="#"
               loading="lazy"
             />
           </picture>

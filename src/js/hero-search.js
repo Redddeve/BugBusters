@@ -14,30 +14,11 @@ async function fetchCocktailByFirstLetter(query) {
   const url = `${BASE_URL}${END_POINT}${query}`;
   try {
     const response = await axios.get(url);
-    // console.log(response.data);
     return response.data;
   } catch (error) {
-    const errorMarkup = cocktailMainCardNotFoundTemplate();
-    console.log(errorMarkup);
-    refs.mainCocktailsGallery.insertAdjacentHTML('beforeend', errorMarkup);
-    // throw new Error('Error', error.message);
+    console.log('error');
   }
 }
-
-// async function fetchCocktailByFirstLetter(query) {
-//     const url = `${BASE_URL}${END_POINT}${query}`;
-//     try { }
-//     const response = await axios.get(url);
-//     const data = await response.data;
-
-//     .then(response => {
-//       //   console.log(response.data);
-//       return response.data;
-//     })
-//     .catch(error => {
-//       throw new Error('Error', error.message);
-//     });
-// }
 
 //===================== TABLET & DESKTOP ===========================
 
