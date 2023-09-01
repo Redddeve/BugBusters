@@ -25,12 +25,9 @@ async function fetchCocktailByFirstLetter(query) {
 refs.container.addEventListener('click', onHeroBtnSearchClick);
 
 function onHeroBtnSearchClick(e) {
-  event.preventDefault();
+  e.preventDefault();
 
-  if (
-    event.target.nodeName !== 'BUTTON' &&
-    event.target.nodeName !== 'OPTION'
-  ) {
+  if (e.target.nodeName !== 'BUTTON' && e.target.nodeName !== 'OPTION') {
     return;
   }
   page = 1;
