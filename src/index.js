@@ -3,4 +3,5 @@ import './js/hero.js';
 import './js/cocktail-fav-card-render.js';
 import './js/onLoad.js';
 import './js/modal-cocktails.js';
+import './js/storage.js'
 import './js/modal-ingredients.js';
