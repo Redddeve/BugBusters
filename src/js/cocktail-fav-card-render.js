@@ -39,7 +39,7 @@ function cocktailFavCardTemplate(
 export function cocktailMainCardRender(cocktailArr) {
   let allCardsMarkup = '';
 
-  if (cocktailArr) {
+  if (cocktailArr.length !== 0) {
     allCardsMarkup = cocktailArr
       .map(el => {
         return cocktailMainCardTemplate(
