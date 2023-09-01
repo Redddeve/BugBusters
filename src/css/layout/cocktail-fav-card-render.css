@@ -102,7 +102,27 @@
     color: var(--color-background-white, #fdfdff);
   }
 
-  .card-cocktail-delete-icon-use {
+  .like-btn {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: var(--color-violet);
+    outline: none;
+    border: 1px solid transparent;
+  }
+
+  .like-btn:hover,
+  .like-btn:focus,
+  .like-btn:active {
+    background: var(--color-turquoise, #9cdfdf);
+    color: var(--color-background-white, #fdfdff);
+  }
+
+  .card-cocktail-icon-use {
     padding-left: 2px;
   }
 
@@ -220,7 +240,27 @@
     color: var(--color-background-white, #fdfdff);
   }
 
-  .card-cocktail-delete-icon-use {
+  .like-btn {
+    display: flex;
+    width: 56px;
+    height: 56px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: var(--color-violet);
+    outline: none;
+    border: 1px solid transparent;
+  }
+
+  .like-btn:hover,
+  .like-btn:focus,
+  .like-btn:active {
+    background: var(--color-turquoise, #9cdfdf);
+    color: var(--color-background-white, #fdfdff);
+  }
+
+  .card-cocktail-icon-use {
     padding-left: 3px;
   }
 
