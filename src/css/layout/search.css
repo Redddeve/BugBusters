@@ -44,12 +44,10 @@
 
   .change {
     color: var(--color-text-black, #242424);
-    /* font-family: Poppins; */
     font-size: 40px;
     font-style: normal;
     font-weight: 500;
     line-height: 1.2; /* 120% */
-    /* margin-left: 100px; */
     margin-bottom: 40px;
   }
 
@@ -74,7 +72,6 @@
 
   .change {
     color: var(--color-text-black, #242424);
-    /* font-family: Poppins; */
     font-size: 40px;
     font-style: normal;
     font-weight: 500;
