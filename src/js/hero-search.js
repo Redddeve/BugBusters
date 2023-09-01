@@ -7,8 +7,6 @@ const END_POINT = '/cocktails/search/?f=';
 
 let page = 1;
 
-refs.container.addEventListener('click', onHeroBtnSearchClick);
-
 async function fetchCocktailByFirstLetter(query) {
   const url = `${BASE_URL}${END_POINT}${query}`;
   return await axios
@@ -22,6 +20,10 @@ async function fetchCocktailByFirstLetter(query) {
     });
 }
 
+//===================== TABLET & DESKTOP ===========================
+
+refs.container.addEventListener('click', onHeroBtnSearchClick);
+
 function onHeroBtnSearchClick(event) {
   event.preventDefault();
   page = 1;
@@ -31,10 +33,28 @@ function onHeroBtnSearchClick(event) {
 
   fetchCocktailByFirstLetter(query)
     .then(data => {
-      console.log(data);
+      //   console.log(data);
       cocktailMainCardRender(data);
     })
     .catch(error => console.log('Error', error));
 }
 
-//==========================================================
+//========================= MOBILE ================================
+
+refs.select.addEventListener('change', onSelectOptionClick);
+
+function onSelectOptionClick(event) {
+  //   console.log(event.target.value);
+  event.preventDefault();
+  page = 1;
+  const query = event.target.value;
+
+  refs.mainCocktailsGallery.innerHTML = '';
+
+  fetchCocktailByFirstLetter(query)
+    .then(data => {
+      //   console.log(data);
+      cocktailMainCardRender(data);
+    })
+    .catch(error => console.log('Error', error));
+}
