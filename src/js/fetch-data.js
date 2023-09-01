@@ -62,7 +62,9 @@ export async function getIngredient(ingredName) {
       `https://drinkify-backend.p.goit.global/api/v1/ingredients/search/?s=${ingredName}`
     );
     const responseJson = await response.json();
-    return responseJson[0];
+    const result = responseJson.find(ing => ing.title === ingredName)
+      console.log(result);
+      return result
   } catch (error) {
     console.log(error);
   }
