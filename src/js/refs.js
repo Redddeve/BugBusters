@@ -40,4 +40,5 @@ export const refs = {
   closeModalBtn: document.querySelector('.ingred-modal-x-btn'),
   backdropIngred: document.querySelector('.backdrop-ingred'),
   // =============modals==============
+  ingredientsGallery: document.querySelector('.ingredients-gallery'),
 };
