@@ -1,5 +1,6 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { fetchCocktailByName } from './fetch-data.js';
+import { cocktailMainCardRender } from './cocktail-fav-card-render.js';
 import { refs } from './refs';
 
 // if (window.innerWidth >= 1280) {
@@ -8,7 +9,7 @@ import { refs } from './refs';
 //   const maxHits = 8;
 // }
 
-// let page = 1;
+let page = 1;
 // let maxPage = 1;
 let query = '';
 
@@ -31,7 +32,7 @@ async function onSearchSubmit(e) {
     // console.log(drink);
     // console.log(drinkThumb);
     refs.mainCocktailsGallery.innerHTML = '';
-    // renderCocktailCards(responseArr);
+    cocktailMainCardRender(responseArr);
   } catch (err) {
     Notify.failure('Oops, something went wrong!', {
       clickToClose: true,
@@ -42,8 +43,8 @@ async function onSearchSubmit(e) {
   }
 }
 
-function renderCocktailCards(arr) {
+/* function renderCocktailCards(arr) {
   //* Как примерно должен выглядеть рендер
   const markup = arr.map(hit => templateCocktailCards(hit)).join('');
   refs.mainCocktailsGallery.insertAdjacentHTML('beforeend', markup);
-}
+} */
