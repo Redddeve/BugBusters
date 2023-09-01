@@ -17,6 +17,7 @@ export const refs = {
   container: document.querySelector('.hero-select-items'),
   // ========================= Search =========================
   mainCocktailsText: document.querySelector('.search-section .change'),
+  heroBtnSearch: document.querySelector('.hero-select-button'),
   mainCocktailsGallery: document.querySelector('.search-section .gallery'),
   cardContainer: document.querySelector('.cocktail-cards-container'),
   cardItem: document.querySelector('#cocktail-card-item'),
