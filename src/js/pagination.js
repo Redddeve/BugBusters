@@ -73,9 +73,9 @@ export function renderPagination(cocktailArr) {
         currentPageIndex = 0;
       }
       cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
-      const str = `"button[data-action='${currentPageIndex + 1}']"`;
-      console.log(str);
-      refs.paginationNumberBtnsContainer.button.querySelector(str);
+      //   const str = `"button[data-action='${currentPageIndex + 1}']"`;
+      //   console.log(str);
+      //   refs.paginationNumberBtnsContainer.button.querySelector(str);
     }
 
     if (btnValue === 'rightPag') {
@@ -84,7 +84,7 @@ export function renderPagination(cocktailArr) {
         currentPageIndex = totalPagesNum - 1;
       }
       cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
-      console.log(refs.paginationNumberBtnsContainer);
+      //   console.log(refs.paginationNumberBtnsContainer);
     }
 
     if (!isNaN(Number(btnValue))) {
