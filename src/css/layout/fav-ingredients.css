@@ -61,6 +61,7 @@
   border: 1px solid #7e8fdd;
 }
 
+
 @media screen and (min-width: 768px) {
   .ingredients-gallery {
     row-gap: 32px;

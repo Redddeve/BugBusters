@@ -1,13 +1,7 @@
 import { Notify, Loading } from 'notiflix';
 import { fetchCocktailByName } from './fetch-data.js';
-import { cocktailMainCardRender } from './cocktail-fav-card-render.js';
+import { renderPagination } from './pagination.js';
 import { refs } from './refs';
-
-// if (window.innerWidth >= 1280) {
-//   const maxHits = 9;
-// } else {
-//   const maxHits = 8;
-// }
 
 let page = 1;
 // let maxPage = 1;
@@ -33,7 +27,13 @@ async function onSearchSubmit(e) {
 
     const responseArr = await fetchCocktailByName(query); //* Массив обьектов, в темплейте делаем деструктуризацию
     refs.mainCocktailsGallery.innerHTML = '';
-    cocktailMainCardRender(responseArr);
+    renderPagination(responseArr);
+    if (window.innerWidth >= 1280 && responseArr.length >= 9) {
+      refs.paginationContainer.classList.remove('is-hidden');
+    }
+    if (window.innerWidth >= 768 && responseArr.length >= 8) {
+      refs.paginationContainer.classList.remove('is-hidden');
+    }
   } catch (err) {
     Notify.failure('Oops, something went wrong!', {
       clickToClose: true,
@@ -44,9 +44,3 @@ async function onSearchSubmit(e) {
     e.target.reset();
   }
 }
-
-/* function renderCocktailCards(arr) {
-  //* Как примерно должен выглядеть рендер
-  const markup = arr.map(hit => templateCocktailCards(hit)).join('');
-  refs.mainCocktailsGallery.insertAdjacentHTML('beforeend', markup);
-} */

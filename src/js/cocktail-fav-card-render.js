@@ -37,6 +37,8 @@ function cocktailFavCardTemplate(
 }
 
 export function cocktailMainCardRender(cocktailArr) {
+  let allCardsMarkup = '';
+
   if (cocktailArr) {
     refs.containerNotFound.classList.add('is-hidden');
     refs.mainCocktailsText.classList.remove('is-hidden');
@@ -50,11 +52,10 @@ export function cocktailMainCardRender(cocktailArr) {
         );
       })
       .join('');
-
-    refs.mainCocktailsGallery.insertAdjacentHTML('beforeend', allCardsMarkup);
   } else {
-    refs.containerNotFoundFavCocktails.classList.remove('is-hidden');
+    cocktailMainCardNotFoundTemplate();
   }
+  refs.mainCocktailsGallery.insertAdjacentHTML('beforeend', allCardsMarkup);
 }
 
 function cocktailMainCardTemplate(

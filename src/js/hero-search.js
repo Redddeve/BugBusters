@@ -32,13 +32,11 @@ async function onHeroBtnSearchClick(e) {
   try {
     const response = await fetchCocktailByFirstLetter(query);
 
-    // cocktailMainCardRender(response);
-
     renderPagination(response);
-    if (window.innerWidth >= 1280 && data.length >= 9) {
+    if (window.innerWidth >= 1280 && response.length >= 9) {
       refs.paginationContainer.classList.remove('is-hidden');
     }
-    if (window.innerWidth >= 768 && data.length >= 8) {
+    if (window.innerWidth >= 768 && response.length >= 8) {
       refs.paginationContainer.classList.remove('is-hidden');
     }
   } catch (error) {
@@ -76,9 +74,7 @@ async function onSelectOptionClick(event) {
 
     const response = await fetchCocktailByFirstLetter(query);
 
-    // cocktailMainCardRender(response);
-
-    if (window.innerWidth <= 767 && data.length >= 8) {
+    if (window.innerWidth <= 767 && response.length >= 8) {
       refs.paginationContainer.classList.remove('is-hidden');
     }
 

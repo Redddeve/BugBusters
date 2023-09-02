@@ -21,8 +21,19 @@
   .menu-container {
     padding-left: 32px;
     padding-right: 32px;
-    height: 1024px;
   }
+
+  .menu-container::after {
+    content: "";
+    position: absolute;
+    opacity: 0.2;
+    background-image: url(/src/img/mobile-menu/star-bg.png);
+    z-index: 500;
+    right: 0;
+    bottom: 0;
+    width: 279px;
+    height: 279px;
+}
 }
 
 @media only screen and (min-width: 1280px) {
