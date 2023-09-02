@@ -8,6 +8,8 @@ import {
   clearAllBodyScrollLocks,
 } from 'body-scroll-lock';
 
+import './storage'
+
 let id;
 refs.gallery.addEventListener('click', throttle(onShowModal, 1000));
 refs.backdropCocktailEl.addEventListener('click', closeCocktailModal);
