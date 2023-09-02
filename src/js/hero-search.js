@@ -1,7 +1,11 @@
 import axios from 'axios';
 import { refs } from './refs.js';
-import { cocktailMainCardRender } from './cocktail-fav-card-render.js';
 import { renderPagination } from './pagination.js';
+import {
+  cocktailMainCardRender,
+  cocktailMainCardNotFoundTemplate,
+} from './cocktail-fav-card-render.js';
+
 
 const BASE_URL = 'https://drinkify-backend.p.goit.global/api/v1';
 const END_POINT = '/cocktails/search/?f=';
@@ -10,15 +14,13 @@ let page = 1;
 
 async function fetchCocktailByFirstLetter(query) {
   const url = `${BASE_URL}${END_POINT}${query}`;
-  return await axios
-    .get(url)
-    .then(response => {
-      //   console.log(response.data);
-      return response.data;
-    })
-    .catch(error => {
-      throw new Error('Error', error.message);
-    });
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    cocktailMainCardNotFoundTemplate();
+    // throw new Error('Error', error.message);
+  }
 }
 
 //===================== TABLET & DESKTOP ===========================
@@ -33,6 +35,7 @@ function onHeroBtnSearchClick(e) {
   }
   page = 1;
   const query = e.target.innerText;
+  //   console.log(query);
 
   refs.mainCocktailsGallery.innerHTML = '';
 

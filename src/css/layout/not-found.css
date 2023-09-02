@@ -1,4 +1,4 @@
-.not-found-info-container {
+/* .not-found-info-container {
   margin: 0 auto;
   width: 244px;
   height: fit-content;
@@ -6,18 +6,18 @@
   flex-direction: column;
   align-items: center;
   row-gap: 20px;
-}
+} */
 
-.not-found-search-txt-span {
+/* .not-found-search-txt-span {
   color: var(--color-turquoise, #9cdfdf);
   font-family: Poppins;
   font-size: 18px;
   font-style: italic;
   font-weight: 400;
   line-height: 24px;
-}
+} */
 
-.not-found-search-txt {
+/* .not-found-search-txt {
   color: var(--color-text-black, #242424);
   text-align: center;
   font-family: Poppins;
@@ -25,7 +25,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 1.33;
-}
+} */
 
 /* ======== FROM HERO CSS ========= */
 .hero-wrapper {
