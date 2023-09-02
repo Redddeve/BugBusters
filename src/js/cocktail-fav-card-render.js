@@ -39,7 +39,9 @@ function cocktailFavCardTemplate(
 export function cocktailMainCardRender(cocktailArr) {
   let allCardsMarkup = '';
 
-  if (cocktailArr.length !== 0) {
+  if (cocktailArr) {
+    refs.containerNotFound.classList.add('is-hidden');
+    refs.mainCocktailsText.classList.remove('is-hidden');
     allCardsMarkup = cocktailArr
       .map(el => {
         return cocktailMainCardTemplate(
@@ -51,9 +53,7 @@ export function cocktailMainCardRender(cocktailArr) {
       })
       .join('');
   } else {
-    console.log(1);
-    allCardsMarkup = cocktailMainCardNotFoundTemplate();
-    console.log(allCardsMarkup);
+    cocktailMainCardNotFoundTemplate();
   }
 
   refs.mainCocktailsGallery.insertAdjacentHTML('beforeend', allCardsMarkup);
@@ -130,54 +130,6 @@ function cocktailMainCardTemplate(
 }
 
 export function cocktailMainCardNotFoundTemplate() {
-  const markup = `<section class="not-found-search">
-        <div class="not-found-info-container container">
-          <picture>
-            <source
-              media="(min-width: 768px)"
-              srcset="
-                ./img/notfound/notfound-webp@1x.webp 1x,
-                ./img/notfound/notfound-webp@2x.webp 2x
-              "
-              type="image/webp"
-            />
-            <source
-              media="(min-width: 768px)"
-              srcset="
-                ./img/notfound/notfound@1x.png 1x,
-                ./img/notfound/notfound@2x.png 2x
-              "
-              type="image/png"
-            />
-            <source
-              media="(max-width: 767px)"
-              srcset="
-                ./img/notfound/notfound-mob-webp@1x.webp 1x,
-                ./img/notfound/notfound-mob-webp@2x.webp 2x
-              "
-              type="image/png"
-            />
-            <source
-              media="(max-width: 767px)"
-              srcset="
-                ./img/notfound/notfound-mob@1x.png 1x,
-                ./img/notfound/notfound-mob@2x.png 2x
-              "
-              type="image/png"
-            />
-            <img
-              class="not-found-cocktail-girl"
-              src="./img/notfound/notfound-mob@1x.png"
-              alt="cocktail-img"
-              loading="lazy"
-            />
-          </picture>
-          <p class="not-found-search-txt">
-            Sorry, we
-            <span class="not-found-search-txt-span">didn’t find</span> any
-            cocktail for you
-          </p>
-        </div>
-</section>`;
-  return markup;
+  refs.containerNotFound.classList.remove('is-hidden');
+  refs.mainCocktailsText.classList.add('is-hidden');
 }
