@@ -16,7 +16,8 @@ async function fetchCocktailByFirstLetter(query) {
     const response = await axios.get(url);
     return response.data;
   } catch (error) {
-    console.log('error');
+    cocktailMainCardNotFoundTemplate();
+    // throw new Error('Error', error.message);
   }
 }
 
