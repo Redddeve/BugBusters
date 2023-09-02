@@ -56,6 +56,10 @@ export function renderPagination(cocktailArr) {
   refs.rightPagBtn[0].addEventListener('click', onPaginationBtnClick);
 
   let currentPageIndex = 0;
+  let numBtnKey = `button[data-action='${currentPageIndex + 1}']`;
+  let numBtnActive =
+    refs.paginationNumberBtnsContainer.querySelector(numBtnKey);
+  numBtnActive.classList.add('pagination-button-item-active');
 
   function onPaginationBtnClick(evt) {
     evt.preventDefault();
@@ -73,9 +77,6 @@ export function renderPagination(cocktailArr) {
         currentPageIndex = 0;
       }
       cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
-      //   const str = `"button[data-action='${currentPageIndex + 1}']"`;
-      //   console.log(str);
-      //   refs.paginationNumberBtnsContainer.button.querySelector(str);
     }
 
     if (btnValue === 'rightPag') {
@@ -84,7 +85,8 @@ export function renderPagination(cocktailArr) {
         currentPageIndex = totalPagesNum - 1;
       }
       cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
-      //   console.log(refs.paginationNumberBtnsContainer);
+      numBtnKey = `button[data-action='${currentPageIndex + 1}']`;
+      numBtnActive.classList.add('pagination-button-item-active');
     }
 
     if (!isNaN(Number(btnValue))) {
