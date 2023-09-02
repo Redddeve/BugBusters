@@ -7,6 +7,7 @@ refs.ingredList.addEventListener('click', onIngredClick);
 
 async function onIngredClick(e) {
   const ingredName = e.target.textContent;
+  if(e.target.classList.contains("ingredients-link")){
   try {
     const response = await getIngredient(ingredName);
     const result = response.find(ing => ing.title === ingredName);
@@ -25,6 +26,7 @@ async function onIngredClick(e) {
     });
     console.error(err);
   }
+}
 }
 
 // refs.closeModalBtn.addEventListener('click', closeIngredModal);
