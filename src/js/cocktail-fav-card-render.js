@@ -50,11 +50,10 @@ export function cocktailMainCardRender(cocktailArr) {
         );
       })
       .join('');
-
-    refs.mainCocktailsGallery.insertAdjacentHTML('beforeend', allCardsMarkup);
   } else {
-    refs.containerNotFoundFavCocktails.classList.remove('is-hidden');
+    cocktailMainCardNotFoundTemplate();
   }
+  refs.mainCocktailsGallery.insertAdjacentHTML('beforeend', allCardsMarkup);
 }
 
 function cocktailMainCardTemplate(
