@@ -1,171 +1,154 @@
-import onShowModal from './modal-cocktails'
-import onIngredClick from './modal-ingredients'
+import onShowModal from './modal-cocktails';
+import onIngredClick from './modal-ingredients';
+import { refs } from './refs';
 
-const favCock = document.querySelector('.gallery-for-fav')
-const newSaveButton = document.querySelector('.saveButton')
-const newDeleteButton = document.querySelector('.deleteButtonn')
-const doDelete = document.querySelector('.to-delete')
+const favCock = document.querySelector('.gallery-for-fav');
+const newSaveButton = document.querySelector('.saveButton');
+const newDeleteButton = document.querySelector('.deleteButtonn');
+const doDelete = document.querySelector('.to-delete');
 
 // localStorage.clear()
 
 let arrayFavorite = [];
 
 function pushToFav() {
-
-    let localFavoritesString = localStorage.getItem("favorites");
-    if (JSON.parse(localFavoritesString).includes(dataSet)) {
-        return
-    } else{
-    arrayFavorite.push(dataSet)
+  let localFavoritesString = localStorage.getItem('favorites');
+  if (JSON.parse(localFavoritesString).includes(dataSet)) {
+    return;
+  } else {
+    arrayFavorite.push(dataSet);
     console.log(arrayFavorite);
-    }
-};
+  }
+}
 
 function savedFav() {
-   localStorage.setItem("favorites", JSON.stringify(arrayFavorite));
-} 
-
-
+  localStorage.setItem('favorites', JSON.stringify(arrayFavorite));
+}
 
 function getFavLocal() {
-  let localFavoritesString = localStorage.getItem("favorites");
+  let localFavoritesString = localStorage.getItem('favorites');
   if (localFavoritesString !== null) {
     arrayFavorite = JSON.parse(localFavoritesString);
-      displayCocktails();
-      
-  }                                                                         
+    displayCocktails();
+  }
 }
-getFavLocal() 
+getFavLocal();
 
 // const gallaryFav = document.querySelector('.father-for-fav')
-const divEvent = document.querySelector('.for-event')
-const gallery = document.querySelector('.gallery')
-
-
+const divEvent = document.querySelector('.for-event');
+const gallery = document.querySelector('.gallery');
 
 // главная
 gallery.addEventListener('click', event => {
-    if ( //* onClick add fav
-        event.target.nodeName === 'BUTTON' &&
-        event.target.nodeName === 'SVG' ||
-        event.target.closest('.saveButton')
-    ) {
-        dataSet = event.target.closest('.saveButton').dataset.id
-        console.log(event.target)
-        console.log(event.target.className)
-        addNewCocktail();
-        
-    }
-    if ( //* onClick remove fav
-        event.target.nodeName === 'BUTTON' &&
-        event.target.nodeName === 'SVG' ||
-        event.target.closest('.deleteButtonn')
-    ) {
-        console.log(event.target)
-        dataSet = event.target.closest('.deleteButtonn').dataset.id
-        deleteFromFavorite();
-        deleteMurkup()
-        
-    }
+  if (
+    //* onClick add fav
+    (event.target.nodeName === 'BUTTON' && event.target.nodeName === 'SVG') ||
+    event.target.closest('.saveButton')
+  ) {
+    dataSet = event.target.closest('.saveButton').dataset.id;
+    console.log(event.target);
+    console.log(event.target.className);
+    addNewCocktail();
+  }
+  if (
+    //* onClick remove fav
+    (event.target.nodeName === 'BUTTON' && event.target.nodeName === 'SVG') ||
+    event.target.closest('.deleteButtonn')
+  ) {
+    console.log(event.target);
+    dataSet = event.target.closest('.deleteButtonn').dataset.id;
+    deleteFromFavorite();
+    deleteMurkup();
+  }
 
-    // if (
-    //     event.target.nodeName === 'BUTTON' &&
-    //     event.target.closest('.learn-more-btn')
-    // ) {
-    //     console.log(event.target)
+  // if (
+  //     event.target.nodeName === 'BUTTON' &&
+  //     event.target.closest('.learn-more-btn')
+  // ) {
+  //     console.log(event.target)
 
-    //     dataSet = event.target.closest('.learn-more-btn').dataset.id
-    
-    //     showCocktailModal()
-    
-    // }
+  //     dataSet = event.target.closest('.learn-more-btn').dataset.id
 
+  //     showCocktailModal()
+
+  // }
 });
 
-
-
-
-
-
-
-const test = document.querySelector('.cocktail-modal')
+const test = document.querySelector('.cocktail-modal');
 
 test.addEventListener('click', event => {
-    if ( //* onClick add fav
-        event.target.nodeName === 'BUTTON' &&
-        event.target.nodeName === 'SVG' ||
-        event.target.closest('.add-to-fav-btn')
-) {
-        dataSet = event.target.closest('.add-to-fav-btn').dataset.id
-        console.log(event.target)
-        console.log(event.target.className)
-        addNewCocktail();
-}
-if ( //* onClick remove fav
-  event.target.nodeName === 'BUTTON' &&
-        event.target.nodeName === 'SVG' ||
-        event.target.closest('.remove-from-fav-btn')
-) {
-            // console.log(event.target)
-  dataSet = event.target.closest('.remove-from-fav-btn').dataset.id
+  if (
+    //* onClick add fav
+    (event.target.nodeName === 'BUTTON' && event.target.nodeName === 'SVG') ||
+    event.target.closest('.add-to-fav-btn')
+  ) {
+    dataSet = event.target.closest('.add-to-fav-btn').dataset.id;
+    console.log(event.target);
+    console.log(event.target.className);
+    addNewCocktail();
+  }
+  if (
+    //* onClick remove fav
+    (event.target.nodeName === 'BUTTON' && event.target.nodeName === 'SVG') ||
+    event.target.closest('.remove-from-fav-btn')
+  ) {
+    // console.log(event.target)
+    dataSet = event.target.closest('.remove-from-fav-btn').dataset.id;
     deleteFromFavorite();
-    deleteMurkup()
-    }
+    deleteMurkup();
+  }
 });
 
-
-const test2 = document.querySelector('.modal-ingredients-list')
+const test2 = document.querySelector('.modal-ingredients-list');
 console.log(test2);
 
-
-
-
 async function addNewCocktail() {
-    await pushToFav();
-    await savedFav();
-};
+  await pushToFav();
+  await savedFav();
+}
 
 function deleteFromFavorite() {
-    
-    if (arrayFavorite.includes(dataSet)) {
-        const dataSetIndex = arrayFavorite.indexOf(dataSet);
-        arrayFavorite.splice(dataSetIndex, 1);
-        // console.log(dataSetIndex);
-        savedFav();
-        };
-};
-
+  if (arrayFavorite.includes(dataSet)) {
+    const dataSetIndex = arrayFavorite.indexOf(dataSet);
+    arrayFavorite.splice(dataSetIndex, 1);
+    // console.log(dataSetIndex);
+    savedFav();
+  }
+}
 
 /** ========================= Fetch and Markup ========================= */
 
 async function getArrayOfCocktail(array) {
-    //          if (array === []) {
-    //     return
-    // }
-        const response = await fetch(`https://drinkify-backend.p.goit.global/api/v1/cocktails/lookup/?ids=${array}`)   
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
-    }
-    const responseJson = await response.json();
-    console.log(responseJson);
-    return responseJson;
+  //          if (array === []) {
+  //     return
+  // }
+  const response = await fetch(
+    `https://drinkify-backend.p.goit.global/api/v1/cocktails/lookup/?ids=${array}`
+  );
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  const responseJson = await response.json();
+  console.log(responseJson);
+  return responseJson;
 }
 
 async function displayCocktails() {
-    try {
-        const data = await getArrayOfCocktail(arrayFavorite);
-        console.log(data)
-        data.forEach(element => {
-            markup(element);
-        });
-    } catch (error) {
-        console.error('Error:', error);
-    }
+  try {
+    const data = await getArrayOfCocktail(arrayFavorite);
+    refs.containerNotFoundFavCocktails.classList.add('is-hidden');
+    console.log(data);
+    data.forEach(element => {
+      markup(element);
+    });
+  } catch (error) {
+    refs.containerNotFoundFavCocktails.classList.remove('is-hidden');
+    console.error('Error:', error);
+  }
 }
 
-function markup({ drinkThumb, drink, instructions, _id}) {
-
-    const markup = `<li class="to-delete"><div class="cocktail-card-main" id="cocktail-card-item">
+function markup({ drinkThumb, drink, instructions, _id }) {
+  const markup = `<li class="to-delete"><div class="cocktail-card-main" id="cocktail-card-item">
         <img class="cocktail-card-img" src="${drinkThumb}" alt="${drink}" width="" height="" />
         <h3 class="card-cocktail-name">${drink}</h3>
         <p class="card-cocktail-desc">${instructions}</p>
@@ -178,28 +161,18 @@ function markup({ drinkThumb, drink, instructions, _id}) {
       </button>
         </div>
       </div></li>`;
-    
-    favCock.insertAdjacentHTML("afterbegin", markup)
+
+  favCock.insertAdjacentHTML('afterbegin', markup);
 }
-
-
 
 // // /** ========================= Удалить ========================= */
 
-
 function deleteMurkup() {
-    favCock.innerHTML = "";
-    // favCock.removeChild(doDelete)
-    // doDelete.remove();
-        displayCocktails();
-
+  favCock.innerHTML = '';
+  // favCock.removeChild(doDelete)
+  // doDelete.remove();
+  displayCocktails();
 }
-
-
-
-
-
-
 
 // function disable() {
 //     saveBtn.disabled = true;
@@ -211,9 +184,6 @@ function deleteMurkup() {
 //     removeFavButton.disabled = true;
 // }
 
-
-
-
 // newSaveButton.addEventListener('click', async () => {
 //     await pushToFav();
 //     await savedFav();
@@ -221,11 +191,8 @@ function deleteMurkup() {
 // });
 // newDeleteButton.addEventListener('click',deleteFromFavorite)
 
-
-
-
- // console.log(event.target.className);
-    // const targetButton = event.target;
+// console.log(event.target.className);
+// const targetButton = event.target;
 //     if (targetButton.classList.contains('saveButton')) {
 //             dataSet = targetButton.dataset.id;
 //         addNewCocktail();
@@ -234,9 +201,7 @@ function deleteMurkup() {
 //         deleteFromFavorite();
 //     }
 
-
 // // /** ========================= Альтернативные функции для роботы с LocalStorage ========================= */
-
 
 // export function saveToStorage(key, value) {
 //   let setValue;
@@ -267,8 +232,6 @@ function deleteMurkup() {
 //     console.error(error);
 //   }
 // }
-
-
 
 // export function deleteFromStorage(key, value) {
 //   try {

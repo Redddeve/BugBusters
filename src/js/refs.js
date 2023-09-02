@@ -40,12 +40,21 @@ export const refs = {
   closeModalBtn: document.querySelector('.ingred-modal-x-btn'),
   backdropIngred: document.querySelector('.backdrop-ingred'),
   // =============modals==============
-ingredientsGallery: document.querySelector('.ingredients-gallery'),
+  ingredientsGallery: document.querySelector('.ingredients-gallery'),
+  // ====================== Fav cocktails ========================
+  containerNotFoundFavCocktails: document.querySelector(
+    '.not-found-info-container-fav-cocktails'
+  ),
+  favCocktailsGallery: document.querySelector('.gallery-for-fav'),
   //=================== pagination=============
   paginationContainer: document.querySelector('.pagination-buttons-container'),
   leftPagBtn: document.querySelectorAll("[data-action='leftPag']"),
   rightPagBtn: document.querySelectorAll("[data-action='rightPag']"),
   paginationNumberBtnsContainer: document.querySelector(
     '.number-buttons-container'
+  ),
+  // ===================== Fav ingredients =======================
+  containerNotFoundFavIng: document.querySelector(
+    '.not-found-info-container-fav-ing'
   ),
 };
