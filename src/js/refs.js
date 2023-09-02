@@ -53,4 +53,8 @@ export const refs = {
   paginationNumberBtnsContainer: document.querySelector(
     '.number-buttons-container'
   ),
+  // ===================== Fav ingredients =======================
+  containerNotFoundFavIng: document.querySelector(
+    '.not-found-info-container-fav-ing'
+  ),
 };

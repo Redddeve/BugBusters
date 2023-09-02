@@ -15,6 +15,56 @@
         <div class="container">
           <h1 class="fav-ingredients-title">Favorite ingredients</h1>
           <ul class="ingredients-gallery"></ul>
+
+          <div class="not-found-info-container-fav-ing">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="
+                  ./img/notfound/notfound-webp@1x.webp 1x,
+                  ./img/notfound/notfound-webp@2x.webp 2x
+                "
+                type="image/webp"
+              />
+              <source
+                media="(min-width: 768px)"
+                srcset="
+                  ./img/notfound/notfound@1x.png 1x,
+                  ./img/notfound/notfound@2x.png 2x
+                "
+                type="image/png"
+              />
+              <source
+                media="(max-width: 767px)"
+                srcset="
+                  ./img/notfound/notfound-mob-webp@1x.webp 1x,
+                  ./img/notfound/notfound-mob-webp@2x.webp 2x
+                "
+                type="image/png"
+              />
+              <source
+                media="(max-width: 767px)"
+                srcset="
+                  ./img/notfound/notfound-mob@1x.png 1x,
+                  ./img/notfound/notfound-mob@2x.png 2x
+                "
+                type="image/png"
+              />
+              <img
+                class="not-found-img"
+                src="./img/notfound/notfound-mob@1x.png"
+                alt="cocktail-img"
+                loading="lazy"
+              />
+            </picture>
+            <p class="not-found-search-txt">
+              You haven't added any
+              <span class="not-found-search-txt-span"
+                >favorite ingredients</span
+              >
+              yet
+            </p>
+          </div>
         </div>
       </section>
     </main>
