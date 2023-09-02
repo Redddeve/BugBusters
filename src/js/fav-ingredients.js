@@ -4,7 +4,16 @@ import { refs } from './refs';
 
 localStorage.setItem(
   'ingredients',
-  JSON.stringify(['64aebb7f82d96cc69e0eb4a5'])
+  JSON.stringify([
+    '64aebb7f82d96cc69e0eb4a5',
+    '64aebb7f82d96cc69e0eb4a5',
+    '64aebb7f82d96cc69e0eb4a5',
+    '64aebb7f82d96cc69e0eb4a5',
+    '64aebb7f82d96cc69e0eb4a5',
+    '64aebb7f82d96cc69e0eb4a5',
+    '64aebb7f82d96cc69e0eb4a5',
+    '64aebb7f82d96cc69e0eb4a5',
+  ])
 );
 
 const renderFavIng = () => {
