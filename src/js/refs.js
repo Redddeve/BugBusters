@@ -46,4 +46,11 @@ export const refs = {
     '.not-found-info-container-fav-cocktails'
   ),
   favCocktailsGallery: document.querySelector('.gallery-for-fav'),
+  //=================== pagination=============
+  paginationContainer: document.querySelector('.pagination-buttons-container'),
+  leftPagBtn: document.querySelectorAll("[data-action='leftPag']"),
+  rightPagBtn: document.querySelectorAll("[data-action='rightPag']"),
+  paginationNumberBtnsContainer: document.querySelector(
+    '.number-buttons-container'
+  ),
 };
