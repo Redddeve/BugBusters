@@ -1,7 +1,7 @@
 import { refs } from './refs.js';
 import throttle from 'lodash.throttle';
 
-refs.toggleListButtonUp.addEventListener('click', throttle(favToggleMenu, 500));
+refs.toggleListButtonUp.addEventListener('click', throttle(favToggleMenu, 5000));
 refs.toggleListButtonDown.addEventListener(
   'click',
   throttle(favToggleMenu, 500)

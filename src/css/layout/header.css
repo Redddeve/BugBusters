@@ -183,3 +183,7 @@ input:checked + .slider-desc:before {
     display: none;
   }
 }
+
+.burger-btn {
+  stroke: var(--color-text-black);
+}
