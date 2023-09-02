@@ -17,6 +17,12 @@ export default function markupIngredient({
   if (favIngIds) {
     isInFavs = favIngIds.includes(_id) ? true : false;
   }
+  if (!abv) abv = 0;
+  if (!country) country = 'Sorry, not specified.';
+  if (!description) description = 'Sorry, not specified.';
+  if (!flavour) flavour = 'Sorry, not specified.';
+  if (!type) type = 'Sorry, not specified.';
+
   refs.ingreModalInner.innerHTML = `    
     <h3 class="ingred-header">${title}</h3>
     <p class="ingred-type">${type}</p>
