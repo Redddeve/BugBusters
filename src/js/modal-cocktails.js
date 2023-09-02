@@ -24,7 +24,7 @@ function onShowModal(e) {
   }
 }
 
-async function showCocktailModal(event) {
+ async function showCocktailModal(event) {
   try {
     const response = await getCocktail(id);
     // .then(data => {
