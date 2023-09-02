@@ -36,6 +36,8 @@ function onHeroBtnSearchClick(e) {
 
   refs.mainCocktailsGallery.innerHTML = '';
 
+  refs.paginationContainer.classList.add('is-hidden');
+
   fetchCocktailByFirstLetter(query)
     .then(data => {
       //   console.log(data);
@@ -65,14 +67,20 @@ function onSelectOptionClick(event) {
 
   refs.mainCocktailsGallery.innerHTML = '';
 
+  refs.paginationContainer.classList.add('is-hidden');
+
   fetchCocktailByFirstLetter(query)
     .then(data => {
       //   console.log(data);
 
-      renderPagination(data);
+      //   if (data.length === 0) {
+      //     refs.paginationContainer.classList.add('is-hidden');
+      //   }
       if (window.innerWidth <= 767 && data.length >= 8) {
         refs.paginationContainer.classList.remove('is-hidden');
       }
+
+      renderPagination(data);
     })
     .catch(error => console.log('Error', error));
 }

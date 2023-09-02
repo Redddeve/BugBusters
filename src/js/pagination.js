@@ -2,17 +2,18 @@ import { refs } from './refs.js';
 import { cocktailMainCardRender } from './cocktail-fav-card-render.js';
 
 export function renderPagination(cocktailArr) {
-  let totalCocktailCount = cocktailArr.length;
+  let cardsPerPage;
 
-  if (!totalCocktailCount) {
-    return;
-  }
-
-  let cardsPerPage = 8;
   if (window.innerWidth >= 1280) {
     cardsPerPage = 9;
   } else {
     cardsPerPage = 8;
+  }
+
+  let totalCocktailCount = cocktailArr.length;
+
+  if (totalCocktailCount <= cardsPerPage) {
+    refs.paginationContainer.classList.add('is-hidden');
   }
 
   let totalPagesNum = Math.ceil(totalCocktailCount / cardsPerPage);
@@ -77,7 +78,6 @@ export function renderPagination(cocktailArr) {
       if (currentPageIndex < 0) {
         currentPageIndex = 0;
       }
-      console.log('currentPageIndex ', currentPageIndex);
       cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
     }
 
@@ -86,13 +86,11 @@ export function renderPagination(cocktailArr) {
       if (currentPageIndex > totalPagesNum - 1) {
         currentPageIndex = totalPagesNum - 1;
       }
-      //   console.log('currentPageIndex ', currentPageIndex);
       cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
     }
 
     if (!isNaN(Number(btnValue))) {
       currentPageIndex = Number(btnValue - 1);
-      //   console.log('currentPageIndex ', currentPageIndex);
       cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
     }
   }

@@ -4,7 +4,7 @@
   color: var(--color-background-white, #fdfdff);
 }
 
-@media only screen and (min-width: 376px) {
+@media only screen and (min-width: 320px) {
   /* .container {
     max-width: 767px;
   } */
@@ -88,15 +88,11 @@
     fill: var(--color-violet, #7e8fdd);
   }
 
-  .page-num-5 {
-    display: none;
-  }
-
   .page-num-6 {
     display: none;
   }
 
-  .page-num-6 {
+  .page-num-7 {
     display: none;
   }
 }
