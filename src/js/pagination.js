@@ -3,8 +3,7 @@ import { cocktailMainCardRender } from './cocktail-fav-card-render.js';
 
 // const refs = {
 //   paginationContainer: document.querySelector('.pagination-buttons-container'),
-//     leftPagBtn: document.querySelector('.left-pag-btn'),
-//     rightPagBtn: document.querySelector('.right-pag-btn'),
+//
 
 //     fifthBtn: document.querySelector('.page-num-5'),
 //     sixthBtn: document.querySelector('.page-num-6'),
@@ -719,13 +718,17 @@ export function renderPagination(cocktailArr) {
 
   refs.paginationContainer.addEventListener('click', onPaginationBtnClick);
 
+  const leftPagBtn = document.querySelector('#left-pag-btn');
+  const rightPagBtn = document.querySelector('#right-pag-btn');
+
   function onPaginationBtnClick(evt) {
     evt.preventDefault();
+
+    const toSearch = document.getElementById('search');
+    toSearch.scrollIntoView({ behavior: 'smooth' }, true);
+
     let currentPageIndex = 0;
     let btnValue = evt.target.value;
-
-    console.log(btnValue);
-    console.log(evt.target);
 
     refs.mainCocktailsGallery.innerHTML = '';
 
@@ -733,24 +736,32 @@ export function renderPagination(cocktailArr) {
       return;
     }
 
-    if (btnValue === 'left' && currentPageIndex !== 0) {
+    if (btnValue === 'left') {
       currentPageIndex -= 1;
-      if (currentPageIndex >= 0) {
-        cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
+      if (currentPageIndex < 0) {
+        currentPageIndex = 0;
       }
+      console.log('currentPageIndex ', currentPageIndex);
+      cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
     }
 
-    if (btnValue === 'right' && currentPageIndex < totalPagesNum) {
+    if (btnValue === 'right') {
       currentPageIndex += 1;
       if (currentPageIndex <= totalPagesNum) {
+        console.log('currentPageIndex ', currentPageIndex);
         cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
       }
     }
 
     if (!isNaN(Number(btnValue - 1))) {
       currentPageIndex = Number(btnValue - 1);
+      console.log('currentPageIndex ', currentPageIndex);
       cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
     }
+
+    console.log('btnValue ', btnValue);
+    console.log(evt.target);
+    // console.log('pageNum ', currentPageIndex);
   }
 }
 

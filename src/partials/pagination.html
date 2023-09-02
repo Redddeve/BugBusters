@@ -1,13 +1,26 @@
 <div class="pagination-buttons-container container">
-  <button class="left-pag-btn pagination-button-item" type="button">
-    <svg class="page-left-icon-container" value="100">
-      <use
-        class="page-left-icon"
-        href="./img/svg/icons.svg#page-left"
-        value="100"
-      ></use>
-    </svg>
-  </button>
+  <div id="left-pag-btn" class="left-pag-btn-div">
+    <button class="left-pag-btn pagination-button-item" type="button">
+      <svg class="page-left-icon-container">
+        <use
+          class="page-left-icon"
+          href="./img/svg/icons.svg#page-left"
+          value="left"
+        ></use>
+      </svg>
+    </button>
+  </div>
+  <div id="right-pag-btn" class="right-pag-btn-div">
+    <button class="right-pag-btn pagination-button-item" type="button">
+      <svg class="page-right-icon-container" id="right-pag-btn-svg">
+        <use
+          class="page-right-icon"
+          href="./img/svg/icons.svg#page-right"
+        ></use>
+      </svg>
+    </button>
+  </div>
+
   <button class="page-num-1 pagination-button-item" type="button" value="1">
     1
   </button>
@@ -28,15 +41,6 @@
   </button>
   <button class="page-num-7 pagination-button-item" type="button" value="7">
     7
-  </button>
-  <button
-    class="right-pag-btn pagination-button-item"
-    type="button"
-    value="right"
-  >
-    <svg class="page-right-icon-container">
-      <use class="page-right-icon" href="./img/svg/icons.svg#page-right"></use>
-    </svg>
   </button>
 </div>
 
