@@ -1,4 +1,4 @@
-import { every } from 'lodash';
+import { every, throttle } from 'lodash';
 import { Notify } from 'notiflix';
 import { refs } from './refs';
 import { getIngredient } from './fetch-data';
@@ -32,9 +32,11 @@ function closeIngredModal(e) {
   ) {
     return;
   }
+  throttle(cleanIngredMarkup, 100)
   refs.backdropIngred.classList.add('is-hidden');
-  refs.ingreModalInner.innerHTML = '';
-}
+  }
+
+function cleanIngredMarkup () {refs.ingreModalInner.innerHTML = ''}
 
 function markupIngredient({
   abv,
@@ -44,7 +46,14 @@ function markupIngredient({
   title,
   type,
   _id,
-}) {
+}) 
+{
+  if(!abv) abv = 0;
+  if(!country) country = "####";
+  if(!description) description = "####";
+  if(!flavour) flavour = "####";
+  if(!type) type = "####";
+    
   refs.ingreModalInner.innerHTML = `    
     <h3 class="ingred-header">${title}</h3>
     <p class="ingred-type">${type}</p>
