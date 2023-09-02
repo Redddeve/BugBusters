@@ -33,11 +33,12 @@ export const refs = {
   ingredList: document.querySelector('.modal-ingredients-list'),
   instr: document.querySelector('.modal-instractions'),
   toFavoriteBtn: document.querySelector('.add-to-fav-btn'),
-  removeFavoriteBtn: document.querySelector('.del-fav-btn'),
+  removeFavoriteBtn: document.querySelector('.remove-from-fav-btn'),
 
   ingredList: document.querySelector('.modal-ingredients-list'),
   ingreModalInner: document.querySelector('.ingred-modal-inner'),
   closeModalBtn: document.querySelector('.ingred-modal-x-btn'),
   backdropIngred: document.querySelector('.backdrop-ingred'),
   // =============modals==============
+  ingredientsGallery: document.querySelector('.ingredients-gallery'),
 };
