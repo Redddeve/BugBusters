@@ -21,7 +21,7 @@ export const refs = {
   mainCocktailsGallery: document.querySelector('.search-section .gallery'),
   cardContainer: document.querySelector('.cocktail-cards-container'),
   cardItem: document.querySelector('#cocktail-card-item'),
-
+  containerNotFound: document.querySelector('.not-found-info-container'),
   // =============modals==============
   cocktailMarkup: document.querySelector('.cocktail-markup'),
   closeCocktailModalBtn: document.querySelector('.cocktail-modal-x-btn'),

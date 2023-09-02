@@ -16,7 +16,8 @@ async function fetchCocktailByFirstLetter(query) {
     const response = await axios.get(url);
     return response.data;
   } catch (error) {
-    console.log('error');
+    cocktailMainCardNotFoundTemplate();
+    // throw new Error('Error', error.message);
   }
 }
 
@@ -32,6 +33,7 @@ function onHeroBtnSearchClick(e) {
   }
   page = 1;
   const query = e.target.innerText;
+  //   console.log(query);
 
   refs.mainCocktailsGallery.innerHTML = '';
 
