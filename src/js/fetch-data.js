@@ -4,6 +4,7 @@ const BASE_URL = 'https://drinkify-backend.p.goit.global/api/v1/';
 const RANDOM_ENDPOINT = `cocktails/?r=`;
 const COCKT_SEARCH_NAME = `cocktails/search/?`;
 const COCKT_LOOKUP_ID = `cocktails/lookup/?id=`;
+const COCKT_SEARCH_ONE_LETTER = 'cocktails/search/?f=';
 const INGRED_SEARCH_NAME = `ingredients/search/?`;
 
 export async function fetchRandomCocktails(num) {
@@ -26,14 +27,28 @@ export async function fetchCocktailByName(query) {
     });
 }
 
-async function lookupMultipleCocktails(arr) {
-  const getByID = arr.map(async data => {
-    const res = await fetch(`${BASE_URL}${COCKT_LOOKUP_ID}${data._id}`);
-    return res.json();
+export async function fetchCocktailByFirstLetter(query) {
+  const url = `${BASE_URL}${COCKT_SEARCH_ONE_LETTER}${query}`;
+  return await axios.get(url).then(res => {
+    if (res.status !== 200) {
+      throw new Error(res.statusText);
+    }
+    return res.data;
   });
+}
 
-  const cockts = await Promise.all(getByID);
-  return cockts.map(data => data[0]);
+async function lookupMultipleCocktails(arr) {
+  try {
+    const getByID = arr.map(async data => {
+      const res = await fetch(`${BASE_URL}${COCKT_LOOKUP_ID}${data._id}`);
+      return res.json();
+    });
+
+    const cockts = await Promise.all(getByID);
+    return cockts.map(data => data[0]);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 // ===================modals===============
