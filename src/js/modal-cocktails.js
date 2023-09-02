@@ -2,15 +2,25 @@ import { Notify } from 'notiflix';
 import { refs } from './refs';
 import { getCocktail } from './fetch-data';
 import throttle from 'lodash.throttle';
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 let id;
 refs.gallery.addEventListener('click', throttle(onShowModal, 1000));
 refs.backdropCocktailEl.addEventListener('click', closeCocktailModal);
 
+const bodyScrollLock = require('body-scroll-lock');
+const disableBodyScroll = bodyScrollLock.disableBodyScroll;
+const enableBodyScroll = bodyScrollLock.enableBodyScroll;
+const targetElement = refs.backdropCocktailEl;
+// disableBodyScroll(targetElement);
+// enableBodyScroll(targetElement);
+
 function onShowModal(e) {
+  
   id = e.target.dataset.id;
   if (e.target.dataset.id && e.target.classList.contains('learn-more-btn')) {
     showCocktailModal();
+    disableBodyScroll(targetElement);
   }
 }
 
@@ -44,6 +54,8 @@ function closeCocktailModal(e) {
   refs.instr.textContent = '';
   refs.toFavoriteBtn.dataset.id = '';
   refs.removeFavoriteBtn.dataset.id = '';
+  enableBodyScroll(targetElement);
+
 }
 
 function markupCocktail({ drink, drinkThumb, instructions, ingredients, _id }) {
@@ -51,7 +63,7 @@ function markupCocktail({ drink, drinkThumb, instructions, ingredients, _id }) {
     .map(
       ingredient => `
     <li class="ingredients-list-item">
-    <a class="ingredients-link" href="#">${ingredient.title}</a>
+    <a class="ingredients-link" href="#cocktail-modal">${ingredient.title}</a>
     </li>`
     )
     .join('');
