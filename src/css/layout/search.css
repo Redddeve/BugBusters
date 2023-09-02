@@ -156,3 +156,27 @@
     right: -438px;
   }
 }
+
+.search-container::before {
+  width: 738.545px;
+  height: 1120.72px;
+  transform: rotate(-157.904deg);
+  background: rgba(156, 223, 223);
+  opacity: 0.5;
+
+  content: '';
+  top: 3110px;
+  right: 319px;
+
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  display: block;
+}
+
+@media only screen and (min-width: 768px) {
+  .search-container::before {
+    display: none;
+  }
+}
