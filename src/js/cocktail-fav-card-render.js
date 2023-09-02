@@ -38,6 +38,7 @@ function cocktailFavCardTemplate(
 
 export function cocktailMainCardRender(cocktailArr) {
   let allCardsMarkup = '';
+
   if (cocktailArr) {
     refs.containerNotFound.classList.add('is-hidden');
     refs.mainCocktailsText.classList.remove('is-hidden');

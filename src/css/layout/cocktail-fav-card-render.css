@@ -61,7 +61,7 @@
   }
 
   .learn-more-btn {
-    padding: 14px 71px 14px 71px;
+    padding: 14px 0 14px 0;
     background: transparent;
     border: 1px solid var(--color-violet, #7e8fdd);
     border-radius: 12px;
@@ -196,7 +196,7 @@
   }
 
   .learn-more-btn {
-    padding: 16px 55px 15px 55px;
+    padding: 16px 0 15px 0;
     background: transparent;
     border: 1px solid var(--color-violet, #7e8fdd);
     border-radius: 12px;
@@ -211,6 +211,7 @@
     font-weight: 600;
     line-height: 1.33; /* 133.333% */
     letter-spacing: 0.36px;
+    transition: var(--anim-fast);
   }
 
   .learn-more-btn:hover,

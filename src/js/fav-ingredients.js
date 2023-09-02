@@ -1,11 +1,9 @@
+import './header.js';
+import { Notify } from 'notiflix';
+import { refs } from './refs';
 import { fetchIngredient } from './fetch-data';
 import { removeFromLS } from './local-storage-operations';
-import { refs } from './refs';
-
-localStorage.setItem(
-  'ingredients',
-  JSON.stringify(['64aebb7f82d96cc69e0eb4a5'])
-);
+import markupIngredient from './markup-ingredient';
 
 const renderFavIng = () => {
   refs.ingredientsGallery.innerHTML = '';
@@ -24,13 +22,14 @@ const renderFavIng = () => {
         ${data.description}
         </p>
         <div class="fav-ingred-btns">
-          <button type="button" class="fav-ingred-learn-more-btn" data-id="${id}">
+          <button type="button" class="fav-ingred-learn-more-btn learn-more-btn" data-id="${id}" data-role="learn-more">
             LEARN MORE
           </button>
           <button
             type="button"
             class="delete-btn fav-ingred-delete-btn"
             data-id="${id}"
+            data-role="delete"
           >
             <svg
               class="card-cocktail-delete-icon"
@@ -62,13 +61,47 @@ const deleteFromFavIng = id => {
   renderFavIng();
 };
 
-setTimeout(() => {
-  const deleteBtn = document.querySelectorAll(
-    '.delete-btn.fav-ingred-delete-btn'
-  );
-  deleteBtn.forEach(btn => {
-    btn.addEventListener('click', e => {
-      deleteFromFavIng(e.target.dataset.id);
+const openIngredModal = async e => {
+  const ingredId = e.target.dataset.id;
+  try {
+    const response = await fetchIngredient(ingredId);
+    if (!response[0]) return;
+    const data = response[0];
+    markupIngredient(data);
+    refs.backdropIngred.classList.remove('is-hidden');
+    let removeFromFavBtn = document.querySelector('.remove-from-fav-ing-btn');
+    removeFromFavBtn.addEventListener('click', e => {
+      const id = e.target.dataset.id;
+      deleteFromFavIng(id);
+      refs.backdropIngred.classList.add('is-hidden');
     });
-  });
-}, 1000);
+  } catch (err) {
+    Notify.failure('Oops, something went wrong!', {
+      clickToClose: true,
+    });
+    console.error(err);
+  }
+};
+
+refs.ingredientsGallery.addEventListener('click', e => {
+  if (e.target.dataset.role === 'delete' || e.target.closest('.delete-btn')) {
+    console.log(e.target.dataset.id);
+    deleteFromFavIng(e.target.dataset.id);
+  }
+  if (e.target.dataset.role === 'learn-more') {
+    openIngredModal(e);
+  }
+});
+
+refs.backdropIngred.addEventListener('click', closeIngredModal);
+
+function closeIngredModal(e) {
+  if (
+    e.target !== e.currentTarget &&
+    e.target.closest('.ingred-modal-x-btn') !== refs.closeModalBtn
+  ) {
+    return;
+  }
+  refs.backdropIngred.classList.add('is-hidden');
+  renderFavIng();
+}
