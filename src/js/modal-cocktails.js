@@ -1,42 +1,44 @@
-import { Notify } from 'notiflix';
+import { Notify, Loading } from 'notiflix';
 import { refs } from './refs';
 import { getCocktail } from './fetch-data';
 import throttle from 'lodash.throttle';
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from 'body-scroll-lock';
 
 let id;
 refs.gallery.addEventListener('click', throttle(onShowModal, 1000));
 refs.backdropCocktailEl.addEventListener('click', closeCocktailModal);
 
-const bodyScrollLock = require('body-scroll-lock');
-const disableBodyScroll = bodyScrollLock.disableBodyScroll;
-const enableBodyScroll = bodyScrollLock.enableBodyScroll;
-const targetElement = refs.backdropCocktailEl;
-// disableBodyScroll(targetElement);
-// enableBodyScroll(targetElement);
+const { disableBodyScroll, enableBodyScroll } = require('body-scroll-lock');
 
 function onShowModal(e) {
-  
   id = e.target.dataset.id;
   if (e.target.dataset.id && e.target.classList.contains('learn-more-btn')) {
     showCocktailModal();
-    disableBodyScroll(targetElement);
+    disableBodyScroll(refs.backdropCocktailEl);
   }
 }
 
 async function showCocktailModal(event) {
+  Loading.standard('Loading...', {
+    fontFamily: 'Poppins',
+    messageFontSize: '24px',
+  });
   try {
     const response = await getCocktail(id);
-    // .then(data => {
-    console.log(response[0]);
+
     markupCocktail(response[0]);
-    // });
     refs.backdropCocktailEl.classList.remove('is-hidden');
   } catch (err) {
     Notify.failure('Oops, something went wrong!', {
       clickToClose: true,
     });
     console.error(err);
+  } finally {
+    Loading.remove();
   }
 }
 
@@ -54,8 +56,7 @@ function closeCocktailModal(e) {
   refs.instr.textContent = '';
   refs.toFavoriteBtn.dataset.id = '';
   refs.removeFavoriteBtn.dataset.id = '';
-  enableBodyScroll(targetElement);
-
+  enableBodyScroll(refs.backdropCocktailEl);
 }
 
 function markupCocktail({ drink, drinkThumb, instructions, ingredients, _id }) {

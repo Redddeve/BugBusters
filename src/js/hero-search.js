@@ -1,30 +1,19 @@
-import axios from 'axios';
+import { Notify, Loading } from 'notiflix';
 import { refs } from './refs.js';
+import { fetchCocktailByFirstLetter } from './fetch-data';
+import { renderPagination } from './pagination.js';
 import {
   cocktailMainCardRender,
   cocktailMainCardNotFoundTemplate,
 } from './cocktail-fav-card-render.js';
 
-const BASE_URL = 'https://drinkify-backend.p.goit.global/api/v1';
-const END_POINT = '/cocktails/search/?f=';
-
 let page = 1;
-
-async function fetchCocktailByFirstLetter(query) {
-  const url = `${BASE_URL}${END_POINT}${query}`;
-  try {
-    const response = await axios.get(url);
-    return response.data;
-  } catch (error) {
-    console.log('error');
-  }
-}
 
 //===================== TABLET & DESKTOP ===========================
 
 refs.container.addEventListener('click', onHeroBtnSearchClick);
 
-function onHeroBtnSearchClick(e) {
+async function onHeroBtnSearchClick(e) {
   e.preventDefault();
 
   if (e.target.nodeName !== 'BUTTON' && e.target.nodeName !== 'OPTION') {
@@ -35,30 +24,73 @@ function onHeroBtnSearchClick(e) {
 
   refs.mainCocktailsGallery.innerHTML = '';
 
-  fetchCocktailByFirstLetter(query)
-    .then(data => {
-      //   console.log(data);
-      cocktailMainCardRender(data);
-    })
-    .catch(error => console.log('Error', error));
+  Loading.standard('Loading...', {
+    fontFamily: 'Poppins',
+    messageFontSize: '24px',
+  });
+
+  try {
+    const response = await fetchCocktailByFirstLetter(query);
+
+    // cocktailMainCardRender(response);
+
+    renderPagination(response);
+    if (window.innerWidth >= 1280 && data.length >= 9) {
+      refs.paginationContainer.classList.remove('is-hidden');
+    }
+    if (window.innerWidth >= 768 && data.length >= 8) {
+      refs.paginationContainer.classList.remove('is-hidden');
+    }
+  } catch (error) {
+    cocktailMainCardNotFoundTemplate();
+
+    Notify.failure('Oops, something went wrong!', {
+      clickToClose: true,
+    });
+    console.error('Error', error);
+  } finally {
+    Loading.remove();
+  }
 }
 
 //========================= MOBILE ================================
 
 refs.select.addEventListener('change', onSelectOptionClick);
 
-function onSelectOptionClick(event) {
-  //   console.log(event.target.value);
+async function onSelectOptionClick(event) {
   event.preventDefault();
   page = 1;
   const query = event.target.value;
 
+  refs.paginationContainer.classList.remove('is-hidden');
+
   refs.mainCocktailsGallery.innerHTML = '';
 
-  fetchCocktailByFirstLetter(query)
-    .then(data => {
-      //   console.log(data);
-      cocktailMainCardRender(data);
-    })
-    .catch(error => console.log('Error', error));
+  refs.paginationContainer.classList.add('is-hidden');
+
+  try {
+    Loading.standard('Loading...', {
+      fontFamily: 'Poppins',
+      messageFontSize: '24px',
+    });
+
+    const response = await fetchCocktailByFirstLetter(query);
+
+    // cocktailMainCardRender(response);
+
+    if (window.innerWidth <= 767 && data.length >= 8) {
+      refs.paginationContainer.classList.remove('is-hidden');
+    }
+
+    renderPagination(response);
+  } catch (error) {
+    cocktailMainCardNotFoundTemplate();
+
+    Notify.failure('Oops, something went wrong!', {
+      clickToClose: true,
+    });
+    console.error('Error', error);
+  } finally {
+    Loading.remove();
+  }
 }
