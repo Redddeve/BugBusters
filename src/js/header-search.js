@@ -2,6 +2,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { fetchCocktailByName } from './fetch-data.js';
 import { cocktailMainCardRender } from './cocktail-fav-card-render.js';
 import { refs } from './refs';
+import { renderPagination } from './pagination.js';
 
 // if (window.innerWidth >= 1280) {
 //   const maxHits = 9;
@@ -29,6 +30,7 @@ async function onSearchSubmit(e) {
     const responseArr = await fetchCocktailByName(query); //* Массив обьектов, в темплейте делаем деструктуризацию
     refs.mainCocktailsGallery.innerHTML = '';
     cocktailMainCardRender(responseArr);
+    // renderPagination(responseArr);
   } catch (err) {
     Notify.failure('Oops, something went wrong!', {
       clickToClose: true,
