@@ -1,4 +1,4 @@
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Notify, Loading } from 'notiflix';
 import { fetchCocktailByName } from './fetch-data.js';
 import { cocktailMainCardRender } from './cocktail-fav-card-render.js';
 import { refs } from './refs';
@@ -26,6 +26,11 @@ async function onSearchSubmit(e) {
     return;
   }
   try {
+    Loading.standard('Loading...', {
+      fontFamily: 'Poppins',
+      messageFontSize: '24px',
+    });
+
     const responseArr = await fetchCocktailByName(query); //* Массив обьектов, в темплейте делаем деструктуризацию
     refs.mainCocktailsGallery.innerHTML = '';
     cocktailMainCardRender(responseArr);
@@ -35,6 +40,7 @@ async function onSearchSubmit(e) {
     });
     console.error(err);
   } finally {
+    Loading.remove();
     e.target.reset();
   }
 }

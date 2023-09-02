@@ -53,9 +53,7 @@ export function renderPagination(cocktailArr) {
   );
 
   refs.leftPagBtn[0].addEventListener('click', onPaginationBtnClick);
-  //   refs.leftPagBtn[1].addEventListener('click', onPaginationBtnClick);
   refs.rightPagBtn[0].addEventListener('click', onPaginationBtnClick);
-  //   refs.rightPagBtn[1].addEventListener('click', onPaginationBtnClick);
 
   let currentPageIndex = 0;
 
@@ -69,16 +67,15 @@ export function renderPagination(cocktailArr) {
 
     refs.mainCocktailsGallery.innerHTML = '';
 
-    // if (evt.target.nodeName !== 'BUTTON') {
-    //   return;
-    // }
-
     if (btnValue === 'leftPag') {
       currentPageIndex -= 1;
       if (currentPageIndex < 0) {
         currentPageIndex = 0;
       }
       cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
+      //   const str = `"button[data-action='${currentPageIndex + 1}']"`;
+      //   console.log(str);
+      //   refs.paginationNumberBtnsContainer.button.querySelector(str);
     }
 
     if (btnValue === 'rightPag') {
@@ -87,6 +84,7 @@ export function renderPagination(cocktailArr) {
         currentPageIndex = totalPagesNum - 1;
       }
       cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
+      // console.log(refs.paginationNumberBtnsContainer);
     }
 
     if (!isNaN(Number(btnValue))) {
