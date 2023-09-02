@@ -70,7 +70,7 @@ function onSelectOptionClick(event) {
       //   console.log(data);
 
       renderPagination(data);
-      if (window.innerWidth >= 768 && data.length >= 8) {
+      if (window.innerWidth <= 767 && data.length >= 8) {
         refs.paginationContainer.classList.remove('is-hidden');
       }
     })

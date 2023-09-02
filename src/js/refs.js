@@ -42,6 +42,9 @@ export const refs = {
   // =============modals==============
   //=================== pagination=============
   paginationContainer: document.querySelector('.pagination-buttons-container'),
-  leftPagBtn: document.querySelector('.left-pag-btn'),
-  rightPagBtn: document.querySelector('.right-pag-btn'),
+  leftPagBtn: document.querySelectorAll("[data-action='leftPag']"),
+  rightPagBtn: document.querySelectorAll("[data-action='rightPag']"),
+  paginationNumberBtnsContainer: document.querySelector(
+    '.number-buttons-container'
+  ),
 };
