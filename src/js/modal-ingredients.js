@@ -1,4 +1,4 @@
-import { every } from 'lodash';
+import { every, throttle } from 'lodash';
 import { Notify } from 'notiflix';
 import { refs } from './refs';
 import { getIngredient } from './fetch-data';
@@ -42,7 +42,11 @@ function closeIngredModal(e) {
   ) {
     return;
   }
+  throttle(cleanIngredMarkup, 100)
   refs.backdropIngred.classList.add('is-hidden');
+  }
+
+function cleanIngredMarkup () {refs.ingreModalInner.innerHTML = ''}
 }
 
 const addIngredientToFav = (addBtn, removeBtn, id) => {
@@ -50,6 +54,7 @@ const addIngredientToFav = (addBtn, removeBtn, id) => {
   removeBtn.classList.remove('is-hidden');
   addBtn.classList.add('is-hidden');
 };
+
 
 const removeIngredientFromFav = (addBtn, removeBtn, id) => {
   removeFromLS('ingredients', id);

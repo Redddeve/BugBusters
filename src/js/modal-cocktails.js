@@ -50,13 +50,18 @@ function closeCocktailModal(e) {
     return;
   }
   refs.backdropCocktailEl.classList.add('is-hidden');
+  throttle(cleanCocktailMarkup, 100)
+
+  enableBodyScroll(refs.backdropCocktailEl);
+}
+
+function cleanCocktailMarkup (){
   refs.image.src = '#';
   refs.header.textContent = '#';
   refs.ingredList.innerHTML = '';
   refs.instr.textContent = '';
   refs.toFavoriteBtn.dataset.id = '';
   refs.removeFavoriteBtn.dataset.id = '';
-  enableBodyScroll(refs.backdropCocktailEl);
 }
 
 function markupCocktail({ drink, drinkThumb, instructions, ingredients, _id }) {
