@@ -93,7 +93,6 @@
     background: var(--color-violet);
     outline: none;
     border: 1px solid transparent;
-    transition: var(--anim-fast);
   }
 
   .delete-btn:hover,
@@ -232,8 +231,6 @@
     background: var(--color-violet);
     outline: none;
     border: 1px solid transparent;
-
-    transition: var(--anim-fast);
   }
 
   .delete-btn:hover,

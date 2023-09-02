@@ -83,6 +83,7 @@
   line-height: 1.43;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  transition: background-color var(--anim-fast);
 }
 .search-button:hover {
   background-color: var(--color-button-hover);

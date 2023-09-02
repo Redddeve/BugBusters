@@ -139,7 +139,6 @@
   line-height: 20px;
   letter-spacing: 0.28px;
   text-transform: uppercase;
-  transition: background-color var(--anim-fast);
 }
 
 .modal-to-favorite-btn:hover,
