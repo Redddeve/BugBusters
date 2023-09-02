@@ -40,4 +40,8 @@ export const refs = {
   closeModalBtn: document.querySelector('.ingred-modal-x-btn'),
   backdropIngred: document.querySelector('.backdrop-ingred'),
   // =============modals==============
+  //=================== pagination=============
+  paginationContainer: document.querySelector('.pagination-buttons-container'),
+  leftPagBtn: document.querySelector('.left-pag-btn'),
+  rightPagBtn: document.querySelector('.right-pag-btn'),
 };
