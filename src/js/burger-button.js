@@ -10,5 +10,9 @@ function closeMobile() {
   enableBodyScroll(refs.mobileMenu);
 }
 
+// refs.closeButton.addEventListener('click', toggleMobile);
+// refs.openBurgerButton.addEventListener('click', toggleMobile);
+
+
 refs.closeButton.addEventListener('click', closeMobile);
 refs.openBurgerButton.addEventListener('click', openMobile);
