@@ -5,30 +5,45 @@ import { getIngredient } from './fetch-data';
 
 refs.ingredList.addEventListener('click', onIngredClick);
 
-function onIngredClick(event) {
-  const ingredName = event.target.textContent;
-  getIngredient(ingredName)
-    .then(data => {
-      if (!data) {
-        throw new Error();
-      }
-      markupIngredient(data);
-      refs.backdropIngred.classList.remove('is-hidden');
-    })
-    .catch(error => {
-      console.log(error);
-      // Notify.failure('error on load data');
+async function onIngredClick(e) {
+  const ingredName = e.target.textContent;
+  if(e.target.classList.contains("ingredients-link")){
+  try {
+    const response = await getIngredient(ingredName);
+    const result = response.find(ing => ing.title === ingredName);
+    console.log(response);
+    console.log(response[0]);
+    // .then(data => {
+    //   if (!data) {
+    //     throw new Error();
+    //   }
+    markupIngredient(result);
+    refs.backdropIngred.classList.remove('is-hidden');
+    // })
+  } catch (err) {
+    Notify.failure('Oops, something went wrong!', {
+      clickToClose: true,
     });
+    console.error(err);
+  }
+}
 }
 
-refs.closeModalBtn.addEventListener('click', closeIngredModal);
+// refs.closeModalBtn.addEventListener('click', closeIngredModal);
+refs.backdropIngred.addEventListener('click', closeIngredModal);
 
-function closeIngredModal() {
+function closeIngredModal(e) {
+  if (
+    e.target !== e.currentTarget &&
+    e.target.closest('.ingred-modal-x-btn') !== refs.closeModalBtn
+  ) {
+    return;
+  }
   refs.backdropIngred.classList.add('is-hidden');
   refs.ingreModalInner.innerHTML = '';
 }
 
-async function getIngredient(ingredName) {
+/* async function getIngredient(ingredName) {  //! УДАЛЯЕМ ??
   try {
     const response = await fetch(
       `https://drinkify-backend.p.goit.global/api/v1/ingredients/search/?s=${ingredName}`
@@ -38,7 +53,7 @@ async function getIngredient(ingredName) {
   } catch (error) {
     console.log(error);
   }
-}
+} */
 
 function markupIngredient({
   abv,

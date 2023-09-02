@@ -115,6 +115,7 @@ button {
   line-height: 24px; /* 128.571% */
   transition: color var(--anim-fast);
   list-style-type: disc;
+  display: block;
 }
 
 .ingredients-list-item:hover,
