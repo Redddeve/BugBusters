@@ -32,8 +32,6 @@ async function onHeroBtnSearchClick(e) {
   try {
     const response = await fetchCocktailByFirstLetter(query);
 
-    // cocktailMainCardRender(response);
-
     renderPagination(response);
     if (window.innerWidth >= 1280 && response.length >= 9) {
       refs.paginationContainer.classList.remove('is-hidden');
@@ -75,8 +73,6 @@ async function onSelectOptionClick(event) {
     });
 
     const response = await fetchCocktailByFirstLetter(query);
-
-    // cocktailMainCardRender(response);
 
     if (window.innerWidth <= 767 && response.length >= 8) {
       refs.paginationContainer.classList.remove('is-hidden');
