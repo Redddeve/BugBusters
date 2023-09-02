@@ -6,7 +6,6 @@ import {
   cocktailMainCardNotFoundTemplate,
 } from './cocktail-fav-card-render.js';
 
-
 const BASE_URL = 'https://drinkify-backend.p.goit.global/api/v1';
 const END_POINT = '/cocktails/search/?f=';
 
@@ -35,7 +34,6 @@ function onHeroBtnSearchClick(e) {
   }
   page = 1;
   const query = e.target.innerText;
-  //   console.log(query);
 
   refs.mainCocktailsGallery.innerHTML = '';
 
@@ -43,9 +41,6 @@ function onHeroBtnSearchClick(e) {
 
   fetchCocktailByFirstLetter(query)
     .then(data => {
-      //   console.log(data);
-      //   cocktailGetQuantity = data.length;
-      //   cocktailMainCardRender(data);
       renderPagination(data);
       if (window.innerWidth >= 1280 && data.length >= 9) {
         refs.paginationContainer.classList.remove('is-hidden');
@@ -62,11 +57,9 @@ function onHeroBtnSearchClick(e) {
 refs.select.addEventListener('change', onSelectOptionClick);
 
 function onSelectOptionClick(event) {
-  //   console.log(event.target.value);
   event.preventDefault();
   page = 1;
   const query = event.target.value;
-  refs.paginationContainer.classList.remove('is-hidden');
 
   refs.mainCocktailsGallery.innerHTML = '';
 
@@ -74,11 +67,6 @@ function onSelectOptionClick(event) {
 
   fetchCocktailByFirstLetter(query)
     .then(data => {
-      //   console.log(data);
-
-      //   if (data.length === 0) {
-      //     refs.paginationContainer.classList.add('is-hidden');
-      //   }
       if (window.innerWidth <= 767 && data.length >= 8) {
         refs.paginationContainer.classList.remove('is-hidden');
       }
