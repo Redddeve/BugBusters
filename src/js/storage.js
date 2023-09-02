@@ -4,6 +4,7 @@ import onIngredClick from './modal-ingredients'
 const favCock = document.querySelector('.gallery-for-fav')
 const newSaveButton = document.querySelector('.saveButton')
 const newDeleteButton = document.querySelector('.deleteButtonn')
+const doDelete = document.querySelector('.to-delete')
 
 // localStorage.clear()
 
@@ -53,6 +54,7 @@ gallery.addEventListener('click', event => {
         console.log(event.target)
         console.log(event.target.className)
         addNewCocktail();
+        
     }
     if ( //* onClick remove fav
         event.target.nodeName === 'BUTTON' &&
@@ -62,6 +64,8 @@ gallery.addEventListener('click', event => {
         console.log(event.target)
         dataSet = event.target.closest('.deleteButtonn').dataset.id
         deleteFromFavorite();
+        deleteMurkup()
+        
     }
 
     // if (
@@ -104,7 +108,8 @@ if ( //* onClick remove fav
 ) {
             // console.log(event.target)
   dataSet = event.target.closest('.remove-from-fav-btn').dataset.id
-        deleteFromFavorite();
+    deleteFromFavorite();
+    deleteMurkup()
     }
 });
 
@@ -160,7 +165,7 @@ async function displayCocktails() {
 
 function markup({ drinkThumb, drink, instructions, _id}) {
 
-    const markup = `<li><div class="cocktail-card-main" id="cocktail-card-item">
+    const markup = `<li class="to-delete"><div class="cocktail-card-main" id="cocktail-card-item">
         <img class="cocktail-card-img" src="${drinkThumb}" alt="${drink}" width="" height="" />
         <h3 class="card-cocktail-name">${drink}</h3>
         <p class="card-cocktail-desc">${instructions}</p>
@@ -181,8 +186,13 @@ function markup({ drinkThumb, drink, instructions, _id}) {
 
 // // /** ========================= Удалить ========================= */
 
+
 function deleteMurkup() {
     favCock.innerHTML = "";
+    // favCock.removeChild(doDelete)
+    // doDelete.remove();
+        displayCocktails();
+
 }
 
 
