@@ -41,4 +41,9 @@ export const refs = {
   backdropIngred: document.querySelector('.backdrop-ingred'),
   // =============modals==============
   ingredientsGallery: document.querySelector('.ingredients-gallery'),
+  // ====================== Fav cocktails ========================
+  containerNotFoundFavCocktails: document.querySelector(
+    '.not-found-info-container-fav-cocktails'
+  ),
+  favCocktailsGallery: document.querySelector('.gallery-for-fav'),
 };

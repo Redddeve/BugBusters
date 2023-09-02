@@ -37,26 +37,25 @@ function cocktailFavCardTemplate(
 }
 
 export function cocktailMainCardRender(cocktailArr) {
-  let allCardsMarkup = '';
-
-  if (cocktailArr) {
-    refs.containerNotFound.classList.add('is-hidden');
-    refs.mainCocktailsText.classList.remove('is-hidden');
-    allCardsMarkup = cocktailArr
-      .map(el => {
-        return cocktailMainCardTemplate(
-          el.drinkThumb,
-          el.drink,
-          el.description,
-          el._id
-        );
-      })
-      .join('');
-  } else {
-    cocktailMainCardNotFoundTemplate();
-  }
+  refs.containerNotFound.classList.add('is-hidden');
+  refs.mainCocktailsText.classList.remove('is-hidden');
+  allCardsMarkup = cocktailArr
+    .map(el => {
+      return cocktailMainCardTemplate(
+        el.drinkThumb,
+        el.drink,
+        el.description,
+        el._id
+      );
+    })
+    .join('');
 
   refs.mainCocktailsGallery.insertAdjacentHTML('beforeend', allCardsMarkup);
+
+  if (allCardsMarkup) {
+    refs.containerNotFoundFavCocktails.classList.remove('is-hidden');
+  } else {
+  }
 }
 
 function cocktailMainCardTemplate(
