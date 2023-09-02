@@ -38,20 +38,7 @@ function cocktailFavCardTemplate(
 
 export function cocktailMainCardRender(cocktailArr) {
   let allCardsMarkup = '';
-  // refs.containerNotFound.classList.add('is-hidden');
-  // refs.mainCocktailsText.classList.remove('is-hidden');
-  // allCardsMarkup = cocktailArr
-  //   .map(el => {
-  //     return cocktailMainCardTemplate(
-  //       el.drinkThumb,
-  //       el.drink,
-  //       el.description,
-  //       el._id
-  //     );
-  //   })
-  //   .join('');
 
-  // refs.mainCocktailsGallery.insertAdjacentHTML('beforeend', allCardsMarkup);
   if (cocktailArr) {
     refs.containerNotFound.classList.add('is-hidden');
     refs.mainCocktailsText.classList.remove('is-hidden');
@@ -65,8 +52,6 @@ export function cocktailMainCardRender(cocktailArr) {
         );
       })
       .join('');
-    // if (allCardsMarkup) {
-    //   refs.containerNotFoundFavCocktails.classList.remove('is-hidden');
   } else {
     cocktailMainCardNotFoundTemplate();
   }
