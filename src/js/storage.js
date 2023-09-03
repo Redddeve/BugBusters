@@ -1,5 +1,3 @@
-import './modal-cocktails';
-import './modal-ingredients';
 import { refs } from './refs';
 
 const favCock = document.querySelector('.gallery-for-fav');
@@ -45,31 +43,28 @@ gallery.addEventListener('click', event => {
   ) {
     dataSet = event.target.closest('.saveButton').dataset.id;
     addNewCocktail();
-
   }
   if (
     //* onClick remove fav
     (event.target.nodeName === 'BUTTON' && event.target.nodeName === 'SVG') ||
     event.target.closest('.deleteButtonn')
   ) {
-      console.log(event.target);
+    console.log(event.target);
     dataSet = event.target.closest('.deleteButtonn').dataset.id;
     deleteFromFavorite();
     deleteMurkup();
-    hideLikeOrDislikeButton()
-    
+    hideLikeOrDislikeButton();
   }
 
   if (
     event.target.nodeName === 'BUTTON' &&
-      event.target.closest('.learn-more-btn')
+    event.target.closest('.learn-more-btn')
   ) {
-      console.log(event.target)
+    console.log(event.target);
 
-      dataSet = event.target.closest('.learn-more-btn').dataset.id
+    dataSet = event.target.closest('.learn-more-btn').dataset.id;
 
-      checkClassList()
-
+    checkClassList();
   }
 });
 
@@ -80,14 +75,18 @@ gallery.addEventListener('click', event => {
   const dataId = targetButton.getAttribute('data-id');
 
   if (dataId) {
-    const likeButtons = document.querySelector(`.saveButton[data-id="${dataId}"]`);
-    const dislikeButtons = document.querySelector(`.deleteButtonn[data-id="${dataId}"]`);
+    const likeButtons = document.querySelector(
+      `.saveButton[data-id="${dataId}"]`
+    );
+    const dislikeButtons = document.querySelector(
+      `.deleteButtonn[data-id="${dataId}"]`
+    );
     if (targetButton.classList.contains('saveButton')) {
-        likeButtons.classList.toggle('is-hidden');
+      likeButtons.classList.toggle('is-hidden');
       dislikeButtons.classList.remove('is-hidden');
     } else if (targetButton.classList.contains('deleteButtonn')) {
-        dislikeButtons.classList.toggle('is-hidden');
-        likeButtons.classList.remove('is-hidden');
+      dislikeButtons.classList.toggle('is-hidden');
+      likeButtons.classList.remove('is-hidden');
     }
   }
 });
@@ -115,13 +114,11 @@ cocktaileModal.addEventListener('click', event => {
     dataSet = event.target.closest('.remove-from-fav-btn').dataset.id;
     deleteFromFavorite();
     deleteMurkup();
-    hideBackdrop()
+    hideBackdrop();
   }
 });
 
-
 /** ========================= функции для работы с lockalstorage ========================= */
-
 
 async function addNewCocktail() {
   await pushToFav();
@@ -141,47 +138,39 @@ function deleteFromFavorite() {
 
 const backdropCocktailIsHide = document.querySelector('.backdrop-cocktail');
 const modalAddToFavoriteButton = document.querySelector('.add-to-fav-btn');
-const modalRemoverFromFavoriteButton = document.querySelector('.remove-from-fav-btn');
+const modalRemoverFromFavoriteButton = document.querySelector(
+  '.remove-from-fav-btn'
+);
 const likeButton = document.querySelector('.remove-from-fav-btn');
 
 function hideBackdrop() {
-  backdropCocktailIsHide.classList.toggle('is-hidden')
+  backdropCocktailIsHide.classList.toggle('is-hidden');
 }
-
 
 function hideModalButton(event) {
   modalAddToFavoriteButton.classList.toggle('is-hidden');
   modalRemoverFromFavoriteButton.classList.toggle('is-hidden');
-};
+}
 
 function checkClassList(event) {
-
   let localFavoritesString = localStorage.getItem('favorites');
   console.log(localFavoritesString);
 
   if (JSON.parse(localFavoritesString).includes(dataSet)) {
-
     modalAddToFavoriteButton.classList.add('is-hidden');
     modalRemoverFromFavoriteButton.classList.remove('is-hidden');
-    
   } else {
     modalAddToFavoriteButton.classList.remove('is-hidden');
     modalRemoverFromFavoriteButton.classList.add('is-hidden');
   }
-
-};
-
-function hideLikeOrDislikeButton(event) {
-      event.target.classList.toggle('is-hidden')
-
 }
 
-modalAddToFavoriteButton.addEventListener('click', hideModalButton)
-modalRemoverFromFavoriteButton.addEventListener('click', hideModalButton)
+function hideLikeOrDislikeButton(event) {
+  event.target.classList.toggle('is-hidden');
+}
 
-
-
-
+modalAddToFavoriteButton.addEventListener('click', hideModalButton);
+modalRemoverFromFavoriteButton.addEventListener('click', hideModalButton);
 
 /** ========================= Fetch and Markup ========================= */
 
@@ -200,8 +189,6 @@ async function getArrayOfCocktail(array) {
 }
 
 async function displayCocktails() {
-
-
   try {
     const data = await getArrayOfCocktail(arrayFavorite);
     refs.containerNotFoundFavCocktails.classList.add('is-hidden');
@@ -235,7 +222,7 @@ function markup({ drinkThumb, drink, instructions, _id }) {
 // // /** ========================= Удалить ========================= */
 
 function deleteMurkup() {
-  favCock.innerHTML = ''; 
+  favCock.innerHTML = '';
   displayCocktails();
 }
 
@@ -281,4 +268,3 @@ function deleteMurkup() {
 //   }
 //   return;
 // }
-

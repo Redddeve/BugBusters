@@ -1,4 +1,4 @@
-import './header.js';
+import './header.js'; //TODO Все что ниже нужно кинуть в отдельный файл
 import { Notify } from 'notiflix';
 import { refs } from './refs';
 import { fetchIngredient } from './fetch-data';
