@@ -156,6 +156,7 @@ button {
   line-height: 20px;
   letter-spacing: 0.28px;
   text-transform: uppercase;
+  transition: color var(--anim-fast), background-color var(--anim-fast);
 }
 
 .modal-to-favorite-btn:hover,
