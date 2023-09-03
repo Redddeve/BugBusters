@@ -3,18 +3,20 @@ import { fetchCocktailByName } from './fetch-data.js';
 import { renderPagination } from './pagination.js';
 import { cocktailMainCardNotFoundTemplate } from './cocktail-fav-card-render.js';
 import { refs } from './refs';
-
+import { closeMobile } from './burger-button.js'
 let page = 1;
 // let maxPage = 1;
 let query = '';
 
 refs.headerForm.addEventListener('submit', onSearchSubmit);
+refs.searchMobile.addEventListener('submit', onSearchSubmit);
 
 async function onSearchSubmit(e) {
   e.preventDefault();
-
+  
   page = 1;
-  query = e.currentTarget.elements.searchQuery.value.trim(); //* Берет текст с инпута
+  query = e.currentTarget.elements.searchQuery.value.trim();
+  console.log(query); //* Берет текст с инпута
   if (query === '') {
     //* Сбрасывает сабмит при пустой строчке
     e.target.reset();
@@ -49,5 +51,8 @@ async function onSearchSubmit(e) {
   } finally {
     Loading.remove();
     e.target.reset();
+    const toSearch = document.getElementById('search');
+    toSearch.scrollIntoView({ behavior: 'smooth' }, true);
+    closeMobile()
   }
 }
