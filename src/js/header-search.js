@@ -34,6 +34,7 @@ async function onSearchSubmit(e) {
 
     const responseArr = await fetchCocktailByName(query); //* Массив обьектов, в темплейте делаем деструктуризацию
     refs.mainCocktailsGallery.innerHTML = '';
+    refs.paginationContainer.classList.remove('is-hidden');
     renderPagination(responseArr);
     if (window.innerWidth >= 1280 && responseArr.length >= 9) {
       refs.paginationContainer.classList.remove('is-hidden');
