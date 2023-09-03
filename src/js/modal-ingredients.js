@@ -12,9 +12,11 @@ async function onIngredClick(e) {
   if (e.target.classList.contains('ingredients-link')) {
     try {
       const response = await getIngredient(ingredName);
-            
-      const result = response.find(ing => ing.title.toLocaleLowerCase === ingredName.toLocaleLowerCase);
-            
+
+      const result = response.find(
+        ing => ing.title.toLocaleLowerCase === ingredName.toLocaleLowerCase
+      );
+
       markupIngredient(result);
       refs.backdropIngred.classList.remove('is-hidden');
       let addBtn = document.querySelector('.add-to-fav-ing-btn');
