@@ -85,7 +85,6 @@ const openIngredModal = async e => {
 
 refs.ingredientsGallery.addEventListener('click', e => {
   if (e.target.dataset.role === 'delete' || e.target.closest('.delete-btn')) {
-    console.log(e.target.dataset.id);
     deleteFromFavIng(e.target.dataset.id);
   }
   if (e.target.dataset.role === 'learn-more') {

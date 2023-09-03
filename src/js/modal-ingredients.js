@@ -12,9 +12,11 @@ async function onIngredClick(e) {
   if (e.target.classList.contains('ingredients-link')) {
     try {
       const response = await getIngredient(ingredName);
-            
-      const result = response.find(ing => ing.title.toLocaleLowerCase === ingredName.toLocaleLowerCase);
-            
+
+      const result = response.find(
+        ing => ing.title.toLocaleLowerCase === ingredName.toLocaleLowerCase
+      );
+
       markupIngredient(result);
       refs.backdropIngred.classList.remove('is-hidden');
       let addBtn = document.querySelector('.add-to-fav-ing-btn');
@@ -52,7 +54,6 @@ function cleanIngredMarkup() {
 }
 
 const addIngredientToFav = (addBtn, removeBtn, id) => {
-  console.log('hyu');
   addToLS('ingredients', id);
   removeBtn.classList.remove('is-hidden');
   addBtn.classList.add('is-hidden');
