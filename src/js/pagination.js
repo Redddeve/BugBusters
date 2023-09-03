@@ -79,8 +79,8 @@ export function renderPagination(cocktailArr) {
 
     case false: {
       console.log('is not mobile');
-      start = pageBtns.slice(0, 2);
-      finish = pageBtns.slice(pageBtns.length - 1, pageBtns.length);
+      start = pageBtns.slice(0, 3);
+      finish = pageBtns.slice(pageBtns.length - 3, pageBtns.length);
 
       const moreBtn = document.createElement('button');
       moreBtn.textContent = '...';
