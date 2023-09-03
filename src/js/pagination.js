@@ -64,8 +64,8 @@ export function renderPagination(cocktailArr) {
     onPaginationBtnClick
   );
 
-  refs.leftPagBtn[0].setAttribute('disabled', '');
-  refs.leftPagBtn[0].classList.add('pagination-button-disabled');
+  //   refs.leftPagBtn[0].classList.add('is-hidden');
+  refs.leftPagBtn[0].classList.add('is-hidden');
 
   for (let i = 1; i <= totalPagesNum; i++) {
     const pageBtn = document.createElement('button');
@@ -174,18 +174,14 @@ export function renderPagination(cocktailArr) {
     }
 
     if (currentPageIndex === 0) {
-      refs.leftPagBtn[0].setAttribute('disabled', '');
-      refs.leftPagBtn[0].classList.add('pagination-button-disabled');
+      refs.leftPagBtn[0].classList.add('is-hidden');
     } else {
-      refs.leftPagBtn[0].removeAttribute('disabled');
-      refs.leftPagBtn[0].classList.remove('pagination-button-disabled');
+      refs.leftPagBtn[0].classList.remove('is-hidden');
     }
     if (currentPageIndex === totalPagesNum - 1) {
-      refs.rightPagBtn[0].setAttribute('disabled', '');
-      refs.rightPagBtn[0].classList.add('pagination-button-disabled');
+      refs.rightPagBtn[0].classList.add('is-hidden');
     } else {
-      refs.rightPagBtn[0].removeAttribute('disabled');
-      refs.rightPagBtn[0].classList.remove('pagination-button-disabled');
+      refs.rightPagBtn[0].classList.remove('is-hidden');
     }
   }
 }

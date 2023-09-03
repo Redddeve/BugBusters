@@ -73,6 +73,7 @@ function cocktailMainCardTemplate(
             alt="${cocktailName}"
             width=""
             height=""
+            loading="lazy"
           />
           <h3 class="card-cocktail-name">${cocktailName}</h3>
           <p class="card-cocktail-desc">${cocktailDesc}</p>
