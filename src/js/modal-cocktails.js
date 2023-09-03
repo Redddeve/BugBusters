@@ -8,13 +8,13 @@ import {
   clearAllBodyScrollLocks,
 } from 'body-scroll-lock';
 
-import './storage'
+import './storage';
 
 let id;
 refs.gallery.addEventListener('click', throttle(onShowModal, 1000));
 refs.backdropCocktailEl.addEventListener('click', closeCocktailModal);
 
-const { disableBodyScroll, enableBodyScroll } = require('body-scroll-lock');
+// const { disableBodyScroll, enableBodyScroll } = require('body-scroll-lock');
 
 function onShowModal(e) {
   id = e.target.dataset.id;
@@ -52,12 +52,12 @@ function closeCocktailModal(e) {
     return;
   }
   refs.backdropCocktailEl.classList.add('is-hidden');
-  throttle(cleanCocktailMarkup, 100)
+  throttle(cleanCocktailMarkup, 100);
 
   enableBodyScroll(refs.backdropCocktailEl);
 }
 
-function cleanCocktailMarkup (){
+function cleanCocktailMarkup() {
   refs.image.src = '#';
   refs.header.textContent = '#';
   refs.ingredList.innerHTML = '';
