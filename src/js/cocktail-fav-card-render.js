@@ -40,6 +40,7 @@ export function cocktailMainCardRender(cocktailArr) {
   let allCardsMarkup = '';
 
   if (cocktailArr) {
+    refs.gallery.classList.remove('is-hidden');
     refs.containerNotFound.classList.add('is-hidden');
     refs.mainCocktailsText.classList.remove('is-hidden');
     allCardsMarkup = cocktailArr
@@ -133,4 +134,5 @@ function cocktailMainCardTemplate(
 export function cocktailMainCardNotFoundTemplate() {
   refs.containerNotFound.classList.remove('is-hidden');
   refs.mainCocktailsText.classList.add('is-hidden');
+  refs.gallery.classList.add('is-hidden');
 }

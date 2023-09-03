@@ -2,13 +2,14 @@ import { refs } from './refs.js';
 import { cocktailMainCardRender } from './cocktail-fav-card-render.js';
 
 export function renderPagination(cocktailArr) {
-  refs.paginationNumberBtnsContainer.innerHTML = '';
   let cardsPerPage;
-
   let currentPageIndex = 0;
   let pageBtns = [];
   let start = [];
   let finish = [];
+
+  refs.paginationNumberBtnsContainer.innerHTML = '';
+  //   refs.paginationContainer.innerHTML = '';
 
   function isMobile() {
     if (window.innerWidth >= 768) {
@@ -17,6 +18,7 @@ export function renderPagination(cocktailArr) {
       return true;
     }
   }
+
   if (window.innerWidth >= 1280) {
     cardsPerPage = 9;
   } else {
@@ -35,6 +37,8 @@ export function renderPagination(cocktailArr) {
 
   arrowCheck();
 
+  cocktailMainCardRender(sortedCardsArr[0]);
+
   function createPagesArr(arr, cardsPerPageNum) {
     return arr.reduce((result, item, index) => {
       if (index % cardsPerPageNum === 0) {
@@ -44,8 +48,6 @@ export function renderPagination(cocktailArr) {
       return result;
     }, []);
   }
-
-  cocktailMainCardRender(sortedCardsArr[0]);
 
   refs.leftPagBtn[0].addEventListener('click', onPaginationBtnClick);
   refs.rightPagBtn[0].addEventListener('click', onPaginationBtnClick);
@@ -75,6 +77,7 @@ export function renderPagination(cocktailArr) {
 
           const moreBtn = document.createElement('button');
           moreBtn.textContent = '...';
+          moreBtn.setAttribute('disabled', '');
           moreBtn.classList.add('pagination-button-item');
 
           refs.paginationNumberBtnsContainer.append(
@@ -105,8 +108,24 @@ export function renderPagination(cocktailArr) {
     }
   }
 
+  let activeBtn = document.querySelector(
+    `button[data-action="${currentPageIndex + 1}"]`
+  );
+
+  activeBtn.classList.add('pagination-button-item-active');
+
   function onPaginationBtnClick(evt) {
     const toSearch = document.getElementById('search');
+
+    if (evt.target.nodeName !== 'BUTTON') {
+      return;
+    }
+
+    const allButtons = refs.paginationNumberBtnsContainer.querySelector(
+      '.pagination-button-item-active'
+    );
+    console.log(activeBtn);
+
     toSearch.scrollIntoView({ behavior: 'smooth' }, true);
 
     let btnValue = evt.target.dataset.action;
@@ -116,6 +135,7 @@ export function renderPagination(cocktailArr) {
     if (refs.mainCocktailsText.textContent !== 'Searching results') {
       refs.mainCocktailsText.textContent = 'Searching results';
     }
+
     switch (btnValue) {
       case 'leftPag':
         {
@@ -123,14 +143,24 @@ export function renderPagination(cocktailArr) {
           if (currentPageIndex < 0) {
             currentPageIndex = 0;
           }
+          activeBtn.classList.remove('pagination-button-item-active');
           cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
+          activeBtn = document.querySelector(
+            `button[data-action="${currentPageIndex + 1}"]`
+          );
+          activeBtn.classList.add('pagination-button-item-active');
         }
         break;
 
       case 'rightPag':
         {
+          activeBtn.classList.remove('pagination-button-item-active');
           currentPageIndex += 1;
           cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
+          activeBtn = document.querySelector(
+            `button[data-action="${currentPageIndex + 1}"]`
+          );
+          activeBtn.classList.add('pagination-button-item-active');
         }
         break;
     }
@@ -141,19 +171,16 @@ export function renderPagination(cocktailArr) {
     }
     arrowCheck();
   }
+
   function arrowCheck() {
     if (currentPageIndex === 0) {
-      // refs.leftPagBtn[0].setAttribute('disabled', '');
       refs.leftPagBtn[0].classList.add('is-hidden');
     } else {
-      // refs.leftPagBtn[0].removeAttribute('disabled');
       refs.leftPagBtn[0].classList.remove('is-hidden');
     }
     if (currentPageIndex === totalPagesNum - 1) {
-      // refs.rightPagBtn[0].setAttribute('disabled', '');
       refs.rightPagBtn[0].classList.add('is-hidden');
     } else {
-      // refs.rightPagBtn[0].removeAttribute('disabled');
       refs.rightPagBtn[0].classList.remove('is-hidden');
     }
   }
