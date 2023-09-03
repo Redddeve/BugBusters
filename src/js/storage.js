@@ -1,26 +1,26 @@
+import './modal-cocktails';
+import './modal-ingredients';
 import { refs } from './refs';
 
 const favCock = document.querySelector('.gallery-for-fav');
 const newSaveButton = document.querySelector('.saveButton');
 const newDeleteButton = document.querySelector('.deleteButtonn');
 const doDelete = document.querySelector('.to-delete');
-// localStorage.clear()
+// localStorage.clear() 
 
 let arrayFavorite = [];
 
-function pushToFav() {
-  let localFavoritesString = localStorage.getItem('favorites');
-  if (JSON.parse(localFavoritesString).includes(dataSet)) {
-    return;
-  } else {
-    arrayFavorite.push(dataSet);
-  }
-}
 
 function savedFav() {
   localStorage.setItem('favorites', JSON.stringify(arrayFavorite));
 }
 
+function pushToFav() {
+    arrayFavorite.push(dataSet);
+}
+
+  
+  
 function getFavLocal() {
   let localFavoritesString = localStorage.getItem('favorites');
   if (localFavoritesString !== null) {
@@ -30,8 +30,6 @@ function getFavLocal() {
 }
 getFavLocal();
 
-// const gallaryFav = document.querySelector('.father-for-fav')
-const divEvent = document.querySelector('.for-event');
 const gallery = document.querySelector('.gallery');
 
 // главная
@@ -43,30 +41,49 @@ gallery.addEventListener('click', event => {
   ) {
     dataSet = event.target.closest('.saveButton').dataset.id;
     addNewCocktail();
+
   }
   if (
     //* onClick remove fav
     (event.target.nodeName === 'BUTTON' && event.target.nodeName === 'SVG') ||
     event.target.closest('.deleteButtonn')
   ) {
-    console.log(event.target);
+      console.log(event.target);
     dataSet = event.target.closest('.deleteButtonn').dataset.id;
     deleteFromFavorite();
     deleteMurkup();
-    hideLikeOrDislikeButton();
+    hideLikeOrDislikeButton()
+    
   }
 
   if (
     event.target.nodeName === 'BUTTON' &&
-    event.target.closest('.learn-more-btn')
+      event.target.closest('.learn-more-btn')
   ) {
-    console.log(event.target);
+      console.log(event.target)
 
-    dataSet = event.target.closest('.learn-more-btn').dataset.id;
+      dataSet = event.target.closest('.learn-more-btn').dataset.id
 
-    checkClassList();
+      checkClassList()
+
   }
 });
+
+/** ========================= функции для работы с lockalstorage ========================= */
+
+ function addNewCocktail() {
+   pushToFav();
+   savedFav();
+}
+
+function deleteFromFavorite() {
+  if (arrayFavorite.includes(dataSet)) {
+    const dataSetIndex = arrayFavorite.indexOf(dataSet);
+    arrayFavorite.splice(dataSetIndex, 1);
+    // console.log(dataSetIndex);
+    savedFav();
+  }
+}
 
 //  ================================================== Кнопки на главной странице.===========================//
 
@@ -75,18 +92,14 @@ gallery.addEventListener('click', event => {
   const dataId = targetButton.getAttribute('data-id');
 
   if (dataId) {
-    const likeButtons = document.querySelector(
-      `.saveButton[data-id="${dataId}"]`
-    );
-    const dislikeButtons = document.querySelector(
-      `.deleteButtonn[data-id="${dataId}"]`
-    );
+    const likeButtons = document.querySelector(`.saveButton[data-id="${dataId}"]`);
+    const dislikeButtons = document.querySelector(`.deleteButtonn[data-id="${dataId}"]`);
     if (targetButton.classList.contains('saveButton')) {
-      likeButtons.classList.toggle('is-hidden');
+        likeButtons.classList.toggle('is-hidden');
       dislikeButtons.classList.remove('is-hidden');
     } else if (targetButton.classList.contains('deleteButtonn')) {
-      dislikeButtons.classList.toggle('is-hidden');
-      likeButtons.classList.remove('is-hidden');
+        dislikeButtons.classList.toggle('is-hidden');
+        likeButtons.classList.remove('is-hidden');
     }
   }
 });
@@ -102,8 +115,7 @@ cocktaileModal.addEventListener('click', event => {
     event.target.closest('.add-to-fav-btn')
   ) {
     dataSet = event.target.closest('.add-to-fav-btn').dataset.id;
-    console.log(event.target);
-    console.log(event.target.className);
+    
     addNewCocktail();
   }
   if (
@@ -114,63 +126,60 @@ cocktaileModal.addEventListener('click', event => {
     dataSet = event.target.closest('.remove-from-fav-btn').dataset.id;
     deleteFromFavorite();
     deleteMurkup();
-    hideBackdrop();
+    hideBackdrop()
   }
 });
 
-/** ========================= функции для работы с lockalstorage ========================= */
 
-async function addNewCocktail() {
-  await pushToFav();
-  await savedFav();
-}
 
-function deleteFromFavorite() {
-  if (arrayFavorite.includes(dataSet)) {
-    const dataSetIndex = arrayFavorite.indexOf(dataSet);
-    arrayFavorite.splice(dataSetIndex, 1);
-    // console.log(dataSetIndex);
-    savedFav();
-  }
-}
 
 //  ================================================== Дополнительно на кнопочки и т.д.===========================//
 
 const backdropCocktailIsHide = document.querySelector('.backdrop-cocktail');
 const modalAddToFavoriteButton = document.querySelector('.add-to-fav-btn');
-const modalRemoverFromFavoriteButton = document.querySelector(
-  '.remove-from-fav-btn'
-);
+const modalRemoverFromFavoriteButton = document.querySelector('.remove-from-fav-btn');
 const likeButton = document.querySelector('.remove-from-fav-btn');
 
 function hideBackdrop() {
-  backdropCocktailIsHide.classList.toggle('is-hidden');
+  backdropCocktailIsHide.classList.toggle('is-hidden')
 }
+
 
 function hideModalButton(event) {
   modalAddToFavoriteButton.classList.toggle('is-hidden');
   modalRemoverFromFavoriteButton.classList.toggle('is-hidden');
-}
+};
 
 function checkClassList(event) {
+
   let localFavoritesString = localStorage.getItem('favorites');
   console.log(localFavoritesString);
 
   if (JSON.parse(localFavoritesString).includes(dataSet)) {
+
     modalAddToFavoriteButton.classList.add('is-hidden');
     modalRemoverFromFavoriteButton.classList.remove('is-hidden');
+    
   } else {
     modalAddToFavoriteButton.classList.remove('is-hidden');
     modalRemoverFromFavoriteButton.classList.add('is-hidden');
   }
-}
+
+};
 
 function hideLikeOrDislikeButton(event) {
-  event.target.classList.toggle('is-hidden');
+      event.target.classList.toggle('is-hidden')
+
 }
 
-modalAddToFavoriteButton.addEventListener('click', hideModalButton);
-modalRemoverFromFavoriteButton.addEventListener('click', hideModalButton);
+modalAddToFavoriteButton.addEventListener('click', hideModalButton)
+modalRemoverFromFavoriteButton.addEventListener('click', hideModalButton)
+
+const prevButton = document.getElementById('left-pag-btn');
+const nextButton = document.getElementById('right-pag-btn');
+const numberButtons = document.querySelectorAll('.pagination-button-item')
+
+
 
 /** ========================= Fetch and Markup ========================= */
 
@@ -192,8 +201,15 @@ async function displayCocktails() {
   try {
     const data = await getArrayOfCocktail(arrayFavorite);
     refs.containerNotFoundFavCocktails.classList.add('is-hidden');
-    data.forEach(element => {
-      markup(element);
+
+    // пагинация - макс элементы
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const cocktailsToDisplay = data.slice(startIndex, endIndex);
+
+    cocktailsToDisplay.forEach(element => {
+      markup(element)
+        
     });
   } catch (error) {
     refs.containerNotFoundFavCocktails.classList.remove('is-hidden');
@@ -203,7 +219,7 @@ async function displayCocktails() {
 
 function markup({ drinkThumb, drink, instructions, _id }) {
   const markup = `<li class="to-delete"><div class="cocktail-card-main" id="cocktail-card-item">
-        <img class="cocktail-card-img" src="${drinkThumb}" alt="${drink}" width="" height="" />
+        <img class="cocktail-card-img" src="${drinkThumb}" alt="${drink}" width="" height="" loading="lazy"/>
         <h3 class="card-cocktail-name">${drink}</h3>
         <p class="card-cocktail-desc">${instructions}</p>
         <div class="buttons-container">
@@ -222,49 +238,50 @@ function markup({ drinkThumb, drink, instructions, _id }) {
 // // /** ========================= Удалить ========================= */
 
 function deleteMurkup() {
-  favCock.innerHTML = '';
+  favCock.innerHTML = ''; 
   displayCocktails();
 }
 
-// // /** ========================= Альтернативные функции для роботы с LocalStorage ========================= */
+ /** ========================= Пагинация ========================= */
 
-// export function saveToStorage(key, value) {
-//   let setValue;
-//   try {
-//     if (getFromStorage(key)) {
-//       if (getFromStorage(key).includes(value)) {
-//         console.log('already added');
-//         return;
-//       } else {
-//         console.log('adding');
-//         setValue = [...getFromStorage(key), value];
-//       }
-//     } else {
-//       setValue = [value];
-//     }
-//     localStorage.setItem(key, JSON.stringify(setValue));
-//   } catch (error) {
-//     console.error(error.message);
-//   }
-// }
+const itemsPerPage = 6; 
+let currentPage = 1;  
+const container = document.querySelector('.pagination-buttons-container')
 
-// export function getFromStorage(key) {
-//   try {
-//     return localStorage.getItem(key) === null
-//       ? []
-//       : JSON.parse(localStorage.getItem(key));
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
+function generatePaginationButtons(totalPages) {
 
-// export function deleteFromStorage(key, value) {
-//   try {
-//     const getIndex = getFromStorage(key).indexOf(value);
-//     getFromStorage(key).splice(getIndex, 1);
-//     localStorage.setItem(key, JSON.stringify(getFromStorage(key)));
-//   } catch (error) {
-//     console.error(error.message);
-//   }
-//   return;
-// }
+  for (let i = 1; i <= totalPages; i++) {
+    const button = document.createElement('button');
+    button.textContent = i;
+    button.dataset.page = i;
+    button.classList.add('pagination-button');
+    button.classList.add('pagination-button-item');
+    container.appendChild(button);
+  }
+}
+
+container.addEventListener('click', () => {
+if (event.target.classList.contains('pagination-button')) {
+    const page = parseInt(event.target.dataset.page);
+    if (!isNaN(page)) {
+      currentPage = page;
+      displayCurrentPage();
+    }
+  }
+});
+    
+function displayCurrentPage() {
+  favCock.innerHTML = '';
+  displayCocktails()
+  }
+
+function updatePagination() {
+  const totalCocktailCount = arrayFavorite.length;
+  const totalPages = Math.ceil(totalCocktailCount / itemsPerPage);
+  if (totalPages <= 1) {
+    favCock.innerHTML = '';
+  } 
+  generatePaginationButtons(totalPages);
+
+}
+updatePagination();
