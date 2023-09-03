@@ -14,7 +14,7 @@ async function onIngredClick(e) {
       const response = await getIngredient(ingredName);
 
       const result = response.find(
-        ing => ing.title.toLocaleLowerCase === ingredName.toLocaleLowerCase
+        ing => ing.title.toLocaleLowerCase() === ingredName.toLocaleLowerCase()
       );
 
       markupIngredient(result);
