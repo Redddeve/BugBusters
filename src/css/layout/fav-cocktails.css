@@ -42,7 +42,7 @@
 .not-found-info-container-fav-cocktails {
   width: 244px;
   /* height: 190px; */
-  margin-bottom: 20px;
+  margin-bottom: 140px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -53,15 +53,10 @@
 @media only screen and (min-width: 768px) {
   .not-found-info-container-fav-cocktails {
     width: 372px;
-    margin-bottom: 40px;
     gap: 40px;
   }
 }
-@media only screen and (min-width: 1280px) {
-  .not-found-info-container-fav-cocktails {
-    margin-bottom: 40px;
-  }
-}
+
 .not-found-img {
   width: 142px;
   height: 122px;
