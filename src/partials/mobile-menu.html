@@ -34,13 +34,26 @@
     </div>
   </div>
   <!-- инпут -->
-
-  <div class="input-with-icon">
+  <form class="search-mobile-form">
+    <input
+      type="text"
+      name="searchQuery"
+      class="search-input mobile-input"
+      autocomplete="off"
+      placeholder="Search"
+      aria-label="Search"
+    />
+    <input type="submit" hidden />
+    <svg width="16" height="16" class="search-button-mobile-burger">
+      <use href="./img/svg/icons.svg#search-icon"></use>
+    </svg>
+  </form>
+  <!-- <div class="input-with-icon">
     <input type="text" placeholder="Search" class="mobile-input" />
     <svg width="16" height="16" class="search-button-mobile-burger">
       <use href="./img/svg/icons.svg#search-icon"></use>
     </svg>
-  </div>
+  </div> -->
   <div class="container-for-links">
     <nav>
       <ul class="list-of-links">
