@@ -190,10 +190,6 @@ input:checked + .slider-desc:before {
 
 /* =========== BACKGROUND ============= */
 
-.header-container {
-  /* overflow: hidden; */
-}
-
 .header-container::after {
   width: 738.545px;
   height: 1120.72px;
