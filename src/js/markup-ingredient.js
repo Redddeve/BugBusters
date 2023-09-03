@@ -9,10 +9,10 @@ export default function markupIngredient({
   type,
   _id,
 }) {
-  let LSIngList = JSON.parse(localStorage.getItem('ingredients'))
+  let LSIngList = JSON.parse(localStorage.getItem('ingredients'));
   let favIngIds;
-  if (LSIngList || LSIngList.length !== 0) {
-    favIngIds = LSIngList;
+  if (LSIngList) {
+    if (LSIngList.length !== 0) favIngIds = LSIngList;
   }
   let isInFavs;
   if (favIngIds) {
