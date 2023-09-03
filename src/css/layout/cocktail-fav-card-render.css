@@ -73,6 +73,7 @@
     line-height: 1.42; /* 142.857% */
     letter-spacing: 0.018em;
     text-transform: uppercase;
+    transition: color var(--anim-fast), background-color var(--anim-fast);
   }
 
   .learn-more-btn:hover,
@@ -93,6 +94,7 @@
     background: var(--color-violet);
     outline: none;
     border: 1px solid transparent;
+    transition: color var(--anim-fast), background-color var(--anim-fast);
   }
 
   .delete-btn:hover,
@@ -113,6 +115,7 @@
     background: var(--color-violet);
     outline: none;
     border: 1px solid transparent;
+    transition: color var(--anim-fast), background-color var(--anim-fast);
   }
 
   .like-btn:hover,

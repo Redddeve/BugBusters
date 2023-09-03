@@ -34,7 +34,6 @@ button {
   cursor: pointer;
   border: none;
   outline: none;
-  transition: var(--anim-fast);
 }
 
 img {
