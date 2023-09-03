@@ -134,7 +134,7 @@
 
   content: '';
   top: 1907px;
-  right: -642px;
+  right: -700px;
 
   position: absolute;
   border-radius: 50%;
@@ -145,15 +145,15 @@
 
 @media only screen and (min-width: 768px) {
   .search-container::after {
-    top: 1873px;
-    right: -572px;
+    top: 1784px;
+    right: -671px;
   }
 }
 
 @media only screen and (min-width: 1280px) {
   .search-container::after {
-    top: 1321px;
-    right: -438px;
+    top: 1303px;
+    right: -401px;
   }
 }
 
