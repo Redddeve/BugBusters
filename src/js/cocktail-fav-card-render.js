@@ -21,7 +21,7 @@ function cocktailFavCardTemplate(
   cocktailID
 ) {
   const markup = `<li class="cocktail-card-main" id="cocktail-card-item">
-        <img class="cocktail-card-img" src="${cocktailImg}" alt="${cocktailName}" width="" height="" />
+        <img class="cocktail-card-img" src="${cocktailImg}" alt="${cocktailName}" width="" height="" loading="lazy"/>
         <h3 class="card-cocktail-name">${cocktailName}</h3>
         <p class="card-cocktail-desc">${cocktailDesc}</p>
         <div class="buttons-container">
