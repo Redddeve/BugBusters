@@ -29,8 +29,8 @@ async function onSearchSubmit(e) {
   try {
     const responseArr = await fetchCocktailByName(query); //* Массив обьектов, в темплейте делаем деструктуризацию
     refs.mainCocktailsGallery.innerHTML = '';
-    cocktailMainCardRender(responseArr);
-    // renderPagination(responseArr);
+    // cocktailMainCardRender(responseArr);
+    renderPagination(responseArr);
   } catch (err) {
     Notify.failure('Oops, something went wrong!', {
       clickToClose: true,

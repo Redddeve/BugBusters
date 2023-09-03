@@ -13,13 +13,25 @@ export function renderPagination(cocktailArr) {
   let totalCocktailCount = cocktailArr.length;
 
   if (totalCocktailCount <= cardsPerPage) {
-    refs.paginationContainer.classList.add('is-hidden');
+    // refs.paginationContainer.classList.add('is-hidden');
   }
 
   let totalPagesNum = Math.ceil(totalCocktailCount / cardsPerPage);
 
   const sortedCardsArr = createPagesArr(cocktailArr, cardsPerPage);
 
+  cocktailMainCardRender(sortedCardsArr[0]);
+
+  refs.paginationNumberBtnsContainer.addEventListener(
+    'click',
+    onPaginationBtnClick
+  );
+  refs.leftPagBtn[0].addEventListener('click', onPaginationBtnClick);
+  refs.rightPagBtn[0].addEventListener('click', onPaginationBtnClick);
+
+  let currentPageIndex = 0;
+
+  // ======== func creating array of pages by tab+desk or mob cards per page number =====
   function createPagesArr(arr, cardsPerPageNun) {
     return arr.reduce((result, item, index) => {
       if (index % cardsPerPageNun === 0) {
@@ -30,44 +42,36 @@ export function renderPagination(cocktailArr) {
     }, []);
   }
 
-  //   let sortedCardsArr = [];
-  //   let currentPageArr = [];
-  //   let currentElemIndex = 0;
+  // ========= func creating pagination buttons =================
+  function createPaginationBtns(totalDisplay) {
+    const btnsSample = ['1', '2'];
 
-  //   for (let count = 0; count < totalPagesNum; count++) {
-  //     for (let cardNum = 0; cardNum < cardsPerPage; cardNum++) {
-  //       if (cocktailArr[currentElemIndex]) {
-  //         currentPageArr.push(cocktailArr[currentElemIndex]);
-  //         currentElemIndex++;
-  //       }
-  //     }
-  //     sortedCardsArr.push(currentPageArr);
-  //     currentPageArr = [];
-  //   }
+    //   const
 
-  cocktailMainCardRender(sortedCardsArr[0]);
+    // let markup = '';
+    // for (let index = startPageNum; index <= totalDisplay; index++) {
+    //   markup += `<button
+    //   class="page-num-${index + 1} pagination-button-item"
+    //   type="button"
+    //   data-action="${index + 1}"
+    // >
+    //   ${index + 1}
+    // </button>`;
+    // }
+    // console.log(markup);
+    refs.paginationNumberBtnsContainer.innerHTML = markup;
+  }
 
-  refs.paginationNumberBtnsContainer.addEventListener(
-    'click',
-    onPaginationBtnClick
-  );
-
-  refs.leftPagBtn[0].addEventListener('click', onPaginationBtnClick);
-  refs.rightPagBtn[0].addEventListener('click', onPaginationBtnClick);
-
-  let currentPageIndex = 0;
-  let numBtnKey = `button[data-action='${currentPageIndex + 1}']`;
-  let numBtnActive =
-    refs.paginationNumberBtnsContainer.querySelector(numBtnKey);
-  numBtnActive.classList.add('pagination-button-item-active');
-
+  // ============== pagination button click func ================
   function onPaginationBtnClick(evt) {
-    evt.preventDefault();
+    // evt.preventDefault();
 
-    const toSearch = document.getElementById('search');
-    toSearch.scrollIntoView({ behavior: 'smooth' }, true);
+    // const toSearch = document.getElementById('search');
+    // toSearch.scrollIntoView({ behavior: 'smooth' }, true);
 
     let btnValue = evt.target.dataset.action;
+
+    let totalBtnsDisplay = 7;
 
     refs.mainCocktailsGallery.innerHTML = '';
 
@@ -75,18 +79,22 @@ export function renderPagination(cocktailArr) {
       currentPageIndex -= 1;
       if (currentPageIndex < 0) {
         currentPageIndex = 0;
+        refs.rightPagBtn[0].classlist.add('pagination-button-disabled');
+        refs.rightPagBtn[0].setAttribute.disabled;
       }
       cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
+      //   createPaginationBtns(currentPageIndex, totalBtnsDisplay);
     }
 
     if (btnValue === 'rightPag') {
       currentPageIndex += 1;
       if (currentPageIndex > totalPagesNum - 1) {
         currentPageIndex = totalPagesNum - 1;
+        refs.rightPagBtn[0].classlist.add('pagination-button-disabled');
+        refs.rightPagBtn[0].setAttribute.disabled;
       }
       cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
-      numBtnKey = `button[data-action='${currentPageIndex + 1}']`;
-      numBtnActive.classList.add('pagination-button-item-active');
+      //   createPaginationBtns(currentPageIndex, totalBtnsDisplay);
     }
 
     if (!isNaN(Number(btnValue))) {
