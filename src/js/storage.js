@@ -11,15 +11,22 @@ const doDelete = document.querySelector('.to-delete');
 let arrayFavorite = [];
 
 
-function savedFav() {
+function pushToFav() {
+
+  let localFavoritesString = localStorage.getItem('favorites');
+  if (!localFavoritesString) {
+    arrayFavorite.push(dataSet)
+  } else
+  if (JSON.parse(localFavoritesString).includes(dataSet)) {
+    return 
+  } else {
+    arrayFavorite.push(dataSet);
+  }
+}
+
+  function savedFav() {
   localStorage.setItem('favorites', JSON.stringify(arrayFavorite));
 }
-
-function pushToFav() {
-    arrayFavorite.push(dataSet);
-}
-
-  
   
 function getFavLocal() {
   let localFavoritesString = localStorage.getItem('favorites');
@@ -39,6 +46,7 @@ gallery.addEventListener('click', event => {
     (event.target.nodeName === 'BUTTON' && event.target.nodeName === 'SVG') ||
     event.target.closest('.saveButton')
   ) {
+
     dataSet = event.target.closest('.saveButton').dataset.id;
     addNewCocktail();
 
@@ -80,7 +88,6 @@ function deleteFromFavorite() {
   if (arrayFavorite.includes(dataSet)) {
     const dataSetIndex = arrayFavorite.indexOf(dataSet);
     arrayFavorite.splice(dataSetIndex, 1);
-    // console.log(dataSetIndex);
     savedFav();
   }
 }
