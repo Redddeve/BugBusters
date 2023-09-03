@@ -44,6 +44,7 @@ async function onHeroBtnSearchClick(e) {
       refs.paginationContainer.classList.remove('is-hidden');
     }
   } catch (error) {
+    refs.paginationContainer.classList.add('is-hidden');
     cocktailMainCardNotFoundTemplate();
 
     Notify.failure('Oops, something went wrong!', {
@@ -88,6 +89,7 @@ async function onSelectOptionClick(event) {
 
     renderPagination(response);
   } catch (error) {
+    refs.paginationContainer.classList.add('is-hidden');
     cocktailMainCardNotFoundTemplate();
 
     Notify.failure('Oops, something went wrong!', {
