@@ -145,3 +145,8 @@ body.dark-theme .item-text {
 body.dark-theme img {
   filter: brightness(0.8) contrast(1.2);
 }
+
+body.dark-theme .cocktail-modal-btn-icon,
+body.dark-theme .ingred-modal-btn-icon {
+  stroke: var(--color-background-white);
+}

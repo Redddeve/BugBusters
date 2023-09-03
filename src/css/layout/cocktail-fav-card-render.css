@@ -139,6 +139,10 @@
   }
 }
 
+.pointer-none {
+  pointer-events: none;
+}
+
 /* ====================  TAB + DESK  =========================== */
 @media screen and (min-width: 768px) {
   .cocktail-cards-container {
