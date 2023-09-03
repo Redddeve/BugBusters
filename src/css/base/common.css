@@ -73,6 +73,10 @@ body {
   position: absolute;
 }
 
+svg {
+  pointer-events: none;
+}
+
 /** ========================= DarkTheme ========================= */
 
 body.dark-theme {
