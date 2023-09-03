@@ -6,8 +6,16 @@
 
 .pagination-button-disabled {
   border: none;
-  background-color: var(--color-turquoise, #6b7070);
-  color: var(--color-background-white, #000000);
+  background-color: #bec0c0;
+  fill: #000000;
+}
+
+.pagination-button-disabled:hover,
+.pagination-button-disabled:focus,
+.pagination-button-disabled:active {
+  border: none;
+  background-color: #bec0c0;
+  fill: #000000;
 }
 
 @media only screen and (min-width: 320px) {

@@ -82,9 +82,13 @@ export function renderPagination(cocktailArr) {
       start = pageBtns.slice(0, 2);
       finish = pageBtns.slice(pageBtns.length - 1, pageBtns.length);
 
-      const moreBtn = document.createElement('button');
-      moreBtn.textContent = '...';
-      moreBtn.classList.add('pagination-button-item');
+      if (pageBtns.length > 3) {
+        const moreBtn = document.createElement('button');
+        moreBtn.textContent = '...';
+        moreBtn.classList.add('pagination-button-item');
+      } else {
+        moreBtn = '';
+      }
 
       refs.paginationNumberBtnsContainer.append(...start, moreBtn, ...finish);
       break;
@@ -114,11 +118,9 @@ export function renderPagination(cocktailArr) {
     if (btnValue === 'rightPag') {
       currentPageIndex += 1;
       if (currentPageIndex === totalPagesNum - 1) {
-        console.log(currentPageIndex);
-        console.log(totalPagesNum);
-        refs.rightPagBtn[0].setAttribute('disabled', '');
+        // console.log(currentPageIndex);
+        // console.log(totalPagesNum);
       }
-
       cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
     }
 
@@ -129,13 +131,17 @@ export function renderPagination(cocktailArr) {
 
     if (currentPageIndex === 0) {
       refs.leftPagBtn[0].setAttribute('disabled', '');
+      refs.leftPagBtn[0].classList.add('pagination-button-disabled');
     } else {
       refs.leftPagBtn[0].removeAttribute('disabled');
+      refs.leftPagBtn[0].classList.remove('pagination-button-disabled');
     }
     if (currentPageIndex === totalPagesNum - 1) {
       refs.rightPagBtn[0].setAttribute('disabled', '');
+      refs.rightPagBtn[0].classList.add('pagination-button-disabled');
     } else {
       refs.rightPagBtn[0].removeAttribute('disabled');
+      refs.rightPagBtn[0].classList.remove('pagination-button-disabled');
     }
   }
 }
