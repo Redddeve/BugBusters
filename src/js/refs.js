@@ -57,4 +57,7 @@ export const refs = {
   containerNotFoundFavIng: document.querySelector(
     '.not-found-info-container-fav-ing'
   ),
+
+// ===================== Mobile search =======================
+  searchMobile: document.querySelector(".search-mobile-form"),
 };
