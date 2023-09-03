@@ -64,7 +64,6 @@ export function renderPagination(cocktailArr) {
     onPaginationBtnClick
   );
 
-  //   refs.leftPagBtn[0].classList.add('is-hidden');
   refs.leftPagBtn[0].classList.add('is-hidden');
 
   for (let i = 1; i <= totalPagesNum; i++) {
