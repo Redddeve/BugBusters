@@ -1,4 +1,4 @@
-import { every } from 'lodash';
+import { every, throttle } from 'lodash';
 import { Notify } from 'notiflix';
 import { refs } from './refs';
 import { getIngredient } from './fetch-data';
@@ -12,8 +12,9 @@ async function onIngredClick(e) {
   if (e.target.classList.contains('ingredients-link')) {
     try {
       const response = await getIngredient(ingredName);
-      const result = response.find(ing => ing.title === ingredName);
-
+            
+      const result = response.find(ing => ing.title.toLocaleLowerCase === ingredName.toLocaleLowerCase);
+            
       markupIngredient(result);
       refs.backdropIngred.classList.remove('is-hidden');
       let addBtn = document.querySelector('.add-to-fav-ing-btn');
@@ -38,7 +39,12 @@ function closeIngredModal(e) {
   ) {
     return;
   }
+  throttle(cleanIngredMarkup, 100);
   refs.backdropIngred.classList.add('is-hidden');
+}
+
+function cleanIngredMarkup() {
+  refs.ingreModalInner.innerHTML = '';
 }
 
 const addIngredientToFav = (addBtn, removeBtn, id) => {
