@@ -9,13 +9,15 @@
   opacity: 1;
   transition: opacity var(--anim-fast), visibility var(--anim-fast);
 }
+.backdrop-ingred.is-hidden {
+  opacity: 0;
+}
+
 ::-webkit-scrollbar {
   width: 0px;
 }
-.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
+.not-found-info-container.is-hidden {
+  display: none;
 }
 
 .ingred-modal {
@@ -70,7 +72,7 @@
   font-weight: 400;
   line-height: 20px;
   margin-bottom: 40px;
-  max-height: 300px;
+  max-height: 160px;
   overflow-y: auto;
 }
 
@@ -139,7 +141,7 @@
   line-height: 20px;
   letter-spacing: 0.28px;
   text-transform: uppercase;
-  transition: background-color var(--anim-fast);
+  transition: color var(--anim-fast), background-color var(--anim-fast);
 }
 
 .modal-to-favorite-btn:hover,

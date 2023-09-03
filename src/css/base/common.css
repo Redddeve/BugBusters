@@ -72,3 +72,81 @@ body {
   pointer-events: none;
   position: absolute;
 }
+
+/** ========================= DarkTheme ========================= */
+
+body.dark-theme {
+  color: #eee;
+  background: #121212;
+}
+
+body.dark-theme .cocktail-card-main,
+body.dark-theme .fav-ingredient-card {
+  color: var(--color-background-white);
+  background-color: #232330;
+}
+
+body.dark-theme .learn-more-btn,
+body.dark-theme .card-cocktail-name,
+body.dark-theme .change,
+body.dark-theme .fav-ingred-learn-more-btn {
+  color: var(--color-background-white);
+}
+
+body.dark-theme .hero-big-star,
+body.dark-theme .hero-small-star,
+body.dark-theme .search-icon {
+  fill: var(--color-background-white);
+}
+
+body.dark-theme .search-input {
+  background-color: transparent;
+  color: rgba(253, 253, 255, 0.8);
+}
+
+body.dark-theme .search-input::placeholder {
+  color: var(--color-background-white);
+}
+
+body.dark-theme .burger-btn {
+  stroke: var(--color-background-white);
+}
+
+body.dark-theme .cocktail-modal,
+body.dark-theme .ingred-modal {
+  background-color: #232330;
+}
+
+body.dark-theme .modal-header-ingredients-subtitle,
+body.dark-theme .modal-instractions,
+body.dark-theme .ingred-type,
+body.dark-theme .ingred-desc,
+body.dark-theme .item-text,
+body.dark-theme .is-alcoholic {
+  color: rgba(253, 253, 255, 0.5);
+}
+
+body.dark-theme .desc-inner-title {
+  color: tomato;
+}
+
+body.dark-theme .ingredients-link {
+  color: var(--color-background-white);
+}
+
+body.dark-theme .ingred-type::after {
+  background: rgba(253, 253, 255, 0.1);
+}
+
+body.dark-theme .item-text {
+  color: rgba(253, 253, 255, 0.8);
+}
+
+body.dark-theme img {
+  filter: brightness(0.8) contrast(1.2);
+}
+
+body.dark-theme .cocktail-modal-btn-icon,
+body.dark-theme .ingred-modal-btn-icon {
+  stroke: var(--color-background-white);
+}

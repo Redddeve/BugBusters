@@ -1,6 +1,8 @@
 .ingredients-gallery {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
+  row-gap: 20px;
 }
 
 .fav-ingredients-title {
@@ -17,10 +19,6 @@
   border-radius: 20px;
   background: var(--color-background-white);
   box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
-}
-
-.fav-ingredient-card:not(:last-child) {
-  margin-bottom: 20px;
 }
 
 .fav-ingredient-card:last-child {
@@ -58,6 +56,98 @@
 .fav-ingred-learn-more-btn {
   width: 232px;
   height: 48px;
+  font-weight: 600;
   border-radius: 12px;
   border: 1px solid #7e8fdd;
+}
+
+@media screen and (min-width: 768px) {
+  .ingredients-gallery {
+    row-gap: 32px;
+    column-gap: 16px;
+  }
+
+  .fav-ingredients-title {
+    margin-top: 105px;
+    font-size: 40px;
+    line-height: 1.2;
+  }
+
+  .fav-ingredient-card {
+    width: 344px;
+    height: 242px;
+  }
+
+  .fav-ingredient-card:last-child {
+    margin-bottom: 100px;
+  }
+
+  .fav-ingred-header {
+    font-size: 20px;
+  }
+
+  .fav-ingred-learn-more-btn {
+    width: 225px;
+    height: 56px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .ingredients-gallery {
+    row-gap: 44px;
+    column-gap: 24px;
+  }
+}
+/* =============== NOT FOUND ================ */
+
+.not-found-info-container-fav-ing {
+  width: 244px;
+  /* height: 190px; */
+  margin-top: 100px;
+  margin-bottom: 140px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+.not-found-info-container-fav-ing.is-hidden {
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  .not-found-info-container-fav-ing {
+    width: 372px;
+    gap: 40px;
+    margin-top: 60px;
+    margin-bottom: 140px;
+  }
+}
+.not-found-img {
+  width: 142px;
+  height: 122px;
+}
+@media only screen and (min-width: 768px) {
+  .not-found-img {
+    width: 234px;
+    height: 201px;
+  }
+}
+.not-found-search-txt {
+  font-size: 18px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.33;
+  text-align: center;
+}
+@media only screen and (min-width: 768px) {
+  .not-found-search-txt {
+    width: 372px;
+    font-size: 24px;
+    line-height: 1.17;
+  }
+}
+.not-found-search-txt-span {
+  color: var(--color-turquoise, #9cdfdf);
+  font-style: italic;
 }

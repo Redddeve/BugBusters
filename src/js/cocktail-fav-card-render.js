@@ -56,7 +56,6 @@ export function cocktailMainCardRender(cocktailArr) {
   } else {
     cocktailMainCardNotFoundTemplate();
   }
-
   refs.mainCocktailsGallery.insertAdjacentHTML('beforeend', allCardsMarkup);
 }
 
@@ -87,6 +86,7 @@ function cocktailMainCardTemplate(
               data-id="${cocktailID}"
             >
               <svg
+              class="pointer-none"
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -104,11 +104,11 @@ function cocktailMainCardTemplate(
             </button>
             <button 
               type="button"
-              class="delete-btn card-cocktail-delete-icon-use deleteButtonn"
+              class="delete-btn card-cocktail-delete-icon-use deleteButtonn is-hidden "
               data-id="${cocktailID}"
             >
   <svg
-    class="card-cocktail-delete-icon"
+    class="card-cocktail-delete-icon pointer-none"
     xmlns="http://www.w3.org/2000/svg"
     width="18"
     height="18"

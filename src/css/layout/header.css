@@ -183,3 +183,38 @@ input:checked + .slider-desc:before {
     display: none;
   }
 }
+
+.burger-btn {
+  stroke: var(--color-text-black);
+}
+
+/* =========== BACKGROUND ============= */
+
+.header-container::after {
+  width: 738.545px;
+  height: 1120.72px;
+  transform: rotate(-161.494deg);
+  background: rgba(156, 223, 223);
+  opacity: 0.8;
+
+  content: '';
+  top: -599px;
+  left: -697px;
+  position: absolute;
+  filter: blur(100px);
+  z-index: -1;
+}
+
+@media only screen and (min-width: 768px) {
+  .header-container::after {
+    top: -595px;
+    left: -639px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .header-container::after {
+    top: -495px;
+    left: -661px;
+  }
+}
