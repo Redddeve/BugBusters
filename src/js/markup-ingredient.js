@@ -9,9 +9,10 @@ export default function markupIngredient({
   type,
   _id,
 }) {
+  let LSIngList = JSON.parse(localStorage.getItem('ingredients'))
   let favIngIds;
-  if (localStorage.getItem('ingredients')) {
-    favIngIds = localStorage.getItem('ingredients');
+  if (LSIngList || LSIngList.length !== 0) {
+    favIngIds = LSIngList;
   }
   let isInFavs;
   if (favIngIds) {
@@ -49,7 +50,6 @@ export default function markupIngredient({
      `;
   let addToFavBtn = document.querySelector('.add-to-fav-ing-btn');
   let removeFromFavBtn = document.querySelector('.remove-from-fav-ing-btn');
-  console.log(addToFavBtn);
   if (isInFavs) {
     addToFavBtn.classList.add('is-hidden');
   } else {

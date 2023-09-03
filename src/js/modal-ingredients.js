@@ -18,12 +18,8 @@ async function onIngredClick(e) {
       refs.backdropIngred.classList.remove('is-hidden');
       let addBtn = document.querySelector('.add-to-fav-ing-btn');
       let removeBtn = document.querySelector('.remove-from-fav-ing-btn');
-      addBtn.addEventListener('click', () => {
-        addIngredientToFav(addBtn, removeBtn, addBtn.dataset.id);
-      });
-      removeBtn.addEventListener('click', () => {
-        removeIngredientFromFav(addBtn, removeBtn, removeBtn.dataset.id);
-      });
+      addBtn.addEventListener('click', addIngredientToFav(addBtn, removeBtn, addBtn.dataset.id));
+      removeBtn.addEventListener('click', removeIngredientFromFav(addBtn, removeBtn, removeBtn.dataset.id));
     } catch (err) {
       Notify.failure('Oops, something went wrong!', {
         clickToClose: true,
@@ -46,6 +42,7 @@ function closeIngredModal(e) {
 }
 
 const addIngredientToFav = (addBtn, removeBtn, id) => {
+  console.log('hyu')
   addToLS('ingredients', id);
   removeBtn.classList.remove('is-hidden');
   addBtn.classList.add('is-hidden');

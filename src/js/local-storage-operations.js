@@ -1,7 +1,9 @@
 export const addToLS = (type, id) => {
   let recoverArr = [id]
-  if (!localStorage.getItem(type)) localStorage.setItem(type, JSON.stringify(recoverArr));
-  const arrayOfIds = JSON.parse(localStorage.getItem(type));
+  let arrayOfIds = JSON.parse(localStorage.getItem(type));
+  console.log(arrayOfIds)
+  if (!arrayOfIds || arrayOfIds.length === 0) localStorage.setItem(type, JSON.stringify(recoverArr));
+  arrayOfIds = JSON.parse(localStorage.getItem(type));
   if (arrayOfIds.length !== 0) {
     if (!arrayOfIds.includes(id)) {
       arrayOfIds.push(id);
