@@ -119,14 +119,33 @@
 }
 
 /* =========== BACKGROUND ============= */
-.search-container {
+/* .search-container {
   overflow: hidden;
-}
+} */
 
-.search-container::after {
+/* .search-section::before {
+  background: url('/src/img/png/desktop.png') no-repeat center center/cover;
   width: 738.545px;
-  height: 1120.72px;
-  transform: rotate(-157.904deg);
+  height: 720.72px;
+  transform: rotate(-90.904deg);
+  background: rgba(156, 223, 223);
+  opacity: 0.5;
+
+  content: '';
+  top: 2348px;
+  right: -297px;
+
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+} */
+
+/* body::after {
+  background: linear-gradient(rgba(156, 223, 223));
+  width: 738.545px;
+  height: 720.72px;
+  transform: rotate(-90.904deg);
   background: rgba(156, 223, 223);
   opacity: 0.5;
 
@@ -139,23 +158,23 @@
   filter: blur(100px);
   z-index: -1;
   display: block;
-}
+} */
 
-@media only screen and (min-width: 768px) {
-  .search-container::after {
-    top: 1784px;
-    right: -671px;
+/* @media only screen and (min-width: 768px) {
+  body::after {
+    top: 3357px;
+    right: -344px;
   }
 }
 
 @media only screen and (min-width: 1280px) {
-  .search-container::after {
-    top: 1303px;
+  body::after {
+    top: 2287px;
     right: -401px;
   }
-}
+} */
 
-.search-container::before {
+/* body::before {
   width: 738.545px;
   height: 1120.72px;
   transform: rotate(-157.904deg);
@@ -171,10 +190,32 @@
   filter: blur(100px);
   z-index: -1;
   display: block;
-}
+} */
 
-@media only screen and (min-width: 768px) {
-  .search-container::before {
+/* @media only screen and (min-width: 768px) {
+  body::before {
     display: none;
   }
-}
+} */
+
+/* =========== BACKGROUND ============= */
+
+/* @media only screen and (min-width: 1280px) {
+  .search-section::after {
+    background: url('/src/img/png/desktop.png') no-repeat center center/cover;
+    width: 738.545px;
+    height: 720.72px;
+    transform: rotate(89deg);
+    background: rgba(156, 223, 223);
+    opacity: 0.5;
+
+    content: '';
+    top: 2286px;
+    right: -297px;
+
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: -1;
+  }
+} */
