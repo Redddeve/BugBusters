@@ -66,28 +66,41 @@ export function renderPagination(cocktailArr) {
     case true:
       {
         console.log('is mobile');
-        start = pageBtns.slice(0, 2);
-        finish = pageBtns.slice(pageBtns.length - 1, pageBtns.length);
+        if (pageBtns.length <= 4) {
+          refs.paginationNumberBtnsContainer.append(...pageBtns);
+        } else {
+          start = pageBtns.slice(0, 3);
+          finish = pageBtns.slice(pageBtns.length - 1, pageBtns.length);
 
-        const moreBtn = document.createElement('button');
-        moreBtn.textContent = '...';
-        moreBtn.classList.add('pagination-button-item');
+          const moreBtn = document.createElement('button');
+          moreBtn.textContent = '...';
+          moreBtn.classList.add('pagination-button-item');
 
-        refs.paginationNumberBtnsContainer.append(...start, moreBtn, ...finish);
+          refs.paginationNumberBtnsContainer.append(
+            ...start,
+            moreBtn,
+            ...finish
+          );
+        }
       }
       break;
 
     case false: {
       console.log('is not mobile');
-      start = pageBtns.slice(0, 3);
-      finish = pageBtns.slice(pageBtns.length - 3, pageBtns.length);
+      if (pageBtns.length <= 7) {
+        refs.paginationNumberBtnsContainer.append(...pageBtns);
+      } else {
+        start = pageBtns.slice(0, 3);
+        finish = pageBtns.slice(pageBtns.length - 3, pageBtns.length);
 
-      const moreBtn = document.createElement('button');
-      moreBtn.textContent = '...';
-      moreBtn.classList.add('pagination-button-item');
+        const moreBtn = document.createElement('button');
+        moreBtn.textContent = '...';
+        moreBtn.setAttribute('disabled', '');
+        moreBtn.classList.add('pagination-button-item');
 
-      refs.paginationNumberBtnsContainer.append(...start, moreBtn, ...finish);
-      break;
+        refs.paginationNumberBtnsContainer.append(...start, moreBtn, ...finish);
+        break;
+      }
     }
   }
 
@@ -102,24 +115,23 @@ export function renderPagination(cocktailArr) {
     if (refs.mainCocktailsText.textContent !== 'Searching results') {
       refs.mainCocktailsText.textContent = 'Searching results';
     }
+    switch (btnValue) {
+      case 'leftPag':
+        {
+          currentPageIndex -= 1;
+          if (currentPageIndex < 0) {
+            currentPageIndex = 0;
+          }
+          cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
+        }
+        break;
 
-    if (btnValue === 'leftPag') {
-      currentPageIndex -= 1;
-      if (currentPageIndex < 0) {
-        currentPageIndex = 0;
-      }
-      cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
-    }
-
-    if (btnValue === 'rightPag') {
-      currentPageIndex += 1;
-      if (currentPageIndex === totalPagesNum - 1) {
-        console.log(currentPageIndex);
-        console.log(totalPagesNum);
-        refs.rightPagBtn[0].setAttribute('disabled', '');
-      }
-
-      cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
+      case 'rightPag':
+        {
+          currentPageIndex += 1;
+          cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
+        }
+        break;
     }
 
     if (!isNaN(Number(btnValue))) {
