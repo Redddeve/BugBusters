@@ -40,6 +40,7 @@ async function onSearchSubmit(e) {
       refs.paginationContainer.classList.remove('is-hidden');
     }
   } catch (err) {
+    refs.paginationContainer.classList.add('is-hidden');
     cocktailMainCardNotFoundTemplate();
     Notify.failure('Oops, something went wrong!', {
       clickToClose: true,
