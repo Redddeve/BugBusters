@@ -7,7 +7,11 @@ import markupIngredient from './markup-ingredient';
 
 const renderFavIng = () => {
   refs.ingredientsGallery.innerHTML = '';
+  refs.containerNotFoundFavIng.classList.add('is-hidden');
   const ids = JSON.parse(localStorage.getItem('ingredients'));
+  if (!ids || ids.length === 0) {
+    refs.containerNotFoundFavIng.classList.remove('is-hidden');
+  }
   ids.forEach(async id => {
     const response = await fetchIngredient(id);
     if (!response[0]) return;
