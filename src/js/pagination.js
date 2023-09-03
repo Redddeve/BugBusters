@@ -5,6 +5,7 @@ export function renderPagination(cocktailArr) {
   refs.paginationNumberBtnsContainer.innerHTML = '';
   let cardsPerPage;
 
+  let currentPageIndex = 0;
   let pageBtns = [];
   let start = [];
   let finish = [];
@@ -32,6 +33,8 @@ export function renderPagination(cocktailArr) {
 
   const sortedCardsArr = createPagesArr(cocktailArr, cardsPerPage);
 
+  arrowCheck();
+
   function createPagesArr(arr, cardsPerPageNum) {
     return arr.reduce((result, item, index) => {
       if (index % cardsPerPageNum === 0) {
@@ -50,8 +53,6 @@ export function renderPagination(cocktailArr) {
     'click',
     onPaginationBtnClick
   );
-
-  let currentPageIndex = 0;
 
   for (let i = 1; i <= totalPagesNum; i++) {
     const pageBtn = document.createElement('button');
@@ -138,16 +139,22 @@ export function renderPagination(cocktailArr) {
       currentPageIndex = Number(btnValue - 1);
       cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
     }
-
+    arrowCheck();
+  }
+  function arrowCheck() {
     if (currentPageIndex === 0) {
-      refs.leftPagBtn[0].setAttribute('disabled', '');
+      // refs.leftPagBtn[0].setAttribute('disabled', '');
+      refs.leftPagBtn[0].classList.add('is-hidden');
     } else {
-      refs.leftPagBtn[0].removeAttribute('disabled');
+      // refs.leftPagBtn[0].removeAttribute('disabled');
+      refs.leftPagBtn[0].classList.remove('is-hidden');
     }
     if (currentPageIndex === totalPagesNum - 1) {
-      refs.rightPagBtn[0].setAttribute('disabled', '');
+      // refs.rightPagBtn[0].setAttribute('disabled', '');
+      refs.rightPagBtn[0].classList.add('is-hidden');
     } else {
-      refs.rightPagBtn[0].removeAttribute('disabled');
+      // refs.rightPagBtn[0].removeAttribute('disabled');
+      refs.rightPagBtn[0].classList.remove('is-hidden');
     }
   }
 }
