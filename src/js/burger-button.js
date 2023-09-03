@@ -2,11 +2,11 @@ const { disableBodyScroll, enableBodyScroll } = require('body-scroll-lock');
 import { refs } from './refs.js';
 
 export function openMobile() {
-  refs.mobileMenu.classList.add('is-open');
+  refs.mobileMenu.classList.toggle('is-open');
   disableBodyScroll(refs.mobileMenu);
 }
 export function closeMobile() {
-  refs.mobileMenu.classList.remove('is-open');
+  refs.mobileMenu.classList.toggle('is-open');
   enableBodyScroll(refs.mobileMenu);
 }
 
