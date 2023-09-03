@@ -12,7 +12,7 @@ refs.headerForm.addEventListener('submit', onSearchSubmit);
 
 async function onSearchSubmit(e) {
   e.preventDefault();
-
+  
   page = 1;
   query = e.currentTarget.elements.searchQuery.value.trim(); //* Берет текст с инпута
   if (query === '') {
@@ -48,5 +48,7 @@ async function onSearchSubmit(e) {
   } finally {
     Loading.remove();
     e.target.reset();
+    const toSearch = document.getElementById('search');
+    toSearch.scrollIntoView({ behavior: 'smooth' }, true);
   }
 }
