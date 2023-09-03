@@ -196,7 +196,7 @@ async function displayCocktails() {
       markup(element);
     });
   } catch (error) {
-    refs.containerNotFoundFavCocktails.classList.remove('is-hidden');
+    refs.containerNotFoundFavCocktails?.classList.remove('is-hidden');
     console.error('Error:', error);
   }
 }
