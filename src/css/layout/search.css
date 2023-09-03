@@ -64,7 +64,6 @@
     row-gap: 44px;
     column-gap: 24px;
     justify-content: center;
-    margin-bottom: 100px;
   }
 }
 
@@ -72,7 +71,6 @@
 
 .not-found-info-container {
   width: 244px;
-  /* height: 189px; */
   margin-bottom: 100px;
   margin-left: auto;
   margin-right: auto;
