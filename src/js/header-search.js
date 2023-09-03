@@ -1,6 +1,7 @@
 import { Notify, Loading } from 'notiflix';
 import { fetchCocktailByName } from './fetch-data.js';
 import { renderPagination } from './pagination.js';
+import { cocktailMainCardNotFoundTemplate } from './cocktail-fav-card-render.js';
 import { refs } from './refs';
 
 let page = 1;
@@ -19,6 +20,10 @@ async function onSearchSubmit(e) {
     e.target.reset();
     return;
   }
+
+  if (refs.mainCocktailsText.textContent !== 'Searching results') {
+    refs.mainCocktailsText.textContent = 'Searching results';
+  }
   try {
     Loading.standard('Loading...', {
       fontFamily: 'Poppins',
@@ -35,6 +40,7 @@ async function onSearchSubmit(e) {
       refs.paginationContainer.classList.remove('is-hidden');
     }
   } catch (err) {
+    cocktailMainCardNotFoundTemplate();
     Notify.failure('Oops, something went wrong!', {
       clickToClose: true,
     });

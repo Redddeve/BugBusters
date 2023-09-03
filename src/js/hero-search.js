@@ -16,6 +16,10 @@ refs.container.addEventListener('click', onHeroBtnSearchClick);
 async function onHeroBtnSearchClick(e) {
   e.preventDefault();
 
+  if (refs.mainCocktailsText.textContent !== 'Searching results') {
+    refs.mainCocktailsText.textContent = 'Searching results';
+  }
+
   if (e.target.nodeName !== 'BUTTON' && e.target.nodeName !== 'OPTION') {
     return;
   }
@@ -59,6 +63,10 @@ async function onSelectOptionClick(event) {
   event.preventDefault();
   page = 1;
   const query = event.target.value;
+
+  if (refs.mainCocktailsText.textContent !== 'Searching results') {
+    refs.mainCocktailsText.textContent = 'Searching results';
+  }
 
   refs.paginationContainer.classList.remove('is-hidden');
 
