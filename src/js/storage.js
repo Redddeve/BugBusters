@@ -1,12 +1,11 @@
-import onShowModal from './modal-cocktails';
-import onIngredClick from './modal-ingredients';
+import './modal-cocktails';
+import './modal-ingredients';
 import { refs } from './refs';
 
 const favCock = document.querySelector('.gallery-for-fav');
 const newSaveButton = document.querySelector('.saveButton');
 const newDeleteButton = document.querySelector('.deleteButtonn');
 const doDelete = document.querySelector('.to-delete');
-
 // localStorage.clear()
 
 let arrayFavorite = [];
@@ -17,7 +16,6 @@ function pushToFav() {
     return;
   } else {
     arrayFavorite.push(dataSet);
-    console.log(arrayFavorite);
   }
 }
 
@@ -46,37 +44,69 @@ gallery.addEventListener('click', event => {
     event.target.closest('.saveButton')
   ) {
     dataSet = event.target.closest('.saveButton').dataset.id;
-    console.log(event.target);
-    console.log(event.target.className);
     addNewCocktail();
+
   }
   if (
     //* onClick remove fav
     (event.target.nodeName === 'BUTTON' && event.target.nodeName === 'SVG') ||
     event.target.closest('.deleteButtonn')
   ) {
-    console.log(event.target);
+      console.log(event.target);
     dataSet = event.target.closest('.deleteButtonn').dataset.id;
     deleteFromFavorite();
     deleteMurkup();
+    hideLikeOrDislikeButton()
+    
   }
 
-  // if (
-  //     event.target.nodeName === 'BUTTON' &&
-  //     event.target.closest('.learn-more-btn')
-  // ) {
-  //     console.log(event.target)
+  if (
+    event.target.nodeName === 'BUTTON' &&
+      event.target.closest('.learn-more-btn')
+  ) {
+      console.log(event.target)
 
-  //     dataSet = event.target.closest('.learn-more-btn').dataset.id
+      dataSet = event.target.closest('.learn-more-btn').dataset.id
 
-  //     showCocktailModal()
+      checkClassList()
 
-  // }
+  }
 });
 
-const test = document.querySelector('.cocktail-modal');
+//  ================================================== Кнопки на главной странице.===========================//
 
-test.addEventListener('click', event => {
+gallery.addEventListener('click', event => {
+  const targetButton = event.target;
+  const dataId = targetButton.getAttribute('data-id');
+
+  if (dataId) {
+    const likeButtons = document.querySelectorAll(`.saveButton[data-id="${dataId}"]`);
+    const dislikeButtons = document.querySelectorAll(`.deleteButtonn[data-id="${dataId}"]`);
+
+    if (targetButton.classList.contains('saveButton')) {
+      likeButtons.forEach(buttonLike => {
+        // console.log(buttonLike);
+        buttonLike.classList.toggle('is-hidden');
+      });
+      dislikeButtons.forEach(buttonDislike => {
+        buttonDislike.classList.remove('is-hidden');
+      });
+    } else if (targetButton.classList.contains('deleteButtonn')) {
+      dislikeButtons.forEach(buttonDislike => {
+        buttonDislike.classList.toggle('is-hidden');
+      });
+      likeButtons.forEach(buttonLike => {
+        buttonLike.classList.remove('is-hidden');
+      });
+    }
+  }
+});
+
+//  ================================================== Модалка коктеля.===========================//
+
+const cocktaileModal = document.querySelector('.cocktail-modal');
+
+cocktaileModal.addEventListener('click', event => {
   if (
     //* onClick add fav
     (event.target.nodeName === 'BUTTON' && event.target.nodeName === 'SVG') ||
@@ -92,15 +122,16 @@ test.addEventListener('click', event => {
     (event.target.nodeName === 'BUTTON' && event.target.nodeName === 'SVG') ||
     event.target.closest('.remove-from-fav-btn')
   ) {
-    // console.log(event.target)
     dataSet = event.target.closest('.remove-from-fav-btn').dataset.id;
     deleteFromFavorite();
     deleteMurkup();
+    hideBackdrop()
   }
 });
 
-const test2 = document.querySelector('.modal-ingredients-list');
-console.log(test2);
+
+/** ========================= функции для работы с lockalstorage ========================= */
+
 
 async function addNewCocktail() {
   await pushToFav();
@@ -116,6 +147,52 @@ function deleteFromFavorite() {
   }
 }
 
+//  ================================================== Дополнительно на кнопочки и т.д.===========================//
+
+const backdropCocktailIsHide = document.querySelector('.backdrop-cocktail');
+const modalAddToFavoriteButton = document.querySelector('.add-to-fav-btn');
+const modalRemoverFromFavoriteButton = document.querySelector('.remove-from-fav-btn');
+const likeButton = document.querySelector('.remove-from-fav-btn');
+
+function hideBackdrop() {
+  backdropCocktailIsHide.classList.toggle('is-hidden')
+}
+
+
+function hideModalButton(event) {
+  modalAddToFavoriteButton.classList.toggle('is-hidden');
+  modalRemoverFromFavoriteButton.classList.toggle('is-hidden');
+};
+
+function checkClassList(event) {
+
+  let localFavoritesString = localStorage.getItem('favorites');
+  console.log(localFavoritesString);
+
+  if (JSON.parse(localFavoritesString).includes(dataSet)) {
+
+    modalAddToFavoriteButton.classList.add('is-hidden');
+    modalRemoverFromFavoriteButton.classList.remove('is-hidden');
+    
+  } else {
+    modalAddToFavoriteButton.classList.remove('is-hidden');
+    modalRemoverFromFavoriteButton.classList.add('is-hidden');
+  }
+
+};
+
+function hideLikeOrDislikeButton(event) {
+      event.target.classList.toggle('is-hidden')
+
+}
+
+modalAddToFavoriteButton.addEventListener('click', hideModalButton)
+modalRemoverFromFavoriteButton.addEventListener('click', hideModalButton)
+
+
+
+
+
 /** ========================= Fetch and Markup ========================= */
 
 async function getArrayOfCocktail(array) {
@@ -129,7 +206,6 @@ async function getArrayOfCocktail(array) {
     throw new Error('Network response was not ok');
   }
   const responseJson = await response.json();
-  console.log(responseJson);
   return responseJson;
 }
 
@@ -137,7 +213,6 @@ async function displayCocktails() {
   try {
     const data = await getArrayOfCocktail(arrayFavorite);
     refs.containerNotFoundFavCocktails.classList.add('is-hidden');
-    console.log(data);
     data.forEach(element => {
       markup(element);
     });
@@ -154,7 +229,7 @@ function markup({ drinkThumb, drink, instructions, _id }) {
         <p class="card-cocktail-desc">${instructions}</p>
         <div class="buttons-container">
         <button type="button" class="learn-more-btn" data-id="${_id}">learn more</button>
-        <button type="button" class="delete-btn card-cocktail-delete-icon-use deleteButtonn" data-id="${_id}">
+        <button type="button" class="delete-btn card-cocktail-delete-icon-use deleteButtonn " data-id="${_id}">
     <svg class="card-cocktail-delete-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
 <path d="M11 4.5V3.9C11 3.05992 11 2.63988 10.8365 2.31901C10.6927 2.03677 10.4632 1.8073 10.181 1.66349C9.86012 1.5 9.44008 1.5 8.6 1.5H7.4C6.55992 1.5 6.13988 1.5 5.81901 1.66349C5.53677 1.8073 5.3073 2.03677 5.16349 2.31901C5 2.63988 5 3.05992 5 3.9V4.5M6.5 8.625V12.375M9.5 8.625V12.375M1.25 4.5H14.75M13.25 4.5V12.9C13.25 14.1601 13.25 14.7902 13.0048 15.2715C12.789 15.6948 12.4448 16.039 12.0215 16.2548C11.5402 16.5 10.9101 16.5 9.65 16.5H6.35C5.08988 16.5 4.45982 16.5 3.97852 16.2548C3.55516 16.039 3.21095 15.6948 2.99524 15.2715C2.75 14.7902 2.75 14.1601 2.75 12.9V4.5" stroke="#FDFDFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -243,3 +318,4 @@ function deleteMurkup() {
 //   }
 //   return;
 // }
+
