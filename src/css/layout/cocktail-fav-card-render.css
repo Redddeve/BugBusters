@@ -30,6 +30,7 @@
     flex-shrink: 0;
     border-radius: 16px;
     margin-bottom: 20px;
+    background-color: rgba(126, 143, 221, 0.40);
   }
 
   .card-cocktail-name {
@@ -38,6 +39,13 @@
     line-height: 1.33; /* 133.333% */
     margin-bottom: 14px;
     padding-left: 6px;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    height: 24px;
+    display: -webkit-box;
+    overflow: hidden;
+
   }
 
   .card-cocktail-desc {
@@ -172,6 +180,7 @@
     flex-shrink: 0;
     border-radius: 16px;
     margin-bottom: 20px;
+    background-color: rgba(126, 143, 221, 0.40);
   }
 
   .card-cocktail-name {
@@ -183,6 +192,12 @@
     font-weight: 600;
     line-height: 1.2; /* 120% */
     padding-left: 10px;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    height: 24px;
+    display: -webkit-box;
+    overflow: hidden;
   }
 
   .card-cocktail-desc {

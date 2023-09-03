@@ -203,7 +203,7 @@ async function displayCocktails() {
 
 function markup({ drinkThumb, drink, instructions, _id }) {
   const markup = `<li class="to-delete"><div class="cocktail-card-main" id="cocktail-card-item">
-        <img class="cocktail-card-img" src="${drinkThumb}" alt="${drink}" width="" height="" />
+        <img class="cocktail-card-img" src="${drinkThumb}" alt="${drink}" width="" height="" loading="lazy"/>
         <h3 class="card-cocktail-name">${drink}</h3>
         <p class="card-cocktail-desc">${instructions}</p>
         <div class="buttons-container">
