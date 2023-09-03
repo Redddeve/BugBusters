@@ -85,35 +85,3 @@
   color: var(--color-turquoise, #9cdfdf);
   font-style: italic;
 }
-
-/* =========== BACKGROUND ============= */
-
-.fav-cocktails-headline-div::after {
-  width: 738.545px;
-  height: 1120.72px;
-  transform: rotate(-161.494deg);
-  background: rgba(156, 223, 223);
-  opacity: 0.8;
-
-  content: '';
-  top: -599px;
-  left: -660px;
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  z-index: -1;
-}
-
-@media only screen and (min-width: 768px) {
-  .fav-cocktails-headline-div::after {
-    top: -599px;
-    left: -548px;
-  }
-}
-
-@media only screen and (min-width: 1280px) {
-  .fav-cocktails-headline-div::after {
-    top: -587px;
-    left: -529px;
-  }
-}
