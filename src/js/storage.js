@@ -80,24 +80,14 @@ gallery.addEventListener('click', event => {
   const dataId = targetButton.getAttribute('data-id');
 
   if (dataId) {
-    const likeButtons = document.querySelectorAll(`.saveButton[data-id="${dataId}"]`);
-    const dislikeButtons = document.querySelectorAll(`.deleteButtonn[data-id="${dataId}"]`);
-
+    const likeButtons = document.querySelector(`.saveButton[data-id="${dataId}"]`);
+    const dislikeButtons = document.querySelector(`.deleteButtonn[data-id="${dataId}"]`);
     if (targetButton.classList.contains('saveButton')) {
-      likeButtons.forEach(buttonLike => {
-        // console.log(buttonLike);
-        buttonLike.classList.toggle('is-hidden');
-      });
-      dislikeButtons.forEach(buttonDislike => {
-        buttonDislike.classList.remove('is-hidden');
-      });
+        likeButtons.classList.toggle('is-hidden');
+      dislikeButtons.classList.remove('is-hidden');
     } else if (targetButton.classList.contains('deleteButtonn')) {
-      dislikeButtons.forEach(buttonDislike => {
-        buttonDislike.classList.toggle('is-hidden');
-      });
-      likeButtons.forEach(buttonLike => {
-        buttonLike.classList.remove('is-hidden');
-      });
+        dislikeButtons.classList.toggle('is-hidden');
+        likeButtons.classList.remove('is-hidden');
     }
   }
 });
@@ -210,6 +200,8 @@ async function getArrayOfCocktail(array) {
 }
 
 async function displayCocktails() {
+
+
   try {
     const data = await getArrayOfCocktail(arrayFavorite);
     refs.containerNotFoundFavCocktails.classList.add('is-hidden');
@@ -243,38 +235,9 @@ function markup({ drinkThumb, drink, instructions, _id }) {
 // // /** ========================= Удалить ========================= */
 
 function deleteMurkup() {
-  favCock.innerHTML = '';
-  // favCock.removeChild(doDelete)
-  // doDelete.remove();
+  favCock.innerHTML = ''; 
   displayCocktails();
 }
-
-// function disable() {
-//     saveBtn.disabled = true;
-//     removeFavButton.disabled = false;
-// }
-
-// function enable() {
-//     saveBtn.disabled = false;
-//     removeFavButton.disabled = true;
-// }
-
-// newSaveButton.addEventListener('click', async () => {
-//     await pushToFav();
-//     await savedFav();
-//     displayCocktails()
-// });
-// newDeleteButton.addEventListener('click',deleteFromFavorite)
-
-// console.log(event.target.className);
-// const targetButton = event.target;
-//     if (targetButton.classList.contains('saveButton')) {
-//             dataSet = targetButton.dataset.id;
-//         addNewCocktail();
-// } else if (targetButton.classList.contains('deleteButtonn')) {
-//               dataSet = targetButton.dataset.id;
-//         deleteFromFavorite();
-//     }
 
 // // /** ========================= Альтернативные функции для роботы с LocalStorage ========================= */
 
