@@ -37,6 +37,7 @@
     font-size: 18px;
     line-height: 1.33; /* 133.333% */
     margin-bottom: 14px;
+    padding-left: 6px;
   }
 
   .card-cocktail-desc {
@@ -52,16 +53,18 @@
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+    padding-left: 6px;
   }
 
   .buttons-container {
     display: flex;
     flex-direction: row;
     column-gap: 15px;
+    padding-left: 6px;
   }
 
   .learn-more-btn {
-    padding: 14px 0 14px 0;
+    padding: 14px 71px;
     background: transparent;
     border: 1px solid var(--color-violet, #7e8fdd);
     border-radius: 12px;
@@ -70,8 +73,8 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
-    line-height: 1.42; /* 142.857% */
-    letter-spacing: 0.018em;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.28px;
     text-transform: uppercase;
     transition: color var(--anim-fast), background-color var(--anim-fast);
   }
@@ -136,6 +139,10 @@
   }
 }
 
+.pointer-none {
+  pointer-events: none;
+}
+
 /* ====================  TAB + DESK  =========================== */
 @media screen and (min-width: 768px) {
   .cocktail-cards-container {
@@ -148,7 +155,7 @@
 
   .cocktail-card-main {
     width: 344px;
-    height: 523px;
+    min-height: 523px;
     padding-top: 14px;
     padding-bottom: 24px;
     padding-left: 14px;
@@ -175,6 +182,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: 1.2; /* 120% */
+    padding-left: 10px;
   }
 
   .card-cocktail-desc {
@@ -190,16 +198,18 @@
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+    padding-left: 10px;
   }
 
   .buttons-container {
     display: flex;
     flex-direction: row;
     column-gap: 15px;
+    padding-left: 10px;
   }
 
   .learn-more-btn {
-    padding: 16px 0 15px 0;
+    padding: 16px 55px;
     background: transparent;
     border: 1px solid var(--color-violet, #7e8fdd);
     border-radius: 12px;
