@@ -1,0 +1,1 @@
+{"mappings":"oeAAAA,EAAA,S","sources":["src/js/fav-cocktails.js"],"sourcesContent":["import './header.js';\nimport './modal-cocktails';\nimport './modal-ingredients';\nimport './storage.js';\n"],"names":["parcelRequire"],"version":3,"file":"favorite-cocktails.e5c1b182.js.map"}
