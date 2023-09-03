@@ -3,12 +3,23 @@ import { cocktailMainCardRender } from './cocktail-fav-card-render.js';
 
 export function renderPagination(cocktailArr) {
   refs.paginationNumberBtnsContainer.innerHTML = '';
-  let cardsPerPage;
 
+  // ============ vars sec ================
+  let cardsPerPage;
   let pageBtns = [];
   let start = [];
   let finish = [];
+  let totalCocktailCount = cocktailArr.length;
+  let currentPageIndex = 0;
 
+  // ========== more "..." btn sec===========
+  const moreBtn = document.createElement('button');
+  moreBtn.textContent = '...';
+  moreBtn.classList.add('pagination-button-item');
+  moreBtn.classList.add('is-hidden');
+  let moreBtnIndex = 4;
+
+  // ============== device type detection =========
   function isMobile() {
     if (window.innerWidth >= 768) {
       return false;
@@ -16,21 +27,21 @@ export function renderPagination(cocktailArr) {
       return true;
     }
   }
+
   if (window.innerWidth >= 1280) {
     cardsPerPage = 9;
   } else {
     cardsPerPage = 8;
   }
 
-  let totalCocktailCount = cocktailArr.length;
+  // ================== create pages from data sec ====================
+  let totalPagesNum = Math.ceil(totalCocktailCount / cardsPerPage);
+
+  const sortedCardsArr = createPagesArr(cocktailArr, cardsPerPage);
 
   if (totalCocktailCount <= cardsPerPage) {
     refs.paginationContainer.classList.add('is-hidden');
   }
-
-  let totalPagesNum = Math.ceil(totalCocktailCount / cardsPerPage);
-
-  const sortedCardsArr = createPagesArr(cocktailArr, cardsPerPage);
 
   function createPagesArr(arr, cardsPerPageNum) {
     return arr.reduce((result, item, index) => {
@@ -44,6 +55,8 @@ export function renderPagination(cocktailArr) {
 
   cocktailMainCardRender(sortedCardsArr[0]);
 
+  // ================= pagination buttons =================
+
   refs.leftPagBtn[0].addEventListener('click', onPaginationBtnClick);
   refs.rightPagBtn[0].addEventListener('click', onPaginationBtnClick);
   refs.paginationNumberBtnsContainer.addEventListener(
@@ -51,7 +64,8 @@ export function renderPagination(cocktailArr) {
     onPaginationBtnClick
   );
 
-  let currentPageIndex = 0;
+  refs.leftPagBtn[0].setAttribute('disabled', '');
+  refs.leftPagBtn[0].classList.add('pagination-button-disabled');
 
   for (let i = 1; i <= totalPagesNum; i++) {
     const pageBtn = document.createElement('button');
@@ -62,32 +76,54 @@ export function renderPagination(cocktailArr) {
     pageBtns.push(pageBtn);
   }
 
+  moreBtn.addEventListener('click', () => {
+    if (moreBtnIndex < 4) {
+      moreBtnIndex = 4;
+    }
+    if (moreBtnIndex > totalPagesNum - 2) {
+      moreBtnIndex = totalPagesNum - 3;
+    }
+    moreBtn.setAttribute('data-action', moreBtnIndex);
+    onPaginationBtnClick;
+    moreBtnIndex += 1;
+
+    console.log(moreBtn.getAttribute('data-action'));
+  });
+
   switch (isMobile()) {
     case true:
       {
         console.log('is mobile');
         start = pageBtns.slice(0, 2);
-        finish = pageBtns.slice(pageBtns.length - 1, pageBtns.length);
+        finish = pageBtns.slice(pageBtns.length - 2, pageBtns.length);
 
-        const moreBtn = document.createElement('button');
-        moreBtn.textContent = '...';
-        moreBtn.classList.add('pagination-button-item');
+        if (pageBtns.length > 4) {
+          // moreBtn = document.createElement('button');
+          // moreBtn.textContent = '...';
+          // moreBtn.classList.add('pagination-button-item');
+          moreBtn.classList.remove('is-hidden');
+          moreBtn.setAttribute('data-action', '5');
+          console.log(moreBtn.getAttribute('data-action'));
+        }
 
+        moreBtn.classList.remove('is-hidden');
         refs.paginationNumberBtnsContainer.append(...start, moreBtn, ...finish);
       }
       break;
 
     case false: {
       console.log('is not mobile');
-      start = pageBtns.slice(0, 2);
-      finish = pageBtns.slice(pageBtns.length - 1, pageBtns.length);
+      console.log(pageBtns);
+      start = pageBtns.slice(0, 3);
+      finish = pageBtns.slice(pageBtns.length - 3, pageBtns.length);
 
       if (pageBtns.length > 3) {
-        const moreBtn = document.createElement('button');
-        moreBtn.textContent = '...';
-        moreBtn.classList.add('pagination-button-item');
-      } else {
-        moreBtn = '';
+        // moreBtn = document.createElement('button');
+        // moreBtn.textContent = '...';
+        // moreBtn.classList.add('pagination-button-item');
+        moreBtn.classList.remove('is-hidden');
+        moreBtn.setAttribute('data-action', '4');
+        console.log(moreBtn.getAttribute('data-action'));
       }
 
       refs.paginationNumberBtnsContainer.append(...start, moreBtn, ...finish);
@@ -95,9 +131,11 @@ export function renderPagination(cocktailArr) {
     }
   }
 
+  // ==================== on pagination click func ============
   function onPaginationBtnClick(evt) {
-    const toSearch = document.getElementById('search');
-    toSearch.scrollIntoView({ behavior: 'smooth' }, true);
+    //   ============== scroll on top of gallery ============
+    // const toSearch = document.getElementById('search');
+    // toSearch.scrollIntoView({ behavior: 'smooth' }, true);
 
     let btnValue = evt.target.dataset.action;
 
@@ -113,6 +151,9 @@ export function renderPagination(cocktailArr) {
         currentPageIndex = 0;
       }
       cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
+
+      moreBtn.setAttribute('data-action', moreBtnIndex);
+      moreBtnIndex -= 1;
     }
 
     if (btnValue === 'rightPag') {
@@ -122,11 +163,14 @@ export function renderPagination(cocktailArr) {
         // console.log(totalPagesNum);
       }
       cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
+      moreBtn.setAttribute('data-action', moreBtnIndex);
+      moreBtnIndex += 1;
     }
 
     if (!isNaN(Number(btnValue))) {
       currentPageIndex = Number(btnValue - 1);
       cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
+      moreBtnIndex = currentPageIndex + 1;
     }
 
     if (currentPageIndex === 0) {
