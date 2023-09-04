@@ -9,7 +9,14 @@ const doDelete = document.querySelector('.to-delete');
 let arrayFavorite = [];
 
 function pushToFav() {
-  arrayFavorite.push(dataSet);
+  let localFavoritesString = localStorage.getItem('favorites');
+  if (!localFavoritesString) {
+    arrayFavorite.push(dataSet);
+  } else if (JSON.parse(localFavoritesString).includes(dataSet)) {
+    return;
+  } else {
+    arrayFavorite.push(dataSet);
+  }
 }
 
 function savedFav() {
