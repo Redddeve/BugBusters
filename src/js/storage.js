@@ -9,12 +9,7 @@ const doDelete = document.querySelector('.to-delete');
 let arrayFavorite = [];
 
 function pushToFav() {
-  let localFavoritesString = localStorage.getItem('favorites');
-  if (JSON.parse(localFavoritesString).includes(dataSet)) {
-    return;
-  } else {
-    arrayFavorite.push(dataSet);
-  }
+  arrayFavorite.push(dataSet);
 }
 
 function savedFav() {
@@ -120,9 +115,9 @@ cocktaileModal.addEventListener('click', event => {
 
 /** ========================= функции для работы с lockalstorage ========================= */
 
-async function addNewCocktail() {
-  await pushToFav();
-  await savedFav();
+function addNewCocktail() {
+  pushToFav();
+  savedFav();
 }
 
 function deleteFromFavorite() {
