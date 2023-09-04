@@ -1,3 +1,6 @@
+.favorite-ingredients-section {
+  min-height: 70vh;
+}
 .ingredients-gallery {
   width: 100%;
   display: flex;
