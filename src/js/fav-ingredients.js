@@ -4,11 +4,11 @@ import { refs } from './refs';
 import { fetchIngredient } from './fetch-data';
 import { removeFromLS } from './local-storage-operations';
 import markupIngredient from './markup-ingredient';
+import { renderIngPagination } from './ingred-pagination.js';
 
-const renderFavIng = () => {
+export const renderFavIng = ids => {
   refs.ingredientsGallery.innerHTML = '';
   refs.containerNotFoundFavIng.classList.add('is-hidden');
-  const ids = JSON.parse(localStorage.getItem('ingredients'));
   if (!ids || ids.length === 0) {
     refs.containerNotFoundFavIng.classList.remove('is-hidden');
   }
@@ -58,11 +58,11 @@ const renderFavIng = () => {
   });
 };
 
-renderFavIng();
+renderIngPagination(JSON.parse(localStorage.getItem('ingredients')));
 
 const deleteFromFavIng = id => {
   removeFromLS('ingredients', id);
-  renderFavIng();
+  renderIngPagination(JSON.parse(localStorage.getItem('ingredients')));
 };
 
 const openIngredModal = async e => {
