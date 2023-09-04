@@ -46,6 +46,11 @@
     color: var(--color-background-white, #fdfdff);
   }
 
+  .pagination-button-item:hover .pagination-svg,
+  .pagination-button-item:focus .pagination-svg {
+    fill: white;
+  }
+
   .left-pag-btn {
     width: 32px;
     height: 32px;
