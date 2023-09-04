@@ -44,7 +44,6 @@ gallery.addEventListener('click', event => {
     (event.target.nodeName === 'BUTTON' && event.target.nodeName === 'SVG') ||
     event.target.closest('.deleteButtonn')
   ) {
-    console.log(event.target);
     dataSet = event.target.closest('.deleteButtonn').dataset.id;
     deleteFromFavorite();
     deleteMurkup();
@@ -55,8 +54,6 @@ gallery.addEventListener('click', event => {
     event.target.nodeName === 'BUTTON' &&
     event.target.closest('.learn-more-btn')
   ) {
-    console.log(event.target);
-
     dataSet = event.target.closest('.learn-more-btn').dataset.id;
 
     checkClassList();
@@ -97,8 +94,6 @@ cocktaileModal.addEventListener('click', event => {
     event.target.closest('.add-to-fav-btn')
   ) {
     dataSet = event.target.closest('.add-to-fav-btn').dataset.id;
-    console.log(event.target);
-    console.log(event.target.className);
     addNewCocktail();
   }
   if (
@@ -124,7 +119,6 @@ function deleteFromFavorite() {
   if (arrayFavorite.includes(dataSet)) {
     const dataSetIndex = arrayFavorite.indexOf(dataSet);
     arrayFavorite.splice(dataSetIndex, 1);
-    // console.log(dataSetIndex);
     savedFav();
   }
 }
@@ -149,7 +143,6 @@ function hideModalButton(event) {
 
 function checkClassList(event) {
   let localFavoritesString = localStorage.getItem('favorites');
-  console.log(localFavoritesString);
 
   if (JSON.parse(localFavoritesString).includes(dataSet)) {
     modalAddToFavoriteButton.classList.add('is-hidden');
@@ -228,10 +221,8 @@ function deleteMurkup() {
 //   try {
 //     if (getFromStorage(key)) {
 //       if (getFromStorage(key).includes(value)) {
-//         console.log('already added');
 //         return;
 //       } else {
-//         console.log('adding');
 //         setValue = [...getFromStorage(key), value];
 //       }
 //     } else {
