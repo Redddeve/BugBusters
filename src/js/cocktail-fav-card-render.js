@@ -103,7 +103,7 @@ function cocktailMainCardTemplate(
             </button>
             <button 
               type="button"
-              class="delete-btn card-cocktail-delete-icon-use deleteButtonn is-hidden"
+              class="delete-btn card-cocktail-delete-icon-use deleteButtonn is-hidden "
               data-id="${cocktailID}"
             >
   <svg

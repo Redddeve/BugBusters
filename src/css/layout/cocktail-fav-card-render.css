@@ -298,9 +298,3 @@
     width: 24px;
   }
 }
-
-.pagination-buttons-container {
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
