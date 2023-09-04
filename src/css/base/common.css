@@ -41,6 +41,9 @@ img {
   max-width: 100%;
   height: auto;
 }
+svg {
+  pointer-events: none;
+}
 /* Main styles */
 
 html {

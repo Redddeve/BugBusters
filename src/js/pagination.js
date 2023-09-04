@@ -66,7 +66,6 @@ export function renderPagination(cocktailArr) {
   switch (isMobile()) {
     case true:
       {
-        console.log('is mobile');
         if (pageBtns.length <= 4) {
           refs.paginationNumberBtnsContainer.append(...pageBtns);
         } else {
@@ -75,6 +74,8 @@ export function renderPagination(cocktailArr) {
 
           const moreBtn = document.createElement('button');
           moreBtn.textContent = '...';
+          moreBtn.setAttribute('disabled', '');
+          moreBtn.setAttribute('data-disable', 'true');
           moreBtn.classList.add('pagination-button-item');
 
           refs.paginationNumberBtnsContainer.append(
@@ -94,7 +95,6 @@ export function renderPagination(cocktailArr) {
       break;
 
     case false: {
-      console.log('is not mobile');
       if (pageBtns.length <= 7) {
         refs.paginationNumberBtnsContainer.append(...pageBtns);
       } else {
@@ -111,9 +111,21 @@ export function renderPagination(cocktailArr) {
       }
     }
   }
+  let activeBtn = document.querySelector(
+    `button[data-action="${currentPageIndex + 1}"]`
+  );
+
+  activeBtn.classList.add('pagination-button-item-active');
 
   function onPaginationBtnClick(evt) {
     const toSearch = document.getElementById('search');
+    if (evt.target.nodeName !== 'BUTTON') {
+      return;
+    }
+
+    const allButtons = refs.paginationNumberBtnsContainer.querySelector(
+      '.pagination-button-item-active'
+    );
     toSearch.scrollIntoView({ behavior: 'smooth' }, true);
 
     let btnValue = evt.target.dataset.action;
@@ -126,27 +138,40 @@ export function renderPagination(cocktailArr) {
     switch (btnValue) {
       case 'leftPag':
         {
-          console.log(currentPageIndex + 1);
           currentPageIndex -= 1;
           if (currentPageIndex < 0) {
             currentPageIndex = 0;
           }
+          activeBtn.classList.remove('pagination-button-item-active');
           cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
+          activeBtn = document.querySelector(
+            `button[data-action="${currentPageIndex + 1}"]`
+          );
+          activeBtn.classList.add('pagination-button-item-active');
         }
         break;
 
       case 'rightPag':
         {
-          console.log(currentPageIndex + 1);
+          activeBtn.classList.remove('pagination-button-item-active');
           currentPageIndex += 1;
           cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
+          activeBtn = document.querySelector(
+            `button[data-action="${currentPageIndex + 1}"]`
+          );
+          activeBtn.classList.add('pagination-button-item-active');
         }
         break;
     }
 
     if (!isNaN(Number(btnValue))) {
+      activeBtn.classList.remove('pagination-button-item-active');
       currentPageIndex = Number(btnValue - 1);
       cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
+      activeBtn = document.querySelector(
+        `button[data-action="${currentPageIndex + 1}"]`
+      );
+      activeBtn.classList.add('pagination-button-item-active');
     }
     arrowCheck();
   }
