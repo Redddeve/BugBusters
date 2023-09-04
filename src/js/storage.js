@@ -7,6 +7,7 @@ const doDelete = document.querySelector('.to-delete');
 // localStorage.clear()
 
 export let arrayFavorite = [];
+let dataSet;
 
 function pushToFav() {
   arrayFavorite.push(dataSet);
