@@ -132,7 +132,6 @@ export function renderIngPagination(ingArr) {
   switch (isMobile()) {
     case true:
       {
-        console.log('is mobile');
         if (pageBtns.length <= 4) {
           paginationNumberBtnsContainer.append(...pageBtns);
         } else {
@@ -149,7 +148,6 @@ export function renderIngPagination(ingArr) {
       break;
 
     case false: {
-      console.log('is not mobile');
       if (pageBtns.length <= 7) {
         paginationNumberBtnsContainer.append(...pageBtns);
       } else {
