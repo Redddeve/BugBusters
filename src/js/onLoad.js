@@ -1,5 +1,6 @@
 import { fetchRandomCocktails } from './fetch-data.js';
 import { cocktailMainCardRender } from './cocktail-fav-card-render.js';
+import { arrayFavorite } from './storage.js';
 import { refs } from './refs.js';
 
 const onLoad = async () => {
@@ -11,6 +12,7 @@ const onLoad = async () => {
     cocktailMainCardRender(data);
   }
   refs.paginationContainer.classList.add('is-hidden');
+  localStorage.setItem('favorites', JSON.stringify(arrayFavorite));
 };
 
 onLoad();

@@ -6,17 +6,10 @@ const newDeleteButton = document.querySelector('.deleteButtonn');
 const doDelete = document.querySelector('.to-delete');
 // localStorage.clear()
 
-let arrayFavorite = [];
+export let arrayFavorite = [];
 
 function pushToFav() {
-  let localFavoritesString = localStorage.getItem('favorites');
-  if (!localFavoritesString) {
-    arrayFavorite.push(dataSet);
-  } else if (JSON.parse(localFavoritesString).includes(dataSet)) {
-    return;
-  } else {
-    arrayFavorite.push(dataSet);
-  }
+  arrayFavorite.push(dataSet);
 }
 
 function savedFav() {
