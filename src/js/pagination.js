@@ -68,7 +68,6 @@ export function renderPagination(cocktailArr) {
   switch (isMobile()) {
     case true:
       {
-        console.log('is mobile');
         if (pageBtns.length <= 4) {
           refs.paginationNumberBtnsContainer.append(...pageBtns);
         } else {
@@ -90,7 +89,6 @@ export function renderPagination(cocktailArr) {
       break;
 
     case false: {
-      console.log('is not mobile');
       if (pageBtns.length <= 7) {
         refs.paginationNumberBtnsContainer.append(...pageBtns);
       } else {
@@ -124,7 +122,6 @@ export function renderPagination(cocktailArr) {
     const allButtons = refs.paginationNumberBtnsContainer.querySelector(
       '.pagination-button-item-active'
     );
-    console.log(activeBtn);
 
     toSearch.scrollIntoView({ behavior: 'smooth' }, true);
 
