@@ -65,8 +65,7 @@
           </div>
         </div>
       </section>
-
-      <!-- <div class="pagination-buttons-container container is-hidden">
+      <div class="pagination-buttons-container container is-hidden">
         <button
           class="left-pag-btn pagination-button-item"
           type="button"
@@ -84,30 +83,27 @@
               data-action="leftPag"
             ></use>
           </svg>
-        </button> -->
-
-      <div class="pagination-buttons-container container"></div>
-
-      <!-- <div class="number-buttons-container"></div>
-          <button
-            class="right-pag-btn pagination-button-item"
-            type="button"
-            id="right-pag-btn"
+        </button>
+        <div class="number-buttons-container"></div>
+        <button
+          class="right-pag-btn pagination-button-item"
+          type="button"
+          id="right-pag-btn"
+          data-action="rightPag"
+        >
+          <svg
+            class="page-right-icon-container"
+            id="right-pag-btn-svg"
             data-action="rightPag"
           >
-            <svg
-              class="page-right-icon-container"
-              id="right-pag-btn-svg"
+            <use
+              class="page-right-icon"
+              href="./img/svg/icons.svg#page-right"
               data-action="rightPag"
-            >
-              <use
-                class="page-right-icon"
-                href="./img/svg/icons.svg#page-right"
-                data-action="rightPag"
-              ></use>
-            </svg>
-          </button>
-        </div> -->
+            ></use>
+          </svg>
+        </button>
+      </div>
     </main>
     <include src="./partials/footer.html"></include>
     <include src="./partials/cocktail-modal.html"></include>

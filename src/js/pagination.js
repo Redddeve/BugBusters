@@ -82,6 +82,13 @@ export function renderPagination(cocktailArr) {
             moreBtn,
             ...finish
           );
+
+          // if (condition) {
+          //   start = pageBtns.slice(0, 1)
+          //   finish = pageBtns.slice(pageBtns.length - 1, pageBtns.length);
+          //   current = currentPageIndex
+          //   refs.paginationNumberBtnsContainer.append(...start, moreBtn, current, moreBtn, ...finish);
+          // }
         }
       }
       break;
@@ -119,6 +126,7 @@ export function renderPagination(cocktailArr) {
     switch (btnValue) {
       case 'leftPag':
         {
+          console.log(currentPageIndex + 1);
           currentPageIndex -= 1;
           if (currentPageIndex < 0) {
             currentPageIndex = 0;
@@ -129,6 +137,7 @@ export function renderPagination(cocktailArr) {
 
       case 'rightPag':
         {
+          console.log(currentPageIndex + 1);
           currentPageIndex += 1;
           cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
         }
@@ -141,19 +150,16 @@ export function renderPagination(cocktailArr) {
     }
     arrowCheck();
   }
+
   function arrowCheck() {
     if (currentPageIndex === 0) {
-      // refs.leftPagBtn[0].setAttribute('disabled', '');
       refs.leftPagBtn[0].classList.add('is-hidden');
     } else {
-      // refs.leftPagBtn[0].removeAttribute('disabled');
       refs.leftPagBtn[0].classList.remove('is-hidden');
     }
     if (currentPageIndex === totalPagesNum - 1) {
-      // refs.rightPagBtn[0].setAttribute('disabled', '');
       refs.rightPagBtn[0].classList.add('is-hidden');
     } else {
-      // refs.rightPagBtn[0].removeAttribute('disabled');
       refs.rightPagBtn[0].classList.remove('is-hidden');
     }
   }
