@@ -61,6 +61,10 @@ function templateButtonsHero(i) {
     refs.container.appendChild(button);
     button.classList.add('hero-select-btn');
     button.setAttribute('type', 'button');
+    button.setAttribute(
+      'aria-label',
+      `Search by first symbol ${String.fromCharCode(i)}`
+    );
     resolve();
   });
 }

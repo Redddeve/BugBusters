@@ -9,12 +9,7 @@ const doDelete = document.querySelector('.to-delete');
 let arrayFavorite = [];
 
 function pushToFav() {
-  let localFavoritesString = localStorage.getItem('favorites');
-  if (JSON.parse(localFavoritesString).includes(dataSet)) {
-    return;
-  } else {
-    arrayFavorite.push(dataSet);
-  }
+  arrayFavorite.push(dataSet);
 }
 
 function savedFav() {
@@ -120,9 +115,9 @@ cocktaileModal.addEventListener('click', event => {
 
 /** ========================= функции для работы с lockalstorage ========================= */
 
-async function addNewCocktail() {
-  await pushToFav();
-  await savedFav();
+function addNewCocktail() {
+  pushToFav();
+  savedFav();
 }
 
 function deleteFromFavorite() {
@@ -196,14 +191,14 @@ async function displayCocktails() {
       markup(element);
     });
   } catch (error) {
-    refs.containerNotFoundFavCocktails.classList.remove('is-hidden');
+    refs.containerNotFoundFavCocktails?.classList.remove('is-hidden');
     console.error('Error:', error);
   }
 }
 
 function markup({ drinkThumb, drink, instructions, _id }) {
   const markup = `<li class="to-delete"><div class="cocktail-card-main" id="cocktail-card-item">
-        <img class="cocktail-card-img" src="${drinkThumb}" alt="${drink}" width="" height="" />
+        <img class="cocktail-card-img" src="${drinkThumb}" alt="${drink}" width="" height="" loading="lazy"/>
         <h3 class="card-cocktail-name">${drink}</h3>
         <p class="card-cocktail-desc">${instructions}</p>
         <div class="buttons-container">
