@@ -1,14 +1,16 @@
 import { refs } from './refs.js';
 import { cocktailMainCardRender } from './cocktail-fav-card-render.js';
+import { endsWith } from 'lodash';
 
 export function renderPagination(cocktailArr) {
   refs.paginationNumberBtnsContainer.innerHTML = '';
   let cardsPerPage;
-
+  let maxPageIndex;
   let currentPageIndex = 0;
   let pageBtns = [];
   let start = [];
   let finish = [];
+  let current = [];
 
   function isMobile() {
     if (window.innerWidth >= 768) {
@@ -35,6 +37,7 @@ export function renderPagination(cocktailArr) {
 
   arrowCheck();
 
+  //!  ======================================= create Pages Array =======================================
   function createPagesArr(arr, cardsPerPageNum) {
     return arr.reduce((result, item, index) => {
       if (index % cardsPerPageNum === 0) {
@@ -62,6 +65,18 @@ export function renderPagination(cocktailArr) {
     pageBtn.addEventListener('click', onPaginationBtnClick);
     pageBtns.push(pageBtn);
   }
+  maxPageIndex = pageBtns.length - 1;
+
+  const moreBtn = document.createElement('button');
+  moreBtn.textContent = '...';
+  moreBtn.setAttribute('disabled', '');
+  moreBtn.classList.add('pagination-button-item');
+  moreBtn.classList.add('pagination-button-more');
+  const moreBtn2 = document.createElement('button');
+  moreBtn2.textContent = '...';
+  moreBtn2.setAttribute('disabled', '');
+  moreBtn2.classList.add('pagination-button-item');
+  moreBtn2.classList.add('pagination-button-more');
 
   switch (isMobile()) {
     case true:
@@ -72,24 +87,11 @@ export function renderPagination(cocktailArr) {
           start = pageBtns.slice(0, 3);
           finish = pageBtns.slice(pageBtns.length - 1, pageBtns.length);
 
-          const moreBtn = document.createElement('button');
-          moreBtn.textContent = '...';
-          moreBtn.setAttribute('disabled', '');
-          moreBtn.setAttribute('data-disable', 'true');
-          moreBtn.classList.add('pagination-button-item');
-
           refs.paginationNumberBtnsContainer.append(
             ...start,
             moreBtn,
             ...finish
           );
-
-          // if (condition) {
-          //   start = pageBtns.slice(0, 1)
-          //   finish = pageBtns.slice(pageBtns.length - 1, pageBtns.length);
-          //   current = currentPageIndex
-          //   refs.paginationNumberBtnsContainer.append(...start, moreBtn, current, moreBtn, ...finish);
-          // }
         }
       }
       break;
@@ -98,13 +100,8 @@ export function renderPagination(cocktailArr) {
       if (pageBtns.length <= 7) {
         refs.paginationNumberBtnsContainer.append(...pageBtns);
       } else {
-        start = pageBtns.slice(0, 3);
-        finish = pageBtns.slice(pageBtns.length - 3, pageBtns.length);
-
-        const moreBtn = document.createElement('button');
-        moreBtn.textContent = '...';
-        moreBtn.setAttribute('disabled', '');
-        moreBtn.classList.add('pagination-button-item');
+        start = pageBtns.slice(0, 5);
+        finish = pageBtns.slice(pageBtns.length - 1, pageBtns.length);
 
         refs.paginationNumberBtnsContainer.append(...start, moreBtn, ...finish);
         break;
@@ -117,6 +114,7 @@ export function renderPagination(cocktailArr) {
 
   activeBtn.classList.add('pagination-button-item-active');
 
+  //!  ======================================= on Click function =======================================
   function onPaginationBtnClick(evt) {
     const toSearch = document.getElementById('search');
     if (evt.target.nodeName !== 'BUTTON') {
@@ -132,17 +130,18 @@ export function renderPagination(cocktailArr) {
 
     refs.mainCocktailsGallery.innerHTML = '';
 
-    if (refs.mainCocktailsText.textContent !== 'Searching results') {
-      refs.mainCocktailsText.textContent = 'Searching results';
-    }
+    // if (refs.mainCocktailsText.textContent !== 'Searching results') {
+    //   refs.mainCocktailsText.textContent = 'Searching results';
+    // }
     switch (btnValue) {
       case 'leftPag':
         {
+          activeBtn.classList.remove('pagination-button-item-active');
           currentPageIndex -= 1;
           if (currentPageIndex < 0) {
             currentPageIndex = 0;
           }
-          activeBtn.classList.remove('pagination-button-item-active');
+          checkCurrentPageIndex();
           cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
           activeBtn = document.querySelector(
             `button[data-action="${currentPageIndex + 1}"]`
@@ -155,6 +154,7 @@ export function renderPagination(cocktailArr) {
         {
           activeBtn.classList.remove('pagination-button-item-active');
           currentPageIndex += 1;
+          checkCurrentPageIndex();
           cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
           activeBtn = document.querySelector(
             `button[data-action="${currentPageIndex + 1}"]`
@@ -167,6 +167,7 @@ export function renderPagination(cocktailArr) {
     if (!isNaN(Number(btnValue))) {
       activeBtn.classList.remove('pagination-button-item-active');
       currentPageIndex = Number(btnValue - 1);
+      checkCurrentPageIndex();
       cocktailMainCardRender(sortedCardsArr[currentPageIndex]);
       activeBtn = document.querySelector(
         `button[data-action="${currentPageIndex + 1}"]`
@@ -176,16 +177,123 @@ export function renderPagination(cocktailArr) {
     arrowCheck();
   }
 
+  //!  ======================================= arrowCheck function =======================================
   function arrowCheck() {
     if (currentPageIndex === 0) {
-      refs.leftPagBtn[0].classList.add('is-hidden');
+      refs.leftPagBtn[0]?.classList.add('is-hidden');
     } else {
-      refs.leftPagBtn[0].classList.remove('is-hidden');
+      refs.leftPagBtn[0]?.classList.remove('is-hidden');
     }
     if (currentPageIndex === totalPagesNum - 1) {
-      refs.rightPagBtn[0].classList.add('is-hidden');
+      refs.rightPagBtn[0]?.classList.add('is-hidden');
     } else {
-      refs.rightPagBtn[0].classList.remove('is-hidden');
+      refs.rightPagBtn[0]?.classList.remove('is-hidden');
+    }
+  }
+
+  //!  ======================================= check page index then append =======================================
+  function checkCurrentPageIndex() {
+    try {
+      switch (isMobile()) {
+        case true:
+          {
+            if (pageBtns.length <= 4) {
+              return;
+            } else {
+              refs.paginationNumberBtnsContainer.innerHTML = '';
+              if (
+                3 <= currentPageIndex &&
+                currentPageIndex <= maxPageIndex - 3
+              ) {
+                console.log('mobile mid');
+                start = pageBtns[0];
+                finish = pageBtns[maxPageIndex];
+                current = pageBtns[currentPageIndex];
+                refs.paginationNumberBtnsContainer.append(
+                  start,
+                  moreBtn,
+                  current,
+                  moreBtn2,
+                  finish
+                );
+                return;
+              }
+              if (currentPageIndex <= 2) {
+                console.log('mobile start');
+                start = pageBtns.slice(0, 3);
+                finish = pageBtns[maxPageIndex];
+                refs.paginationNumberBtnsContainer.append(
+                  ...start,
+                  moreBtn,
+                  finish
+                );
+                return;
+              }
+              if (currentPageIndex >= maxPageIndex - 2) {
+                console.log('mobile end');
+                start = pageBtns[0];
+                finish = pageBtns.slice(pageBtns.length - 3, pageBtns.length);
+                refs.paginationNumberBtnsContainer.append(
+                  start,
+                  moreBtn,
+                  ...finish
+                );
+                return;
+              }
+            }
+          }
+          break;
+
+        case false: {
+          if (pageBtns.length <= 7) {
+            return;
+          } else {
+            refs.paginationNumberBtnsContainer.innerHTML = '';
+            if (4 <= currentPageIndex && currentPageIndex <= maxPageIndex - 4) {
+              console.log('desk mid');
+              start = pageBtns[0];
+              finish = pageBtns[maxPageIndex];
+              current = pageBtns.slice(
+                currentPageIndex - 1,
+                currentPageIndex + 2
+              );
+              refs.paginationNumberBtnsContainer.append(
+                start,
+                moreBtn,
+                ...current,
+                moreBtn2,
+                finish
+              );
+              return;
+            }
+            if (currentPageIndex <= 3) {
+              console.log('desk start');
+              start = pageBtns.slice(0, 5);
+              finish = pageBtns[maxPageIndex];
+              refs.paginationNumberBtnsContainer.append(
+                ...start,
+                moreBtn,
+                finish
+              );
+              return;
+            }
+            if (currentPageIndex >= maxPageIndex - 3) {
+              console.log('desk end');
+              start = pageBtns[0];
+              finish = pageBtns.slice(pageBtns.length - 5, pageBtns.length);
+              refs.paginationNumberBtnsContainer.append(
+                start,
+                moreBtn,
+                ...finish
+              );
+              return;
+            }
+            break;
+          }
+        }
+      }
+    } catch (err) {
+      console.log(err);
     }
   }
 }
